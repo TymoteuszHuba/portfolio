@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+	<!--head to zawartość niewidoczna-->
+	<head>
+		<!--Ustawienie polskich znaków-->
+		<meta charset="utf-8" />
+
+		<!--Ustawienie tytułu strony-->
+		<title>Portfolio</title>
+		<meta name="description" content="Tymoteusz Huba - portfolio" />
+
+		<!--Tagi haseł do umożliwiające łatwe wyszukiwanie w przeglądarce. Pozycjonowanie strony-->
+		<meta
+			name="keywords"
+			content="front-end developer, UI/UX, portfolio, projects, website, www, landing page"
+		/>
+
+		<!--kodowanie otwiwerające naszą strone w starych przegladarkach-->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge.chrome=1" />
+
+		<!--Podłączanie arkusza stylow style.css-->
+		<link rel="stylesheet" href="style.css" type="text/css" />
+		<!--Podłączanie ikon png (facebook, g+, Behance) fontello.css-->
+		<link rel="stylesheet" href="css/fontello.css" type="text/css" />
+
+		<!--przewijanie okna z wykorzystaniem biblioteki Ajax JQuery-->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="jquery.scrollTo.min.js"></script>
+
+		<script>
+			jQuery(function ($) {
+				$.scrollTo(0);
+
+				$('#link1').click(function () {
+					$.scrollTo($('#skills'), 900);
+				});
+				$('#link2').click(function () {
+					$.scrollTo($('#projects'), 900);
+				});
+				$('#link3').click(function () {
+					$.scrollTo($('#about'), 900);
+				});
+				$('#link4').click(function () {
+					$.scrollTo($('#photos'), 900);
+				});
+				$('#link5').click(function () {
+					$.scrollTo($('#contact'), 900);
+				});
+				$('.icon-up-open').click(function () {
+					$.scrollTo($('body'), 1000);
+				});
+			});
+
+			//pokaż podczas przewijania
+			$(window).scroll(function () {
+				if ($(this).scrollTop() > 300) $('.icon-up-open').fadeIn();
+				else $('.icon-up-open').fadeOut();
+			});
+		</script>
+	</head>
+
+	<!--TEST SYNCHRONIZACJI Z GitHub-->
+	<!--body to zawartość widoczna-->
+	<body>
+		<!--icona przewijania menu do góry-->
+		<a href="#" class="icon-up-open"></a>
+
+		<nav>
+			<a href="#" id="link1">
+				<div class="option">Skills</div>
+			</a>
+			<a href="#" id="link2">
+				<div class="option">Projects</div>
+			</a>
+			<a href="#" id="link3">
+				<div class="photome"><img src="photo.jpg" class="photo" /></div>
+			</a>
+			<a href="#" id="link4">
+				<div class="option">Photos</div>
+			</a>
+			<a href="#" id="link5">
+				<div class="option">Contact</div>
+			</a>
+
+			<!--wyzerowanie float:left-->
+			<div style="clear: both"></div>
+			<h2>Tymoteusz Huba</h2>
+		</nav>
+
+		<section id="skills">
+			<h1>My skills.</h1>
+			<br />
+			<div class="skillcontent">
+				<div class="skillsimg"><img src="img/html5.png" class="imghtml" /></div>
+				<div class="progressbar">
+					<div id="progresshtml"></div>
+				</div>
+				<div style="clear: both"></div>
+			</div>
+			<div class="skillcontent">
+				<div class="skillsimg"><img src="img/css3.png" class="imgcss" /></div>
+				<div class="progressbar">
+					<div id="progresscss"></div>
+				</div>
+				<div style="clear: both"></div>
+			</div>
+			<div class="skillcontent">
+				<div class="skillsimg">
+					<img src="img/mysql.png" class="imgmysql" />
+				</div>
+				<div class="progressbar">
+					<div id="progresssql"></div>
+				</div>
+				<div style="clear: both"></div>
+			</div>
+			<div class="skillcontent">
+				<div class="skillsimg">
+					<img src="img/python.png" class="imgmysql" />
+				</div>
+				<div class="progressbar">
+					<div id="progresspython"></div>
+				</div>
+				<div style="clear: both"></div>
+			</div>
+			<div class="skillcontent">
+				<div class="skillsimg"><img src="img/php.png" class="imgmysql" /></div>
+				<div class="progressbar">
+					<div id="progressphp"></div>
+				</div>
+				<div style="clear: both"></div>
+			</div>
+		</section>
+
+		<section id="about">
+			<h1>About me.</h1>
+			<div id="aboutcontent">
+				<p>
+					My name is Tymoteusz Huba and I am an engineer graduate of Silesian
+					University of Technology, AEI faculty with a specialization in
+					databases (IT). My hobby are amateur photography and renovation old
+					furniture, on the other hand, my interests are all kinds of
+					information from the world technology (computers, phones, smart home).
+					I also love travelling, Italian cusine, mountain hiking and all kind
+					of sport like cycling, football, running, swimming, ice skates and
+					skiing. That's me!
+				</p>
+				<div id="buttonset">
+					<button class="btn">Download CV</button>
+				</div>
+			</div>
+		</section>
+
+		<section id="photos">
+			<h1>Photos.</h1>
+			<div class="photogallery">
+				<a href="https://pl.wikipedia.org/wiki/D%C4%85b_Bartek" target="_blank"
+					><img src="img\1.jpg" title="Dąb Bartek - Zagnańsk"
+				/></a>
+			</div>
+			<div class="photogallery" title="RTCN Święty Krzyż">
+				<a
+					href="https://pl.wikipedia.org/wiki/RTCN_%C5%9Awi%C4%99ty_Krzy%C5%BC"
+					target="_blank"
+					><img src="img\11.jpg"
+				/></a>
+			</div>
+			<div class="photogallery" title="Ruiny Huty Józef - Samsonów">
+				<a href="https://pl.wikipedia.org/wiki/Huta_J%C3%B3zef" target="_blank"
+					><img src="img\3.jpg"
+				/></a>
+			</div>
+		</section>
+
+		<section id="projects">
+			<h1>Projects.</h1>
+			<div class="projectcontent">
+				<div class="projectgallery">
+					<img src="img\YourBestPrice.jpg" />
+					<a class="link" href="#" target="_blank" title="YourBestPrice"
+						><span class="icon"><i class="icon-search"></i></span
+					></a>
+				</div>
+				<p>
+					Project of the website including compare of most cost-effective
+					devices in specific price ranges (phones, tv, notebooks, audio)
+				</p>
+			</div>
+			<div class="projectcontent">
+				<div class="projectgallery">
+					<img src="img\MP.jpg" />
+					<a class="link" href="#" target="_blank" title="Blog"
+						><span class="icon"><i class="icon-search"></i></span
+					></a>
+				</div>
+				<p>
+					Project of my own blog showing my passion, interests and DIY effects
+					of home area. You will also find details about furniture renovations
+				</p>
+			</div>
+		</section>
+
+		<section id="contact">
+			<h1>Let's stay in touch.</h1>
+
+			<div class="contactcontent">
+				<p class="underlineanimation">
+					<a href="mailto:tymoteusz.huba@gmail.com" class="underlinenone">
+						<span class="iconcontact"
+							><i class="icon-mail">tymoteusz.huba@gmail.com</i></span
+						>
+					</a>
+				</p>
+				<p class="underlineanimation">
+					<a href="tel:+48888888888" class="underlinenone">
+						<span class="iconcontact"
+							><i class="icon-phone">+48 888 888 888</i></span
+						>
+					</a>
+				</p>
+				<p class="underlineanimation">
+					<a href="#" class="underlinenone">
+						<span class="iconcontact"
+							><i class="icon-laptop">www.tymoteuszhuba.pl</i></span
+						>
+					</a>
+				</p>
+				<a
+					href="https://www.facebook.com/"
+					class="underlinenone"
+					target="_blank"
+					title="Facebook"
+				>
+					<div class="fb">
+						<i class="icon-facebook"></i>
+					</div>
+				</a>
+				<a
+					href="https://pl.linkedin.com/"
+					class="underlinenone"
+					target="_blank"
+					title="Linkedin"
+				>
+					<div class="linkedin">
+						<i class="icon-linkedin"></i>
+					</div>
+				</a>
+				<a
+					href="https://www.behance.net/"
+					class="underlinenone"
+					target="_blank"
+					title="Behance"
+				>
+					<div class="be">
+						<i class="icon-behance"></i>
+					</div>
+				</a>
+				<a
+					href="https://www.instagram.com/"
+					class="underlinenone"
+					target="_blank"
+					title="Instagram"
+				>
+					<div class="insta">
+						<i class="icon-instagram"></i>
+					</div>
+				</a>
+			</div>
+
+			<div class="contactcontent">
+				<input
+					type="text"
+					placeholder="Name"
+					onfocus="this.placeholder=''"
+					onblur="this.placeholder='Name'"
+				/>
+				<input
+					type="text"
+					placeholder="Email"
+					onfocus="this.placeholder=''"
+					onblur="this.placeholder='Email'"
+				/>
+				<textarea
+					class="messagetext"
+					placeholder="Message"
+					onfocus="this.placeholder=''"
+					onblur="this.placeholder='Message'"
+				></textarea>
+
+				<button class="btn">Submit</button>
+			</div>
+		</section>
+
+		<footer>
+			<div class="bottomLine"></div>
+			<br />
+			<span id="copyrights">
+				Copyright © 2022 Tymoteusz Huba. All Rights Reserverd
+			</span>
+		</footer>
+	</body>
+</html>
