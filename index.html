@@ -7,7 +7,11 @@
 
 		<!--Ustawienie tytułu strony-->
 		<title>Portfolio</title>
-		<meta name="description" content="Tymoteusz Huba - portfolio" />
+		<meta name="description" content="Portfolio Frontend dev" />
+		<!--Tag odpowiedzialny za poprawne wyświetlanie się strony www na urządzeniach mobilnych-->
+		<meta name="viewport" content="width=device-width, initial-scale=0.1"/>
+		<!--Tag odpowiedzialny za inforamcje o autorze-->
+		<meta name="author" content="Tymoteusz Huba"/>
 
 		<!--Tagi haseł do umożliwiające łatwe wyszukiwanie w przeglądarce. Pozycjonowanie strony-->
 		<meta
@@ -84,12 +88,12 @@
 
 			<!--wyzerowanie float:left-->
 			<div style="clear: both"></div>
-			<h2>Tymoteusz Huba</h2>
+			<h1>Tymoteusz Huba</h1>
 		</nav>
 
 		<section id="skills">
-			<h1>My skills.</h1>
-			<br />
+			<h2>My skills.</h2>
+			
 			<div class="skillcontent">
 				<div class="skillsimg"><img src="img/html5.png" class="imghtml" /></div>
 				<div class="progressbar">
@@ -132,7 +136,7 @@
 		</section>
 
 		<section id="about">
-			<h1>About me.</h1>
+			<h2>About me.</h2>
 			<div id="aboutcontent">
 				<p>
 					My name is Tymoteusz Huba and I am an engineer graduate of Silesian
@@ -151,30 +155,30 @@
 		</section>
 
 		<section id="photos">
-			<h1>Photos.</h1>
+			<h2>Photos.</h2>
 			<div class="photogallery">
-				<a href="https://pl.wikipedia.org/wiki/D%C4%85b_Bartek" target="_blank">
+				<a href="https://pl.wikipedia.org/wiki/D%C4%85b_Bartek" target="_blank" rel="noopener">
 					<img src="img\1.jpg" title="Dąb Bartek - Zagnańsk"/>
 				</a>
 			</div>
 			<div class="photogallery">
-				<a href="https://pl.wikipedia.org/wiki/RTCN_%C5%9Awi%C4%99ty_Krzy%C5%BC" target="_blank">
+				<a href="https://pl.wikipedia.org/wiki/RTCN_%C5%9Awi%C4%99ty_Krzy%C5%BC" target="_blank" rel="noopener">
 					<img src="img\11.jpg" title="RTCN Święty Krzyż"/>
 				</a>
 			</div>
 			<div class="photogallery">
-				<a href="https://pl.wikipedia.org/wiki/Huta_J%C3%B3zef" target="_blank">
+				<a href="https://pl.wikipedia.org/wiki/Huta_J%C3%B3zef" target="_blank" rel="noopener">
 					<img src="img\3.jpg" title="Ruiny Huty Józef - Samsonów"/>
 				</a>
 			</div>
 		</section>
 
 		<section id="projects">
-			<h1>Projects.</h1>
+			<h2>Projects.</h2>
 			<div class="projectcontent">
 				<div class="projectgallery">
 					<img src="img\YourBestPrice.jpg" />
-					<a class="link" href="#" target="_blank" title="YourBestPrice">
+					<a class="link" href="#" target="_blank" title="YourBestPrice" rel="noopener">
 						<span class="icon"><i class="icon-search"></i></span>
 					</a>
 				</div>
@@ -186,7 +190,7 @@
 			<div class="projectcontent">
 				<div class="projectgallery">
 					<img src="img\MP.jpg" />
-					<a class="link" href="#" target="_blank" title="Blog">
+					<a class="link" href="#" target="_blank" title="Blog" rel="noopener">
 						<span class="icon"><i class="icon-search"></i></span>
 					</a>
 				</div>
@@ -198,7 +202,7 @@
 		</section>
 
 		<section id="contact">
-			<h1>Let's stay in touch.</h1>
+			<h2>Let's stay in touch.</h2>
 
 			<div class="contactcontent">
 				<p class="underlineanimation">
@@ -217,29 +221,29 @@
 						<span class="iconcontact"><i class="icon-laptop">www.tymoteuszhuba.pl</i></span>
 					</a>
 				</p>
-				<a href="https://www.facebook.com/" class="underlinenone" target="_blank" title="Facebook">
+				<a href="https://www.facebook.com/" class="underlinenone" target="_blank" title="Facebook" rel="noopener">
 					<div class="fb">
 						<i class="icon-facebook"></i>
 					</div>
 				</a>
-				<a href="https://pl.linkedin.com/" class="underlinenone" target="_blank" title="Linkedin">
+				<a href="https://pl.linkedin.com/" class="underlinenone" target="_blank" title="Linkedin" rel="noopener">
 					<div class="linkedin">
 						<i class="icon-linkedin"></i>
 					</div>
 				</a>
-				<a href="https://www.behance.net/" class="underlinenone" target="_blank" title="Behance">
+				<a href="https://www.behance.net/" class="underlinenone" target="_blank" title="Behance" rel="noopener">
 					<div class="be">
 						<i class="icon-behance"></i>
 					</div>
 				</a>
-				<a href="https://www.instagram.com/" class="underlinenone" target="_blank" title="Instagram">
+				<a href="https://www.instagram.com/" class="underlinenone" target="_blank" title="Instagram" rel="noopener">
 					<div class="insta">
 						<i class="icon-instagram"></i>
 					</div>
 				</a>
 			</div>
 
-			<div class="contactcontent">
+			<form action="" class="contactcontent">
 				<input type="text" placeholder="Name" onfocus="this.placeholder=''" onblur="this.placeholder='Name'"/>
 
 				<input type="text" placeholder="Email" onfocus="this.placeholder=''" onblur="this.placeholder='Email'"/>
@@ -247,7 +251,7 @@
 				<textarea class="messagetext" placeholder="Message" onfocus="this.placeholder=''" onblur="this.placeholder='Message'"></textarea>
 
 				<button class="btn">Submit</button>
-			</div>
+			</form>
 		</section>
 
 		<footer>
