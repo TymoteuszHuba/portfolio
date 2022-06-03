@@ -79,12 +79,6 @@ h1
 	color: white;
 }
 
-#projects 
-{
-	height: 550px;
-	background-color: #303030;
-	color: white;
-}
 
 h2
 {
@@ -99,26 +93,30 @@ h2
 	margin-bottom: 50px;
 }
 
-.skillsimg 
+.skills-logo 
 {
-	float: left;
+	display: inline-block;
 	width: 100px;
+	font-size: 50px;
 	margin-left: 100px;
 	margin-right: 100px;
-}
-
-.progressbar 
-{
-	float: left;
-	width: 700px;
-	height: 20px;
-	border-radius: 7px;
-	background-color: #202020;
+	padding: 8px;
 	text-align: center;
-	margin-top: 25px;
 }
 
-#progresshtml, #progresscss, #progresssql, #progresspython, #progressphp 
+
+
+.progress-bar 
+{
+	display: inline-block;
+	width: 700px;
+	height: 15px;
+	border-radius: 10px;
+	background-color: #202020;
+	padding: 5px;
+}
+
+#progress-html, #progress-css, #progress-sql, #progress-python, #progress-php 
 {
 	width: 5%;
 	background-color: #0033ff;
@@ -127,35 +125,40 @@ h2
 	transition: width 0.5s linear;
 }
 
-.progressbar:hover > #progresshtml 
+.progress-bar:hover > #progress-html, 
+.skills-logo:hover + .progress-bar > #progress-html
 {
 	width: 35%;
 }
 
-.progressbar:hover > #progresscss 
+
+.progress-bar:hover > #progress-css,
+.skills-logo:hover + .progress-bar > #progress-css 
 {
 	width: 30%;
 }
 
-.progressbar:hover > #progresssql 
+.progress-bar:hover > #progress-sql,
+.skills-logo:hover + .progress-bar > #progress-sql
 {
 	width: 40%;
 }
 
-.progressbar:hover > #progresspython 
+.progress-bar:hover > #progress-python,
+.skills-logo:hover + .progress-bar > #progress-python
 {
 	width: 20%;
 }
 
-.progressbar:hover > #progressphp 
+.progress-bar:hover > #progress-php,
+.skills-logo:hover + .progress-bar > #progress-php
 {
 	width: 10%;
 }
 
-.skillcontent 
+.skills-content 
 {
 	padding: 10px;
-	text-align: center;
 }
 
 #about 
@@ -165,9 +168,8 @@ h2
 	color: white;
 }
 
-#aboutcontent 
+#about-content 
 {
-	color: white;
 	font-size: 15px;
 	padding-left: 80px;
 	padding-right: 80px;
@@ -175,7 +177,7 @@ h2
 	text-align: justify;
 }
 
-#buttonset 
+#btn-set 
 {
 	float: right;
 }
@@ -205,25 +207,25 @@ h2
 	height: 600px;
 	background-color: white;
 	color: #202020;
-}
+	text-align: center;
+} 
 
-.photogallery 
+.photo-gallery 
 {
 	display: inline-block;
-	width: 340px;
 	height: 466px;
 	margin-right: 20px;
-	margin-left: 40px;
+	margin-left: 20px;
 	overflow: hidden;
 	border-radius: 7px;
 }
 
-.photogallery img 
+.photo-gallery img 
 {
 	transition: all 0.5s ease-in-out;
 }
 
-.photogallery:hover img 
+.photo-gallery:hover img 
 {
 	opacity: 0.7;
 	cursor: pointer;
@@ -232,21 +234,27 @@ h2
 	transform: scale(1.15);
 }
 
-.projectcontent 
+#projects 
+{
+	height: 550px;
+	background-color: #303030;
+	color: white;
+	text-align: center;
+}
+
+.project-content 
 {
 	display: inline-block;
 	height: 450px;
-	width: 500px;
+	width: 40%;
 	color: white;
 	text-align: center;
-	margin-left: 50px;
-	margin-right: 50px;
+	margin-right: 60px;
+	margin-left: 60px;
 }
 
 .projectgallery 
 {
-	display: inline-block;
-	width: 500px;
 	height: 278px;
 	position: relative;
 	overflow: hidden;
@@ -274,11 +282,6 @@ h2
 	opacity: 0;
 }
 
-.projectgallery:hover 
-{
-	filter: blur(0);
-	-webkit-filter: blur(0);
-}
 
 .icon 
 {
@@ -295,41 +298,35 @@ h2
 	height: 550px;
 	background-color: #202020;
 	color: white;
+	width: auto;
+	text-align: center;
 }
 
-.contactcontent 
+.contact-content 
 {
 	display: inline-block;
 	position: relative;
 	height: 400px;
-	width: 460px;
-	margin-left: 60px;
-	margin-right: 50px;
+	width: 40%;
 	margin-top: 50px;
-	padding-left: 40px;
 	padding-top: 20px;
+	text-align: left;
+	margin-right: 30px;
+	margin-left: 60px;
 }
 
-.iconcontact 
-{
-	display: block;
-	font-size: 18px;
-	color: white;
-	width: 350px;
-	margin-top: 25px;
-	text-align: justify;
-}
 
-.underlineanimation 
+.underline-animation 
 {
 	display: block;
 	position: relative;
 	color: #0033ff;
 	padding-bottom: 10px;
-	width: 310px;
+	width: 320px;
+	font-size: 18px;
 }
 
-.underlineanimation:after 
+.underline-animation:after 
 {
 	content: '';
 	position: absolute;
@@ -343,10 +340,26 @@ h2
 	transition: transform 0.25s ease-out;
 }
 
-.underlineanimation:hover:after 
+.underline-animation:hover:after 
 {
 	transform: scaleX(1);
 	transform-origin: bottom left;
+}
+
+a
+{
+	text-decoration: none;
+	color: white;
+}
+
+.icon-phone, .icon-laptop, .icon-mail
+{
+	font-size: 25px; 
+}
+.contact-description
+{
+	font-size: 18px;
+	margin-left: 20px;
 }
 
 input[type='text'] 
@@ -401,6 +414,7 @@ input[type='text']:focus
 	background-color: #202020;
 	margin: 10px;
 	margin-top: 130px;
+	text-align: center;
 }
 .fb:hover 
 {
@@ -426,10 +440,12 @@ input[type='text']:focus
 	background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%,#bc1888 100%);
 }
 
-.underlinenone 
+.icon-behance, .icon-facebook, .icon-linkedin, .icon-instagram
 {
-	text-decoration: none;
+	font-size: 20px; 
+	line-height: 40px;
 }
+
 
 .icon-up-open 
 {
@@ -448,14 +464,6 @@ input[type='text']:focus
 	display: none;
 }
 
-.bottomLine 
-{
-	width: 90%;
-	color: gray;
-	border-bottom: 1px solid;
-	padding-top: 20px;
-	margin-left: 50px;
-}
 
 footer 
 {
@@ -468,22 +476,25 @@ footer
 
 #copyrights 
 {
+	border-top: solid 1px gray;
 	margin-left: 50px;
+	margin-right: 80px;
+	line-height: 80px;
 }
 
-.imghtml 
+.img-html 
 {
 	height: 70px;
 	width: 52px;
 }
 
-.imgmysql 
+.img-mysql 
 {
 	height: 70px;
 	width: 70px;
 }
 
-.imgcss 
+.img-css 
 {
 	height: 70px;
 	width: 59px;
