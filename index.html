@@ -9,7 +9,7 @@
 		<title>Portfolio</title>
 		<meta name="description" content="Portfolio Frontend dev" />
 		<!--Tag odpowiedzialny za poprawne wyświetlanie się strony www na urządzeniach mobilnych-->
-		<meta name="viewport" content="width=device-width, initial-scale=0.1"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<!--Tag odpowiedzialny za inforamcje o autorze-->
 		<meta name="author" content="Tymoteusz Huba"/>
 
@@ -71,109 +71,110 @@
 	<body>
 		<!--icona przewijania menu do góry-->
 		<a href="#" class="icon-up-open"></a>
-
-		<nav>
-			<a href="#" id="link1">
-				<div class="option">Skills</div>
-			</a>
-			<a href="#" id="link2">
-				<div class="option">Projects</div>
-			</a>
-			<a href="#" id="link3">
-				<img src="img/photo.jpg" class="photo" />
-			</a>
-			<a href="#" id="link4">
-				<div class="option">Photos</div>
-			</a>
-			<a href="#" id="link5">
-				<div class="option">Contact</div>
-			</a>
-
-			<h1>Tymoteusz Huba</h1>
+		
+		<nav class="nav">
+			<div class="wrapper">
+				<button class="burger-icon"><i class="fa-solid fa-bars-staggered"></i></button>
+				<a href="#" id="link3">
+					<img src="img/photo.jpg" class="nav-photo" />
+				</a>
+				<div class="nav-items">
+					<a href="#" id="link1" class="nav-option">Skills</a>
+					<a href="#" id="link2" class="nav-option">Projects</a>
+					<a href="#" id="link4" class="nav-option">Photos</a>
+					<a href="#" id="link5" class="nav-option">Contact</a>
+				</div>
+				<h1>Tymoteusz Huba</h1>
+			</div>
 		</nav>
 
 		<section id="skills" class="skills bright-section-styling">
-			<h2>My skills.</h2>
-			
-			<div class="skills-content">
-				<div class="skills-logo"><i class="fa-brands fa-html5"></i></div>
-				<div class="progress-bar">
-					<div class="progress html"></div>
+			<div class="wrapper">
+				<h2 class="section-title">My skills.</h2>
+				<div class="skills-content">
+					<div class="skills-logo"><i class="fa-brands fa-html5"></i></div>
+					<div class="progress-bar">
+						<div class="progress html"></div>
+					</div>
 				</div>
-			</div>
-			<div class="skills-content">
-				<div class="skills-logo"><i class="fa-brands fa-css3"></i></div>
-				<div class="progress-bar">
-					<div class="progress css"></div>
+				<div class="skills-content">
+					<div class="skills-logo"><i class="fa-brands fa-css3"></i></div>
+					<div class="progress-bar">
+						<div class="progress css"></div>
+					</div>
 				</div>
-			</div>
-			<div class="skills-content">
-				<div class="skills-logo">
-					<i class="fa-solid fa-database"></i>
+				<div class="skills-content">
+					<div class="skills-logo">
+						<i class="fa-solid fa-database"></i>
+					</div>
+					<div class="progress-bar">
+						<div class="progress sql"></div>
+					</div>
 				</div>
-				<div class="progress-bar">
-					<div class="progress sql"></div>
+				<div class="skills-content">
+					<div class="skills-logo">
+						<i class="fa-brands fa-python"></i>
+					</div>
+					<div class="progress-bar">
+						<div class="progress python"></div>
+					</div>
 				</div>
-			</div>
-			<div class="skills-content">
-				<div class="skills-logo">
-					<i class="fa-brands fa-python"></i>
-				</div>
-				<div class="progress-bar">
-					<div class="progress python"></div>
-				</div>
-				
-			</div>
-			<div class="skills-content">
-				<div class="skills-logo"><i class="fa-brands fa-php"></i></div>
-				<div class="progress-bar">
-					<div class="progress php"></div>
-				</div>
-				
+				<div class="skills-content">
+					<div class="skills-logo">
+						<i class="fa-brands fa-php"></i>
+					</div>
+					<div class="progress-bar">
+						<div class="progress php"></div>
+					</div>	
+				</div>	
 			</div>
 		</section>
 
 		<section id="about" class="about dark-section-styling">
-			<h2>About me.</h2>
-			<div id="about-content">
-				<p>
-					My name is Tymoteusz Huba and I am an engineer graduate of Silesian
-					University of Technology, AEI faculty with a specialization in
-					databases (IT). My hobby are amateur photography and renovation old
-					furniture, on the other hand, my interests are all kinds of
-					information from the world technology (computers, phones, smart home).
-					I also love travelling, Italian cusine, mountain hiking and all kind
-					of sport like cycling, football, running, swimming, ice skates and
-					skiing. That's me!
-				</p>
-			
+			<div class="wrapper">
+				<h2 class="section-title">About me.</h2>
+				<div class="about-content">
+					<p>
+						My name is Tymoteusz Huba and I am an engineer graduate of Silesian
+						University of Technology, AEI faculty with a specialization in
+						databases (IT). My hobby are amateur photography and renovation old
+						furniture, on the other hand, my interests are all kinds of
+						information from the world technology (computers, phones, smart home).
+						I also love travelling, Italian cusine, mountain hiking and all kind
+						of sport like cycling, football, running, swimming, ice skates and
+						skiing. That's me!
+					</p>
+					<button class="btn download-button-set">Download CV</button>
+				</div>
 			</div>
-			<button class="btn download-button-set">Download CV</button>
 		</section>
 
 		<section id="photos" class="photos">
-			<h2>Photos.</h2>
-			<div class="photo-gallery">
-				<a href="https://pl.wikipedia.org/wiki/D%C4%85b_Bartek" target="_blank" rel="noopener">
-					<img src="img\photos\1.jpg" title="Dąb Bartek - Zagnańsk" alt="Dąb Bartek wśród innych drzew"/>
-				</a>
-			</div>
-			<div class="photo-gallery">
-				<a href="https://pl.wikipedia.org/wiki/RTCN_%C5%9Awi%C4%99ty_Krzy%C5%BC" target="_blank" rel="noopener">
-					<img src="img\photos\11.jpg" title="RTCN Święty Krzyż" alt="Radiowo-Telewizyjne Centrum Nadawcze na górze Święty Krzyż"/>
-				</a>
-			</div>
-			<div class="photo-gallery">
-				<a href="https://pl.wikipedia.org/wiki/Huta_J%C3%B3zef" target="_blank" rel="noopener">
-					<img src="img\photos\3.jpg" title="Ruiny Huty Józef - Samsonów" alt="Ruiny Huty Józef w miejscowości Samsonów"/>
-				</a>
+			<div class="wrapper">
+				<h2 class="section-title">Photos.</h2>
+			
+				<div class="gallery-photo">
+					<a href="https://pl.wikipedia.org/wiki/D%C4%85b_Bartek" target="_blank" rel="noopener">
+						<div class="photo first-photo" title="Dąb Bartek - Zagnańsk" alt="Dąb Bartek wśród innych drzew"></div>
+					</a>
+				</div>
+				<div class="gallery-photo">
+					<a href="https://pl.wikipedia.org/wiki/D%C4%85b_Bartek" target="_blank" rel="noopener">
+						<div class="photo second-photo" title="RTCN Święty Krzyż" alt="Radiowo-Telewizyjne Centrum Nadawcze na górze Święty Krzyż"></div>
+					</a>
+				</div>
+				<div class="gallery-photo">
+					<a href="https://pl.wikipedia.org/wiki/D%C4%85b_Bartek" target="_blank" rel="noopener">
+						<div class="photo third-photo" title="Ruiny Huty Józef - Samsonów" alt="Ruiny Huty Józef w miejscowości Samsonów"></div>
+					</a>
+				</div>
 			</div>
 		</section>
 
 		<section id="projects" class="projects bright-section-styling">
-			<h2>Projects.</h2>
+			<h2 class="section-title">Projects.</h2>
 			<div class="project-content">
-				<div class="projectgallery">
+				<div class="project-gallery">
 					<img src="img\projects\YourBestPrice.jpg" alt="Projekt strony porównującej stosunek cen do wydajności telefonów, telewizorów, oraz systemów audio"/>
 					<a class="link" href="#" target="_blank" title="YourBestPrice" rel="noopener">
 						<i class="icon-search"></i>
@@ -185,7 +186,7 @@
 				</p>
 			</div>
 			<div class="project-content">
-				<div class="projectgallery">
+				<div class="project-gallery">
 					<img src="img\projects\MP.jpg" alt="Projekt strony obejmującej blog"/>
 					<a class="link" href="#" target="_blank" title="Blog" rel="noopener">
 						<i class="icon-search"></i>
@@ -199,62 +200,61 @@
 		</section>
 
 		<section id="contact" class="contact dark-section-styling">
+			<div class="wrapper">
+				<h2 class="section-title">Stay in touch.</h2>
 
-			<h2>Let's stay in touch.</h2>
-
-			<div class="contact-content">
-				<p class="underline-animation">
-					<a href="mailto:tymoteusz.huba@gmail.com">
-						<i class="icon-mail"><span class="contact-description">tymoteusz.huba@gmail.com</span></i>
-					</a>
-				</p>
-				<p class="underline-animation">
-					<a href="tel:+48888888888" >
-						<i class="icon-phone"><span class="contact-description">+48 888 888 888</span></i>
-					</a>
-				</p>
-				<p class="underline-animation">
-					<a href="#" rel="noopener">
-						<i class="icon-laptop"><span class="contact-description">www.tymoteuszhuba.pl</span></i>
-					</a>
-				</p>
-				<a href="https://www.facebook.com/" target="_blank" title="Facebook" rel="noopener">
-					<div class="website fb">
-						<i class="icon-facebook"></i>
-					</div>
-				</a>
-				<a href="https://pl.linkedin.com/" target="_blank" title="Linkedin" rel="noopener">
-					<div class="website linkedin">
-						<i class="icon-linkedin"></i>
-					</div>
-				</a>
-				<a href="https://www.behance.net/" target="_blank" title="Behance" rel="noopener">
-					<div class="website be">
-						<i class="icon-behance"></i>
-					</div>
-				</a>
-				<a href="https://www.instagram.com/" target="_blank" title="Instagram" rel="noopener">
-					<div class="website insta">
-						<i class="icon-instagram"></i>
-					</div>
-				</a>
-			</div>
-
-			<form action="" class="contact-content">
-				<input type="text" placeholder="Name" onfocus="this.placeholder=''" onblur="this.placeholder='Name'"/>
-
-				<input type="text" placeholder="Email" onfocus="this.placeholder=''" onblur="this.placeholder='Email'"/>
+				<div class="contact-content">
+					<p class="underline-animation">
+						<a href="mailto:tymoteusz.huba@gmail.com">
+							<i class="icon-mail"></i><span class="contact-description">tymoteusz.huba@gmail.com</span>
+						</a>
+					</p>
+					<p class="underline-animation">
+						<a href="tel:+48888888888" >
+							<i class="icon-phone"></i><span class="contact-description">+48 888 888 888</span>
+						</a>
+					</p>
+					<p class="underline-animation">
+						<a href="#" rel="noopener">
+							<i class="icon-laptop"></i><span class="contact-description">www.tymoteuszhuba.pl</span>
+						</a>
+					</p>
+					<span class="contact-icon facebook">
+						<a href="https://www.facebook.com/" target="_blank" title="Facebook" rel="noopener">
+								<i class="fa-brands fa-facebook-f"></i>
+						</a>
+					</span>
+					<span class="contact-icon linkedin">
+						<a href="https://pl.linkedin.com/" target="_blank" title="Linkedin" rel="noopener">
+								<i class="fa-brands fa-linkedin-in"></i>
+						</a>
+					</span>
+					<span class="contact-icon behance">
+						<a href="https://www.behance.net/" target="_blank" title="Behance" rel="noopener">
+								<i class="fa-brands fa-behance"></i>
+						</a>
+					</span>
+					<span class="contact-icon instagram">
+						<a href="https://www.instagram.com/" target="_blank" title="Instagram" rel="noopener">
+								<i class="fa-brands fa-instagram"></i>
+						</a>
+					</span>
+				</div>
 				
-				<textarea class="messagetext" placeholder="Message" onfocus="this.placeholder=''" onblur="this.placeholder='Message'"></textarea>
+				<form action="" class="contact-content">
+					<input class="input-text" type="text" placeholder="Name" onfocus="this.placeholder=''" onblur="this.placeholder='Name'"/>
 
-				<button class="btn">Submit</button>
-			</form>
+					<input class="input-text" type="text" placeholder="Email" onfocus="this.placeholder=''" onblur="this.placeholder='Email'"/>
+					
+					<textarea class="message-text" placeholder="Message" onfocus="this.placeholder=''" onblur="this.placeholder='Message'"></textarea>
+
+					<button class="btn">Submit</button>
+				</form>
+			</div>
 		</section>
 
-		<footer>
-			<div id="copyrights">
-				Copyright © 2022 Tymoteusz Huba. All Rights Reserverd
-			</div>
+		<footer id="copyrights">
+				<p>Copyright © 2022 Tymoteusz Huba. All Rights Reserverd</p>
 		</footer>
 	</body>
 </html>
