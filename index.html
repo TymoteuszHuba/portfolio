@@ -34,7 +34,8 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<script src="jquery.scrollTo.min.js"></script>
 
-		<script>
+		<!-- Przewijanie strony zostało przebudowane z wykorzystaniem rozwiązań HTML5 - kotwica #id_sekcji oraz odpowiednich animacji w CSS
+			<script>
 			jQuery(function ($) {
 				$.scrollTo(0);
 
@@ -63,10 +64,19 @@
 				if ($(this).scrollTop() > 300) $('.icon-up-open').fadeIn();
 				else $('.icon-up-open').fadeOut();
 			});
+		</script> -->
+		
+		<script>
+			//pokaż podczas przewijania
+			$(window).scroll(function () 
+			{
+				if ($(this).scrollTop() > 300) $('.icon-up-open').fadeIn();
+				else $('.icon-up-open').fadeOut();
+			});
 		</script>
+		
 	</head>
 
-	<!--TEST SYNCHRONIZACJI Z GitHub-->
 	<!--body to zawartość widoczna-->
 	<body>
 		<!--icona przewijania menu do góry-->
@@ -75,14 +85,14 @@
 		<nav class="nav">
 			<div class="wrapper">
 				<button class="burger-icon"><i class="fa-solid fa-bars-staggered"></i></button>
-				<a href="#" id="link3">
-					<img src="img/photo.jpg" class="nav-photo" />
+				<a href="#about">
+					<div class="nav-photo"> </div>
 				</a>
 				<div class="nav-items">
-					<a href="#" id="link1" class="nav-option">Skills</a>
-					<a href="#" id="link2" class="nav-option">Projects</a>
-					<a href="#" id="link4" class="nav-option">Photos</a>
-					<a href="#" id="link5" class="nav-option">Contact</a>
+					<a href="#skills" class="nav-option">Skills</a>
+					<a href="#projects" class="nav-option">Projects</a>
+					<a href="#photos" class="nav-option">Photos</a>
+					<a href="#contact" class="nav-option">Contact</a>
 				</div>
 				<h1>Tymoteusz Huba</h1>
 			</div>
@@ -93,39 +103,29 @@
 				<h2 class="section-title">My skills.</h2>
 				<div class="skills-content">
 					<div class="skills-logo"><i class="fa-brands fa-html5"></i></div>
-					<div class="progress-bar">
-						<div class="progress html"></div>
-					</div>
+					<div class="progress-bar html"></div>
 				</div>
 				<div class="skills-content">
 					<div class="skills-logo"><i class="fa-brands fa-css3"></i></div>
-					<div class="progress-bar">
-						<div class="progress css"></div>
-					</div>
+					<div class="progress-bar css"></div>
 				</div>
 				<div class="skills-content">
 					<div class="skills-logo">
 						<i class="fa-solid fa-database"></i>
 					</div>
-					<div class="progress-bar">
-						<div class="progress sql"></div>
-					</div>
+					<div class="progress-bar sql"></div>
 				</div>
 				<div class="skills-content">
 					<div class="skills-logo">
 						<i class="fa-brands fa-python"></i>
 					</div>
-					<div class="progress-bar">
-						<div class="progress python"></div>
-					</div>
+					<div class="progress-bar python"></div>
 				</div>
 				<div class="skills-content">
 					<div class="skills-logo">
 						<i class="fa-brands fa-php"></i>
 					</div>
-					<div class="progress-bar">
-						<div class="progress php"></div>
-					</div>	
+					<div class="progress-bar php"></div>	
 				</div>	
 			</div>
 		</section>
