@@ -16,6 +16,12 @@ body
 	color: white;
 }
 
+a
+{
+    text-decoration: none;
+    color: white;
+}
+
 .wrapper
 {
     margin: 0 auto;
@@ -38,24 +44,22 @@ body
     cursor: pointer;
 }
 
-.burger-icon
+h1
 {
-	display: block;
+	padding-bottom: 50px;
 }
 
 .nav
 {
-	height: 400px;
 	font-size: 15px;
 	text-align: center;
 	background-color: #202020;
 }
 
-
 .nav-photo 
 {	
 	position: relative;
-	display: inline-block;
+	display: inline-flex;
 	width: 242px;
 	height: 242px;
 	margin-bottom: 30px;
@@ -71,7 +75,7 @@ body
 	cursor: pointer;
 }
 
-.nav-items
+.nav-option
 {
 	display: none;
 }
@@ -108,10 +112,15 @@ section
 
 /* sekcja umiejętności */
 
+.skills-content
+{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
 .skills-logo 
 {
-	display: block;
-	margin: 0 auto;
 	padding: 15px 0;
 	font-size: 28px;
 }
@@ -119,7 +128,6 @@ section
 .progress-bar 
 {
 	position: relative;
-	display: block;
 	width: 260px;
 	height: 13px;
 	margin: 0 auto;
@@ -213,10 +221,9 @@ section
 */
 
 /* sekcja o mnie */
-
-
 .about-content
 {
+	margin-bottom: 20px;
 	padding: 0px 20px;
 	font-size: 14px;
 	line-height: 2;
@@ -231,7 +238,7 @@ section
 
 .btn 
 {
-	width: 220px;
+	width: 200px;
 	margin-top: 30px;
 	padding: 5px;
 	font-size: 18px;
@@ -251,7 +258,6 @@ section
 /* sekcja zdjęcia */
 .photos 
 {
-
 	color: #202020;
 } 
 
@@ -301,185 +307,203 @@ section
 /* sekcja projekty */
 .project-content 
 {
-	display: inline-block;
-	width: 40%;
-	height: 450px;
-	margin: 30px 60px 0px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin-bottom: 30px;
 }
 
-.project-gallery 
+.project-item
 {
 	position: relative;
 	height: 278px;
-	overflow: hidden;
-	margin-bottom: 40px;
+	margin: 30px;
+	width: 50%;
+	text-align: center;
+	background-position: center;
+	background-size: cover;
 	border-radius: 15px;
-	opacity: 0.8;
+	overflow: hidden;
 }
 
-.project-gallery .link 
+.project-first
 {
-	position: absolute;
-	left: 0px;
-	top: 0px;
-	width: 100%;
-	height: 100%;
-	background-color: #6b88ff;
-	opacity: 0.6;
-	transition: opacity 0.5s ease-in-out;
-	text-decoration: none;
+	background-image: url('../img/projects/WindPanels.jpg');
 }
 
-.project-gallery:hover .link 
+.project-second
+{
+	background-image: url('../img/projects/RWD.jpg');
+}
+
+.project-item:hover .link 
 {
 	opacity: 0;
 }
 
-.icon-search
+.project-text
 {
-	position: relative;
-	top: 37%;
-	font-size: 72px;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	padding: 80px 30px;
+	background-color: rgba(0,0,0,.9);
+	clip-path: circle(0% at 50% 100%);
+    transition: clip-path 0.8s;
+}
+
+.project-item:hover .project-text
+{
+	clip-path: circle(100% at 50% 90%);
 }
 
 /* sekcja contact */
+.display-parameters
+{
+	display: flex;
+}
+
 .contact-content
 {
-	display: block;
-	height: auto;
-	width: auto;
-	margin: 0 auto;
-	padding-top: 20px;
+	flex-direction: column;
+}
+
+.contact-l-side
+{
+	flex-direction: column;
+}
+
+.contact-links
+{
+	flex-direction: column;
 }
 
 .underline-animation 
 {
-	position: relative;
-	width: 220px;
-	margin: 20px auto;
-	padding-bottom: 5px;
+    position: relative;
+    width: 220px;
+    margin: 20px auto;
+    padding-bottom: 5px;
 }
 
-.underline-animation::after 
+.underline-animation:after 
 {
-	content: '';
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	width: 100%;
-	height: 2px;
-	background-color: #0033ff;
-	transform: scaleX(0);
-	transform-origin: bottom right;
-	transition: transform 0.5s ease-out;
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #0033ff;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.5s ease-out;
 }
 
-.underline-animation:hover::after 
+.underline-animation:hover:after 
 {
-	transform: scaleX(1);
-	transform-origin: bottom left;
-}
-
-a
-{
-	text-decoration: none;
-	color: white;
-}
-
-.icon-phone, .icon-laptop, .icon-mail
-{
-	display: block;
-	font-size: 18px; 
+    transform: scaleX(1);
+    transform-origin: bottom left;
 }
 
 .contact-description
 {
-	font-size: 15px;
-	font-style: italic;
+	display: block;
+    font-size: 15px;
+    font-style: italic;
+}
+
+.contact-icons
+{
+	flex-direction: row;
+	justify-content: space-evenly;
+	font-size: 18px;
+	margin-bottom: 20px;
 }
 
 .contact-icon
 {
-	display: inline-block;
 	width: 40px;
-	height: 40px;
-	margin: 0 auto;
-	font-size: 18px; 
-	text-align: center;
-	line-height: 40px;
-	border-radius: 100%;
-	transition: background-color 500ms, background 500ms;
+    line-height: 40px;
+    border-radius: 100%;
+    transition: background-color 500ms, background 500ms;
 }
 
-/* do optymalizacji (zmienić background-color na opacity) */
 .facebook:hover 
 {
-	background-color: #3b5998;
-	cursor: pointer;
+    background-color: #3b5998;
+    cursor: pointer;
 }
 
 .linkedin:hover 
 {
-	background-color: #0e76a8;
-	cursor: pointer;
+    background-color: #0e76a8;
+    cursor: pointer;
 }
 
 .behance:hover 
 {
-	background-color: #053eff;
-	cursor: pointer;
+    background-color: #053eff;
+    cursor: pointer;
 }
 
 .instagram:hover 
 {
-	background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%,#bc1888 100%);
-	cursor: pointer;
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%,#bc1888 100%);
+    cursor: pointer;
+}
+
+.contact-r-side
+{
+	flex-direction: column;
+	align-items: center;
 }
 
 .input-text 
 {
-	width: 90%;
-	margin-top: 15px;
-	padding: 10px;
-	font-size: 15px;
-	color: white;
-	background-color: #202020;
-	border: 1px solid gray;
-	border-radius: 8px;
-	/*outline - obramowanie pól*/
-	outline: none;
+    width: 90%;
+    margin-top: 15px;
+    padding: 10px;
+    font-size: 15px;
+    color: white;
+    background-color: #202020;
+    border: 1px solid gray;
+    border-radius: 8px;
+    /*outline - obramowanie pól*/
+    outline: none;
 }
 
 .message-text 
 {
-	width: 90%;
-	height: 150px;
-	margin-top: 15px;
-	padding: 10px;
-	font-size: 15px;
-	color: white;
-	background-color: #202020;
-	border: 1px solid gray;
-	border-radius: 8px;
-	outline: none;
-	resize: none;
+    width: 90%;
+    height: 150px;
+    margin-top: 15px;
+    padding: 10px;
+    font-size: 15px;
+    color: white;
+    background-color: #202020;
+    border: 1px solid gray;
+    border-radius: 8px;
+    outline: none;
+    resize: none;
 }
 
 .message-text:focus 
 {
-	border: 1px solid #0033ff;
+    border: 1px solid #0033ff;
 }
 
 .input-text:focus 
 {
-	border: 1px solid #0033ff;
+    border: 1px solid #0033ff;
 }
+
 
 /* sekcja stopka */
 footer 
 {
-	width: auto;
-	height: auto;
 	font-size: 9px;
 	color: gray;
 	background-color: #202020;
@@ -487,9 +511,11 @@ footer
 
 footer p
 {
-	margin: 0px 80px 0px 50px;
-	line-height: 50px;
+	width: 90%;
+	margin: 0 auto;
+	padding: 18px;
 	border-top: solid 1px gray;
+	
 }
 
 /* ikona przewijania strony */
@@ -520,26 +546,37 @@ footer p
 
 @media (min-width: 576px) 
 {
+	section
+	{
+		padding-top: 30px;
+	}
 
 	.section-title
 	{
 		font-size: 28px;
 	}
 
+	.skills-content
+	{
+		display: flex;
+		flex-direction: row;
+		justify-content: space-evenly;
+		align-items: center;
+		margin: 20px;
+	}
+
 	.skills-logo 
 	{
-		display: inline-block;
 		width: 50px;
-		margin-right: 20px;
+		padding: 0;
 		font-size: 30px;
 	}
 
 	.progress-bar 
 	{
-		display: inline-block;
 		width: 350px;
 		height: 15px;
-		margin-bottom: 10px;
+		margin: 10px;
 	}
 
 	.about-content
@@ -550,7 +587,7 @@ footer p
 	.btn 
 	{
 		width: 280px;
-		margin-top: 50px;
+		margin-top: 20px;
 		font-size: 20px;
 	}
 
@@ -560,14 +597,14 @@ footer p
 	}
 
 	.message-text
-	{
-		width: 70%;
-	}
+    {
+        width: 70%;
+    }
 
-	.input-text
-	{
-		width: 70%;
-	}
+    .input-text
+    {
+        width: 70%;
+    }
 
 	footer
 	{
@@ -598,14 +635,16 @@ footer p
 
 	.nav-items
     {
-        display: block;
+        display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
     }
 
 	.nav-option
 	{
-		margin: 0;
-		padding: 10px 50px;
-		vertical-align: middle;
+		display: flex;
+		padding: 10px;
 		transition: border-bottom 500ms ease-in-out, opacity 500ms ease-in-out;
 	}
 
@@ -641,58 +680,60 @@ footer p
 		margin-right: 0;
 	}
 
+	.project-content 
+	{
+		flex-direction: row;
+	}
 
 	.contact-content
 	{
-		display: inline-block;
-		width: 40%;
-		height: auto;
-		margin: 30px;
+		flex-direction: row;
+		justify-content: space-around;
+	}
+
+	.contact-r-side
+	{
+		width: 100%;
+	}
+
+	.contact-l-side
+	{
+		width: 100%;
+	}
+
+	.contact-links
+	{
 		text-align: left;
 	}
 
+    .contact-description
+    {
+		display: inline-block;
+        margin-left: 15px;
+        font-size: 16px;
+    }
+
+    .icon-phone, .icon-laptop, .icon-mail
+    {
+        font-size: 25px; 
+    }
+
+    .contact-icons
+    {
+		justify-content: space-evenly;
+        margin: 60px 10px 0px 0px;
+    }
+
 	.underline-animation
 	{
-		width: 300px;
-		margin-left: 0;
+		width: 280px;
 	}
 
-	.contact-description
-	{
-		margin-left: 15px;
-		font-size: 16px;
-	}
-
-	.icon-phone, .icon-laptop, .icon-mail
-	{
-		display: inline-block;
-		font-size: 25px; 
-	}
-
-	.contact-icon
-	{
-		margin: 100px 10px 0px 0px;
-	}
-
-	.message-text
-	{
-		width: 100%;
-	}
-
-	.input-text
-	{
-		width: 100%;
-	}
-	
 }
 
 @media (min-width: 1124px)
 {
-	.nav-option
-	{
-		margin: 0 50px;
-	}
-	
+
 	section 
 	{
 		padding: 60px;
@@ -713,32 +754,9 @@ footer p
 
 	.progress-bar 
 	{
-		display: inline-block;
 		width: 700px;
 		height: 18px;
 		margin-bottom: 10px;
-	}
-
-	.icon-phone, .icon-laptop, .icon-mail
-	{
-		font-size: 30px; 
-	}
-
-	.contact-description
-	{
-		margin-left: 30px;
-		font-size: 18px;
-	}
-
-	.underline-animation
-	{
-		width: 330px;
-	}
-
-	.contact-icon
-	{
-		margin: 100px 30px 0px 0px;
-		font-size: 20px;
 	}
 	
 }

@@ -34,37 +34,6 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<script src="jquery.scrollTo.min.js"></script>
 
-		<!-- Przewijanie strony zostało przebudowane z wykorzystaniem rozwiązań HTML5 - kotwica #id_sekcji oraz odpowiednich animacji w CSS
-			<script>
-			jQuery(function ($) {
-				$.scrollTo(0);
-
-				$('#link1').click(function () {
-					$.scrollTo($('#skills'), 900);
-				});
-				$('#link2').click(function () {
-					$.scrollTo($('#projects'), 900);
-				});
-				$('#link3').click(function () {
-					$.scrollTo($('#about'), 900);
-				});
-				$('#link4').click(function () {
-					$.scrollTo($('#photos'), 900);
-				});
-				$('#link5').click(function () {
-					$.scrollTo($('#contact'), 900);
-				});
-				$('.icon-up-open').click(function () {
-					$.scrollTo($('body'), 1000);
-				});
-			});
-
-			//pokaż podczas przewijania
-			$(window).scroll(function () {
-				if ($(this).scrollTop() > 300) $('.icon-up-open').fadeIn();
-				else $('.icon-up-open').fadeOut();
-			});
-		</script> -->
 		
 		<script>
 			//pokaż podczas przewijania
@@ -74,6 +43,7 @@
 				else $('.icon-up-open').fadeOut();
 			});
 		</script>
+		
 		
 	</head>
 
@@ -85,12 +55,10 @@
 		<nav class="nav">
 			<div class="wrapper">
 				<button class="burger-icon"><i class="fa-solid fa-bars-staggered"></i></button>
-				<a href="#about">
-					<div class="nav-photo"> </div>
-				</a>
 				<div class="nav-items">
 					<a href="#skills" class="nav-option">Skills</a>
 					<a href="#projects" class="nav-option">Projects</a>
+					<a href="#about"><div class="nav-photo"></div></a>
 					<a href="#photos" class="nav-option">Photos</a>
 					<a href="#contact" class="nav-option">Contact</a>
 				</div>
@@ -152,19 +120,15 @@
 		<section id="photos" class="photos">
 			<div class="wrapper">
 				<h2 class="section-title">Photos.</h2>
-			
-				<div class="gallery-photo">
-					<a href="https://pl.wikipedia.org/wiki/D%C4%85b_Bartek" target="_blank" rel="noopener">
+				
+				<div class="gallery-content">
+					<a href="https://pl.wikipedia.org/wiki/D%C4%85b_Bartek" class="gallery-photo" target="_blank" rel="noopener">
 						<div class="photo first-photo" title="Dąb Bartek - Zagnańsk" alt="Dąb Bartek wśród innych drzew"></div>
 					</a>
-				</div>
-				<div class="gallery-photo">
-					<a href="https://pl.wikipedia.org/wiki/D%C4%85b_Bartek" target="_blank" rel="noopener">
+					<a href="https://pl.wikipedia.org/wiki/D%C4%85b_Bartek" class="gallery-photo" target="_blank" rel="noopener">
 						<div class="photo second-photo" title="RTCN Święty Krzyż" alt="Radiowo-Telewizyjne Centrum Nadawcze na górze Święty Krzyż"></div>
 					</a>
-				</div>
-				<div class="gallery-photo">
-					<a href="https://pl.wikipedia.org/wiki/D%C4%85b_Bartek" target="_blank" rel="noopener">
+					<a href="https://pl.wikipedia.org/wiki/D%C4%85b_Bartek" class="gallery-photo" target="_blank" rel="noopener">
 						<div class="photo third-photo" title="Ruiny Huty Józef - Samsonów" alt="Ruiny Huty Józef w miejscowości Samsonów"></div>
 					</a>
 				</div>
@@ -172,89 +136,77 @@
 		</section>
 
 		<section id="projects" class="projects bright-section-styling">
-			<h2 class="section-title">Projects.</h2>
-			<div class="project-content">
-				<div class="project-gallery">
-					<img src="img\projects\YourBestPrice.jpg" alt="Projekt strony porównującej stosunek cen do wydajności telefonów, telewizorów, oraz systemów audio"/>
-					<a class="link" href="#" target="_blank" title="YourBestPrice" rel="noopener">
-						<i class="icon-search"></i>
+			<div class="wrapper">
+				<h2 class="section-title">Projects.</h2>
+				<div class="project-content">
+					<a class="project-item project-first" href="#" target="_blank" title="Wind Panels" rel="noopener">
+						<p class="project-text">
+							Project presenting sample one-side-page website building on SASS and Bootstrap including solutions of javascript (jquery, slick.js, AOS)
+						</p>
+					<a/>
+					<a class="project-item project-second" href="#" target="_blank" title="creative Design" rel="noopener">
+						<div class="project-text">
+							<p>
+								Simple one-side-page website including RWD solution, correct with actual trends without any additional options.
+							</p>
+						</div>
 					</a>
 				</div>
-				<p>
-					Project of the website including compare of most cost-effective
-					devices in specific price ranges (phones, tv, notebooks, audio)
-				</p>
-			</div>
-			<div class="project-content">
-				<div class="project-gallery">
-					<img src="img\projects\MP.jpg" alt="Projekt strony obejmującej blog"/>
-					<a class="link" href="#" target="_blank" title="Blog" rel="noopener">
-						<i class="icon-search"></i>
-					</a>
-				</div>
-				<p>
-					Project of my own blog showing my passion, interests and DIY effects
-					of home area. You will also find details about furniture renovations
-				</p>
 			</div>
 		</section>
 
 		<section id="contact" class="contact dark-section-styling">
-			<div class="wrapper">
-				<h2 class="section-title">Stay in touch.</h2>
+            <div class="wrapper">
+                <h2 class="section-title">Stay in touch.</h2>
 
-				<div class="contact-content">
-					<p class="underline-animation">
-						<a href="mailto:tymoteusz.huba@gmail.com">
-							<i class="icon-mail"></i><span class="contact-description">tymoteusz.huba@gmail.com</span>
-						</a>
-					</p>
-					<p class="underline-animation">
-						<a href="tel:+48888888888" >
-							<i class="icon-phone"></i><span class="contact-description">+48 888 888 888</span>
-						</a>
-					</p>
-					<p class="underline-animation">
-						<a href="#" rel="noopener">
-							<i class="icon-laptop"></i><span class="contact-description">www.tymoteuszhuba.pl</span>
-						</a>
-					</p>
-					<span class="contact-icon facebook">
-						<a href="https://www.facebook.com/" target="_blank" title="Facebook" rel="noopener">
-								<i class="fa-brands fa-facebook-f"></i>
-						</a>
-					</span>
-					<span class="contact-icon linkedin">
-						<a href="https://pl.linkedin.com/" target="_blank" title="Linkedin" rel="noopener">
-								<i class="fa-brands fa-linkedin-in"></i>
-						</a>
-					</span>
-					<span class="contact-icon behance">
-						<a href="https://www.behance.net/" target="_blank" title="Behance" rel="noopener">
-								<i class="fa-brands fa-behance"></i>
-						</a>
-					</span>
-					<span class="contact-icon instagram">
-						<a href="https://www.instagram.com/" target="_blank" title="Instagram" rel="noopener">
-								<i class="fa-brands fa-instagram"></i>
-						</a>
-					</span>
+				<div class="contact-content display-parameters">
+					<div class="contact-l-side display-parameters">
+						<div class="contact-links display-parameters">
+							 <a href="mailto:tymoteusz.huba@gmail.com" class="underline-animation">
+								 <i class="icon-mail"></i><span class="contact-description">tymoteusz.huba@gmail.com</span>
+							 </a>
+							 <a href="tel:+48888888888" class="underline-animation">
+								 <i class="icon-phone"></i><span class="contact-description">+48 888 888 888</span>
+							 </a>
+							 <a href="#" class="underline-animation">
+								 <i class="icon-laptop"></i><span class="contact-description">www.tymoteuszhuba.pl</span>
+							 </a>
+						 </div>
+						 <div class="contact-icons display-parameters">
+						
+							 <a href="https://www.facebook.com/" class="contact-icon facebook" target="_blank" title="Facebook" rel="noopener">
+									 <i class="fa-brands fa-facebook-f"></i>
+							 </a>
+							 <a href="https://pl.linkedin.com/" class="contact-icon linkedin" target="_blank" title="Linkedin" rel="noopener">
+									 <i class="fa-brands fa-linkedin-in"></i>
+							 </a>
+							 <a href="https://www.behance.net/" class="contact-icon behance" target="_blank" title="Behance" rel="noopener">
+									 <i class="fa-brands fa-behance"></i>
+							 </a>
+							 <a href="https://www.instagram.com/" class="contact-icon instagram" target="_blank" title="Instagram" rel="noopener">
+									 <i class="fa-brands fa-instagram"></i>
+							 </a>
+						 </div>
+					 </div>
+					 
+					 <form action="" class="contact-r-side display-parameters">
+						 <input class="input-text" type="text" placeholder="Name" onfocus="this.placeholder=''" onblur="this.placeholder='Name'"/>
+	 
+						 <input class="input-text" type="text" placeholder="Email" onfocus="this.placeholder=''" onblur="this.placeholder='Email'"/>
+						 
+						 <textarea class="message-text" placeholder="Message" onfocus="this.placeholder=''" onblur="this.placeholder='Message'"></textarea>
+	 
+						 <button class="btn">Submit</button>
+					 </form>
 				</div>
-				
-				<form action="" class="contact-content">
-					<input class="input-text" type="text" placeholder="Name" onfocus="this.placeholder=''" onblur="this.placeholder='Name'"/>
+            </div>
+        </section>
 
-					<input class="input-text" type="text" placeholder="Email" onfocus="this.placeholder=''" onblur="this.placeholder='Email'"/>
-					
-					<textarea class="message-text" placeholder="Message" onfocus="this.placeholder=''" onblur="this.placeholder='Message'"></textarea>
-
-					<button class="btn">Submit</button>
-				</form>
-			</div>
-		</section>
 
 		<footer id="copyrights">
 				<p>Copyright © 2022 Tymoteusz Huba. All Rights Reserverd</p>
 		</footer>
+
+		<script src="js/script.js"></script>
 	</body>
 </html>
