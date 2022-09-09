@@ -33,15 +33,60 @@ a
 
 .burger-icon
 {
-    display: block;
-    margin-left: auto;
-    padding: 10px 30px;
+    position: fixed;
+    top: 10px;
+	right: 10px;
+    padding: 15px;
     background: none;
-	color: #fff;
-    line-height: 60px;
-    font-size: 35px;
-    border: none;
+	border: 1px solid transparent;
     cursor: pointer;
+	z-index: 1000;
+}
+
+.burger-icon:focus
+{
+	outline: none;
+}
+
+.burger-box
+{
+	position: relative;
+	width: 40px;
+	height: 30px;
+}
+
+.burger-bars, .burger-bars::after, .burger-bars::before
+{
+	position: absolute;
+	right: 0;
+	height: 3px;
+	content: '';
+	background-color: #fff;
+	transition: width 0.3s;
+	border-radius: 8px;
+}
+
+.burger-bars
+{
+	width: 100%;
+}
+
+.burger-bars::after
+{
+	top: 13px;
+	width: 60%;
+}
+
+.burger-bars::before
+{
+	top: 27px;
+	width: 30%;
+	transition-delay: 0.1s;
+}
+
+.burger-icon:hover .burger-bars::after, .burger-icon:hover .burger-bars::before
+{
+	width: 100%;
 }
 
 h1
@@ -57,15 +102,93 @@ h1
 	/* background: linear-gradient(10deg, #2483ff 60%, #2c6afb 60%); */
 }
 
+.nav-items
+{
+	position: fixed;
+	top: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	height: 100vh;
+	width: 100%;
+	background-image: linear-gradient(45deg, #202020, #303030);
+	font-size: 20px;
+	transform: translateX(100%);
+	transition: 0.5s cubic-bezier(0.94, 0.89, 0, 0.26);
+	z-index: 100;
+}
+
+.nav-option
+{
+	position: relative;
+	display: block;
+	top: 180px;
+	margin: 20px 0;
+	padding: 10px 20px;
+	transition: opacity 0.2s;
+}
+
+.nav-option::after
+{
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	height: 1px;
+	width: 100%;
+	background-color: #fff;
+	transform: scaleX(0);
+	transform-origin: bottom right;
+	transition: transform 0.2s ease-out, background-color 0.3s linear;
+}
+
+.nav-option:hover::after
+{
+	background-color: #0033ff;
+	transform: scaleX(1);
+	transform-origin: bottom left;
+}
+
+.nav-option:hover
+{
+	opacity: 0.8;
+}
+
+.burger-active
+{
+	transform: translateX(0);
+}
+
+@keyframes navOptionsAnimation
+{
+	from
+	{
+		transform: translateX(200%);
+	}
+
+	to
+	{
+		transform: translateX(0);
+	}
+}
+
+.nav-options-animation
+{
+	animation: navOptionsAnimation 1.2s both;
+}
+
 .nav-photo 
 {	
 	position: relative;
 	display: inline-flex;
-	width: 242px;
-	height: 242px;
+	width: 200px;
+	height: 200px;
 	margin-bottom: 30px;
+	margin-top: 30px;
 	border-radius: 50%;
 	background-image: url(../img/photo.jpg);
+	background-size: cover;
+	background-position: center;
 	transition: opacity 500ms ease-in-out, filter 500ms ease-in-out;
 }
 
@@ -76,10 +199,7 @@ h1
 	cursor: pointer;
 }
 
-.nav-option
-{
-	display: none;
-}
+
 
 /* sekcje dla strony www */
 section 
@@ -118,6 +238,7 @@ section
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+	padding-bottom: 20px;
 }
 
 .skills-logo 
@@ -319,7 +440,6 @@ section
 	position: relative;
 	height: 278px;
 	margin: 30px;
-	width: 50%;
 	text-align: center;
 	background-position: center;
 	background-size: cover;
@@ -547,6 +667,11 @@ footer p
 
 @media (min-width: 576px) 
 {
+	.burger-icon
+	{
+		top: 20px;
+		right: 20px;
+	}
 	section
 	{
 		padding-top: 30px;
@@ -618,62 +743,38 @@ footer p
 {	
 	h1
 	{
-		margin-top: 50px;
+		margin-top: 20px;
 		font-size: 40px;
 		font-weight: 100;
 	}
+
+	.nav-photo
+	{
+		width: 242px;
+		height: 242px;
+	}
 	
-	.burger-icon
+	.burger-icon, .burger-items
 	{
 		display: none;
 	}
 
-	.nav
-	{
-		height: 480px;
-		padding: 50px;
-	}
-
 	.nav-items
     {
-        display: flex;
+		position: relative;
 		flex-direction: row;
 		justify-content: space-around;
-		align-items: center;
+		height: 10vh;
+		margin-bottom: 50px;
+		font-size: 15px;
+		background-image: none;
+		transform: none;
+		transition: none;
     }
 
 	.nav-option
 	{
-		display: flex;
-		position: relative;
-		padding: 10px 20px;
-		transition: opacity 0.2s;
-	}
-
-	.nav-option::after
-	{
-		content: '';
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		height: 1px;
-		width: 100%;
-		background-color: #fff;
-		transform: scaleX(0);
-		transform-origin: bottom right;
-    	transition: transform 0.2s ease-out, background-color 0.3s linear;
-	}
-
-	.nav-option:hover::after
-	{
-		background-color: #0033ff;
-		transform: scaleX(1);
-    	transform-origin: bottom left;
-	}
-
-	.nav-option:hover
-	{
-		opacity: 0.8;
+		top: 0;
 	}
 
 	.section-title
@@ -703,6 +804,11 @@ footer p
 	.project-content 
 	{
 		flex-direction: row;
+	}
+
+	.project-item
+	{
+		width: 50%;
 	}
 
 	.contact-content
