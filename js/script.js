@@ -1,7 +1,7 @@
 // deklaracja zmiennych stałych i pobranie ich wratości
-const navItems = document.querySelector('.nav-items')
-const burgerIcon = document.querySelector('.burger-icon')
-const navOption = document.querySelectorAll('.nav-option')
+const navItems = document.querySelector('.nav__menu')
+const burgerIcon = document.querySelector('.nav__burger')
+const navOption = document.querySelectorAll('.nav__menu-item')
 
 // funkcja strzałkowa odpowiedzialna za uruchamianie wyjeżdżanego menu z przycisku burger-icon dla małych ekranów
 const handleNavBurger = () =>
@@ -64,3 +64,34 @@ const navOptionsAnimation = () =>
 // wywołanie funkcji hadnleNavBurger na przycisku burger-icon
 // przycisk otrzymuje nasłuchiwanie addEventListener na click, jeśli klik nastąpi uruchamia funkcję
 burgerIcon.addEventListener('click', handleNavBurger)
+
+// obsługa przycisku przewijania ekranu do góry
+// ustawiamy nasłuchiwanie na całą stronę www od momentu jej całkowitego załadowania document.addEventListener('DOMContentLoaded')
+// następnie tworzymy funkcje()
+document.addEventListener('DOMContentLoaded', function()
+{
+    // tworzymy zmienną stałą przechowującą klasę wyświetlającą ikonę przewijania
+    const iconUp = document.querySelector('.icon-up-open')
+
+    // funkcja przewijania 
+    function slideIcon()
+    {
+        // jeśli okno przeglądarki jest niżej na osi Y o 300 px
+        if (window.scrollY > 300)
+        {
+            // do zmiennej iconUp dodaj style display = inline
+            iconUp.style.display = 'inline';
+        }
+        // w przeciwnym wypadku
+        else
+        {
+            // dodaj do zmiennej iconUp styl display none
+            iconUp.style.display = 'none';
+        }
+    }
+
+    // wywołanie funkcji okna przeglądarki na scroll, czyli przewijanie i wywolanie funkcji slideIcon
+    window.addEventListener('scroll', slideIcon)
+})
+
+
