@@ -1,5 +1,6 @@
 import '../css/main.css'; // Importowanie pliku SCSS
+import {logoElement} from '../js/setImages.js';
 
-document.getElementById('app').innerHTML = `
-  <h2>Moje portfolio jest w testach</h2>
-`;
+document.addEventListener('DOMContentLoaded', () => {
+	logoElement;
+});

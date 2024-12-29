@@ -21,6 +21,10 @@ module.exports = {
 		port: 8000, // server port
 		open: true, // open in browser
 		hot: true, // turn on Hot Module Replacement
+		// liveReload: true,
+		watchFiles: {
+			paths: ['src/**/*.html'], // Śledzi zmiany w plikach HTML w folderze src
+		},
 	},
 	module: {
 		rules: [
@@ -48,6 +52,9 @@ module.exports = {
 			{
 				test: /\.(png|svg|jpg|jpeg|gif)$/i,
 				type: 'asset/resource',
+				generator: {
+					filename: 'images/[name][hash][ext][query]',
+				},
 			},
 		],
 	},
