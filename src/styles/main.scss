@@ -1,22 +1,8 @@
-// main.scss
-
-body {
-	font-family: Arial, sans-serif;
-	background-color: #f4f4f4;
-	margin: 0;
-	padding: 0;
-}
+@import 'base';
+@import 'colors';
+@import 'header';
 
 h1 {
 	color: blue;
 	font-size: large;
-}
-
-
-.logo img {
-    height: auto;
-    max-width: 100%;
-    width: 100px; 
-    display: block; 
-    margin: 0 auto; 
 }
