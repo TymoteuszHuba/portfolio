@@ -1,5 +1,6 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 
 module.exports = {
 	// development mode setting
@@ -62,6 +63,9 @@ module.exports = {
 		new HtmlWebpackPlugin({
 			template: './src/index.html', // Szablon HTML
 			filename: 'index.html', // Wygenerowany plik HTML w folderze dist
+		}),
+		new FaviconsWebpackPlugin({
+			logo: './src/images/logotype.png', // Ścieżka do Twojego pliku favicon
 		}),
 	],
 };

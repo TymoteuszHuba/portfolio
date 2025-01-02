@@ -2,7 +2,7 @@
 	"name": "portfolio-ver.2",
 	"version": "1.0.0",
 	"description": "Portofio Tymoteusz Huba",
-	"main": "index.js",
+	"main": "dist/bundle.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"start": "webpack serve --mode development --open",
@@ -19,6 +19,8 @@
 		"babel-loader": "^9.2.1",
 		"clean-webpack-plugin": "^4.0.0",
 		"css-loader": "^7.1.2",
+		"enhanced-resolve": "^5.18.0",
+		"favicons-webpack-plugin": "^6.0.1",
 		"file-loader": "^6.2.0",
 		"gh-pages": "^6.2.0",
 		"html-webpack-plugin": "^5.6.3",
