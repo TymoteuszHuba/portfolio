@@ -61,7 +61,7 @@
 		div {
 			width: 100%;
 			background-color: var(--clr-white);
-            transition: transform 0.3s ease-in-out;
+			transition: transform 0.3s ease-in-out;
 		}
 
 		.line1 {
@@ -69,7 +69,7 @@
 		}
 		.line2 {
 			opacity: 0;
-            transition: opacity 0.3s ease-in-out;
+			transition: opacity 0.3s ease-in-out;
 		}
 		.line3 {
 			transform: rotate(-45deg) translate(10px, -10px);
@@ -106,7 +106,7 @@
 		top: 0;
 		left: 0;
 		width: 100%;
-		height: 100%;
+		height: 100vh;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
@@ -131,6 +131,6 @@
 }
 
 // style added when hamburger menu is activated
-.blur {
+.main.blur {
 	filter: blur(5px);
 }

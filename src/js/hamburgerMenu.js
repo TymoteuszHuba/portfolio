@@ -1,14 +1,14 @@
 const hamburger = document.querySelector('.nav-hamburger');
 const navLinks = document.getElementById('navLinks');
 const navItems = document.querySelectorAll('#navLinks a');
-const body = document.body;
+const main = document.querySelector('.main');
 
 const setupHamburgerMenu = () => {
     hamburger.addEventListener('click', () => {
         hamburger.classList.toggle('active');
         navLinks.classList.toggle('mobile');
         navLinks.classList.toggle('active');
-        // body.classList.toggle('blur');
+        main.classList.toggle('blur');
     });
     
     navItems.forEach((item) => {
