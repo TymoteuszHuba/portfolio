@@ -74,7 +74,6 @@ body {
 .nav-hamburger.active div {
   width: 100%;
   background-color: var(--clr-white);
-  transition: transform 0.3s ease-in-out;
 }
 .nav-hamburger.active .line1 {
   transform: rotate(45deg) translate(5px, 5px);
@@ -130,8 +129,9 @@ body {
   transform: translateX(0);
 }
 
-.main.blur {
+.blur {
   filter: blur(5px);
+  transition: filter 0.3s ease;
 }
 
 .nav {
@@ -185,7 +185,6 @@ body {
 .nav-hamburger.active div {
   width: 100%;
   background-color: var(--clr-white);
-  transition: transform 0.3s ease-in-out;
 }
 .nav-hamburger.active .line1 {
   transform: rotate(45deg) translate(5px, 5px);
@@ -241,8 +240,9 @@ body {
   transform: translateX(0);
 }
 
-.main.blur {
+.blur {
   filter: blur(5px);
+  transition: filter 0.3s ease;
 }
 
 @media (max-width: 768px) {

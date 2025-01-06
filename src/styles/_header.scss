@@ -61,7 +61,6 @@
 		div {
 			width: 100%;
 			background-color: var(--clr-white);
-			transition: transform 0.3s ease-in-out;
 		}
 
 		.line1 {
@@ -131,6 +130,7 @@
 }
 
 // style added when hamburger menu is activated
-.main.blur {
+.blur {
 	filter: blur(5px);
+    transition: filter 0.3s ease;
 }
