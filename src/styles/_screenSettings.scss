@@ -1,15 +1,27 @@
 @import 'header';
 
-@media (max-width: 768px) {
+@media (min-width: 486px) {
+	.nav {
+		&-right {
+			width: 12rem;
+		}
+	}
+}
+
+@media (max-width: 992px) {
 	// header settings
-	.nav-hamburger {
-		display: flex;
-	}
-	.nav-left {
-		display: none;
-	}
-	.nav-left.mobile {
-		display: flex;
+	.nav {
+		&-hamburger {
+			display: flex;
+		}
+
+		&-left {
+			display: none;
+		}
+
+		&-left.mobile {
+			display: flex;
+		}
 	}
 }
 

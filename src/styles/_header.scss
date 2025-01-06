@@ -3,13 +3,12 @@
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
-	padding: 10px 20px;
+	padding: 2rem 1.5rem;
 
 	&-left {
 		display: flex;
 		flex-direction: row;
 		list-style: none;
-		transition: transform 0.5s;
 
 		li {
 			margin-right: 20px;
@@ -19,15 +18,70 @@
 		a {
 			text-decoration: none;
 			color: var(--clr-black);
-			// color: var(--clr-white);
 		}
 	}
 
+	&-logo {
+		&-link {
+			display: block;
+			height: 6rem;
+		}
+		&-img {
+			height: 6rem;
+			width: 6rem;
+		}
+	}
+
+	&-right {
+		position: relative;
+		width: 10rem;
+		text-align: center;
+		font-size: 2rem;
+		letter-spacing: 0.3rem;
+		text-align: center;
+
+		a {
+			// padding: 1rem 0;
+			color: var(--clr-black);
+			text-decoration: none;
+			transition: color 0.4s ease-in-out;
+
+			&:before {
+				content: '';
+				position: absolute;
+				top: 50%;
+				left: 0;
+				display: block;
+				width: 4rem;
+				height: 4rem;
+				border-radius: 2.8rem;
+				// background-color: var(--clr-main);
+				background: rgba(28, 106, 196, 0.5);
+				transform: translateY(-50%);
+				transition: all 0.2s ease-in-out;
+			}
+
+			&:hover::before {
+				width: 100%;
+				background: rgba(28, 106, 196, 1);
+			}
+
+			&:hover {
+				color: var(--clr-white);
+			}
+
+			span {
+				position: relative;
+			}
+		}
+	}
+
+	// settings for small screens (mobile)
 	&-hamburger {
 		width: 4rem;
 		height: 2.5rem;
-		margin: 0 1.2rem;
 		display: none;
+        margin-left: 2rem;
 		flex-direction: column;
 		justify-content: space-between;
 		cursor: pointer;
@@ -60,7 +114,7 @@
 	&-hamburger.active {
 		div {
 			width: 100%;
-			background-color: var(--clr-white);
+			background-color: var(--clr-dark-gray);
 		}
 
 		.line1 {
@@ -68,38 +122,19 @@
 		}
 		.line2 {
 			opacity: 0;
-			transition: opacity 0.3s ease-in-out;
+			transition: opacity 0.2s ease-in-out;
 		}
 		.line3 {
 			transform: rotate(-45deg) translate(10px, -10px);
 		}
 	}
 
-	&-logo {
-		&-link {
-			display: block;
-			height: 8rem;
-		}
-		&-img {
-			height: 8rem;
-			width: 8rem;
+	&-hamburger.active:hover {
+		div {
+			background-color: var(--clr-white);
 		}
 	}
 
-	&-right {
-		padding: 0.2rem 1.2rem;
-		font-size: 2rem;
-		background-color: var(--clr-white);
-		border-radius: 1.5rem;
-		border: 0.2rem solid var(--clr-main);
-
-		a {
-			color: var(--clr-main);
-			text-decoration: none;
-		}
-	}
-
-	// settings for small screens (mobile)
 	&-left.mobile {
 		position: fixed;
 		top: 0;
@@ -119,8 +154,14 @@
 		}
 
 		a {
+			padding: 1rem 5rem;
+			color: var(--clr-dark-gray);
+			letter-spacing: 0.4rem;
+			transition: color 0.2s ease-in-out;
+		}
+
+		a:hover {
 			color: var(--clr-white);
-			letter-spacing: 0.3rem;
 		}
 	}
 
@@ -132,5 +173,5 @@
 // style added when hamburger menu is activated
 .blur {
 	filter: blur(5px);
-    transition: filter 0.3s ease;
+	transition: filter 0.3s ease;
 }
