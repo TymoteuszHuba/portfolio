@@ -87,6 +87,9 @@ body {
 .nav-right a span {
   position: relative;
 }
+.nav-right:active {
+  transform: scale(0.96);
+}
 .nav-hamburger {
   width: 4rem;
   height: 2.5rem;
@@ -229,6 +232,9 @@ body {
 }
 .nav-right a span {
   position: relative;
+}
+.nav-right:active {
+  transform: scale(0.96);
 }
 .nav-hamburger {
   width: 4rem;

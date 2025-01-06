@@ -70,10 +70,16 @@
 				color: var(--clr-white);
 			}
 
+			
+
 			span {
 				position: relative;
 			}
 		}
+
+        &:active {
+            transform: scale(0.96);
+        }
 	}
 
 	// settings for small screens (mobile)
@@ -81,7 +87,7 @@
 		width: 4rem;
 		height: 2.5rem;
 		display: none;
-        margin-left: 2rem;
+		margin-left: 2rem;
 		flex-direction: column;
 		justify-content: space-between;
 		cursor: pointer;
