@@ -13,6 +13,7 @@ function setupHamburgerMenu() {
 
 	// function which toggle elements in menu
 	function toggleMenu() {
+        
 		hamburger.classList.toggle('active');
 		navLinks.classList.toggle('mobile');
 		navLinks.classList.toggle('active');
