@@ -9,6 +9,17 @@ html {
 }
 
 body {
-	font-family: "Montserrat", sans-serif;
+	font-family: 'Montserrat', sans-serif;
 	background-color: #f4f4f4;
+}
+
+// layout grid website structure
+.layout {
+	display: grid;
+	grid-template-columns: repeat(12, 1fr);
+	grid-template-rows: auto 1fr auto;
+	gap: 1rem;
+	max-width: 1400px;
+	min-height: 100dvh;
+	margin: 0 auto;
 }

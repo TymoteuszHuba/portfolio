@@ -1,6 +1,20 @@
 import logotype from '../images/logotype.png';
+import imgMeSrc from '../images/me.png';
 
-const logoElement = document.querySelector('.nav-logo img');
-logoElement.src = logotype;
+// universal function setting images on website
+const setImageSrc = (selector, src) => {
+	const element = document.querySelector(selector);
+	if (element) {
+		element.src = src;
+	} else {
+		console.warn(`Cannot find img`);
+	}
+};
 
-export {logoElement};
+// initialize images on website
+const initImages = () => {
+	setImageSrc('.nav__logo-img', logotype);
+	setImageSrc('.hero-img img', imgMeSrc);
+};
+
+export {initImages};

@@ -1,0 +1,236 @@
+// effect on links from navigation
+@mixin link-effect {
+	&:before {
+		content: '';
+		position: absolute;
+		top: 50%;
+		left: 0;
+		display: block;
+		height: 1.2rem;
+		background: var(--clr-main);
+		transition: width 0.2s ease-in-out;
+	}
+
+	&:hover::before {
+		width: 100%;
+	}
+}
+
+// navigation styles
+.nav {
+	display: grid;
+	grid-template-areas: 'hamburger logo contact';
+	grid-template-columns: auto 1fr auto;
+	position: sticky;
+	width: 100dvw;
+	max-width: 1400px;
+	align-items: center;
+	top: 0;
+	padding: 2rem 1.5rem;
+	z-index: 10;
+
+	&__hamburger {
+		grid-area: hamburger;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		width: 4rem;
+		height: 4rem;
+		padding: 1em 0;
+		cursor: pointer;
+		z-index: 10000;
+
+		&-line {
+			height: 0.3rem;
+			background-color: var(--clr-black);
+			border-radius: 5rem;
+			transition: 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+
+			&--top {
+				width: 50%;
+			}
+
+			&--middle {
+				width: 100%;
+			}
+
+			&--bottom {
+				width: 75%;
+			}
+		}
+
+		&--active &-line {
+			background-color: var(--clr-dark-gray);
+
+			&--top {
+				transform-origin: bottom;
+				transform: rotatez(45deg) translate(3px, -2.5px);
+			}
+
+			&--middle {
+				transform-origin: top;
+				transform: rotatez(-45deg);
+			}
+
+			&--bottom {
+				transform-origin: bottom;
+				width: 50%;
+				transform: translate(18px, -3px) rotatez(45deg);
+			}
+		}
+
+		&--active:hover &-line {
+			background-color: var(--clr-white);
+		}
+	}
+
+	&__links {
+		// grid-column: 1/ -1;
+		display: flex;
+		top: 0;
+		left: 0;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 4rem;
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		text-align: center;
+		background-color: var(--clr-shadow);
+		transform: translateX(-100%);
+
+		&-link {
+			padding: 2rem;
+			font-size: 2rem;
+			letter-spacing: 0.4rem;
+			text-decoration: none;
+			color: var(--clr-dark-gray);
+			transition: color 0.2s ease-in-out;
+
+			&:hover {
+				color: var(--clr-white);
+			}
+		}
+
+		&--active {
+			transform: translateX(0);
+		}
+	}
+
+	&__logo {
+		// grid-column: 3 / 10;
+		grid-area: logo;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		transition: transform 0.2s ease-in-out;
+
+		&-link {
+			height: 6rem;
+		}
+		&-img {
+			height: 6rem;
+			width: 6rem;
+		}
+
+		&:active {
+			transform: scale(0.96);
+		}
+	}
+
+	&__contact-link {
+		// grid-column: 10 / 13;
+		grid-area: contact;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: relative;
+		height: 4rem;
+		justify-self: flex-end;
+		font-size: 1.5rem;
+		font-weight: 600;
+		letter-spacing: 0.3rem;
+		text-decoration: none;
+		color: var(--clr-black);
+		transition: transform 0.3s ease-in-out;
+
+		span {
+			position: relative;
+		}
+
+		&:active {
+			transform: scale(0.96);
+		}
+
+		&:before {
+			width: 15%;
+		}
+
+		@include link-effect;
+	}
+
+	@media (min-width: 992px) {
+		grid-template-areas: 'links logo contact';
+		grid-template-columns: 4fr 4fr 4fr;
+
+		&__hamburger {
+			display: none;
+		}
+
+		&__links {
+			grid-area: links;
+			flex-direction: row;
+			justify-content: flex-start;
+			gap: 2rem;
+			position: relative;
+			text-align: center;
+			font-size: 1.5rem;
+			font-weight: 600;
+			background-color: transparent;
+			transform: translateX(0);
+
+			&-link {
+				position: relative;
+				padding: 0.5rem;
+				font-size: 1.5rem;
+				letter-spacing: 0.4rem;
+				text-decoration: none;
+				color: var(--clr-black);
+				transition: color 0.2s ease-in-out, text-shadow 0.2s ease-in-out;
+
+				&:hover {
+					color: var(--clr-black);
+				}
+
+				span {
+					position: relative;
+				}
+
+				&:before {
+					width: 0%;
+				}
+
+				@include link-effect;
+
+			}
+		}
+
+		&__logo {
+			// grid-column: 4/10;
+			grid-area: logo;
+			// justify-self: center;
+		}
+
+		&__contact-link {
+			// grid-column: 10/13;
+			grid-area: contact;
+		}
+	}
+}
+
+// style added when hamburger menu is activated
+.blur {
+	filter: blur(5px);
+	transition: filter 0.3s ease;
+}
