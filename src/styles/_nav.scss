@@ -4,7 +4,6 @@
 		content: '';
 		position: absolute;
 		top: 50%;
-		left: 0;
 		display: block;
 		height: 1.2rem;
 		background: var(--clr-main);
@@ -18,16 +17,22 @@
 
 // navigation styles
 .nav {
-	display: grid;
-	grid-template-areas: 'hamburger logo contact';
-	grid-template-columns: auto 1fr auto;
 	position: sticky;
 	width: 100dvw;
-	max-width: 1400px;
-	align-items: center;
 	top: 0;
-	padding: 2rem 1.5rem;
+	// padding: 2rem 1.5rem;
+	padding: clamp(2rem, 0.8rem + 0.7vw, 3rem) clamp(1.5rem, 0.8rem + 0.7vw, 4rem);
 	z-index: 10;
+
+	&__container {
+		display: grid;
+		grid-template-areas: 'hamburger logo contact';
+		grid-template-columns: auto 1fr auto;
+		max-width: 1600px;
+		align-items: center;
+		margin: 0 auto;
+		width: 100%;
+	}
 
 	&__hamburger {
 		grid-area: hamburger;
@@ -102,7 +107,7 @@
 
 		&-link {
 			padding: 2rem;
-			font-size: 2rem;
+			font-size: clamp(1.5rem, 0.8rem + 0.7vw, 2rem);
 			letter-spacing: 0.4rem;
 			text-decoration: none;
 			color: var(--clr-dark-gray);
@@ -148,8 +153,8 @@
 		position: relative;
 		height: 4rem;
 		justify-self: flex-end;
-		font-size: 1.5rem;
-		font-weight: 600;
+		font-size: clamp(1.5rem, 0.8rem + 0.7vw, 2rem);
+		font-weight: 500;
 		letter-spacing: 0.3rem;
 		text-decoration: none;
 		color: var(--clr-black);
@@ -164,6 +169,7 @@
 		}
 
 		&:before {
+			left: 0;
 			width: 15%;
 		}
 
@@ -171,8 +177,10 @@
 	}
 
 	@media (min-width: 992px) {
-		grid-template-areas: 'links logo contact';
-		grid-template-columns: 4fr 4fr 4fr;
+		&__container {
+			grid-template-areas: 'links logo contact';
+			grid-template-columns: 4fr 4fr 4fr;
+		}
 
 		&__hamburger {
 			display: none;
@@ -182,18 +190,16 @@
 			grid-area: links;
 			flex-direction: row;
 			justify-content: flex-start;
-			gap: 2rem;
 			position: relative;
 			text-align: center;
-			font-size: 1.5rem;
-			font-weight: 600;
+			font-weight: 500;
 			background-color: transparent;
 			transform: translateX(0);
 
 			&-link {
 				position: relative;
-				padding: 0.5rem;
-				font-size: 1.5rem;
+				// height: 4rem;
+				padding: 1.6rem 1rem;
 				letter-spacing: 0.4rem;
 				text-decoration: none;
 				color: var(--clr-black);
@@ -208,11 +214,11 @@
 				}
 
 				&:before {
+					left: 5%;
 					width: 0%;
 				}
 
 				@include link-effect;
-
 			}
 		}
 
@@ -233,4 +239,5 @@
 .blur {
 	filter: blur(5px);
 	transition: filter 0.3s ease;
+	pointer-events: none;
 }
