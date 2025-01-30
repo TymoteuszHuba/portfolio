@@ -17,6 +17,7 @@
 
 // navigation styles
 .nav {
+	grid-area: nav;
 	position: sticky;
 	width: 100dvw;
 	top: 0;
@@ -28,7 +29,7 @@
 		display: grid;
 		grid-template-areas: 'hamburger logo contact';
 		grid-template-columns: auto 1fr auto;
-		max-width: 1600px;
+		max-width: 1400px;
 		align-items: center;
 		margin: 0 auto;
 		width: 100%;
@@ -188,6 +189,7 @@
 
 		&__links {
 			grid-area: links;
+			gap: clamp(4rem, 3rem + 1vw, 6rem);
 			flex-direction: row;
 			justify-content: flex-start;
 			position: relative;
@@ -199,7 +201,7 @@
 			&-link {
 				position: relative;
 				// height: 4rem;
-				padding: 1.6rem 1rem;
+				padding: 1.6rem 0rem;
 				font-size: clamp(1.2rem, 1.2rem + 0.4vw, 2rem);
 				letter-spacing: 0.4rem;
 				text-decoration: none;
@@ -215,7 +217,7 @@
 				}
 
 				&:before {
-					left: 5%;
+					left: 15%;
 					width: 0%;
 				}
 

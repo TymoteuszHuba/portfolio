@@ -1,5 +1,5 @@
-import logotype from '../images/logotype.png';
-import imgMeSrc from '../images/me.png';
+import logotype from '../images/logotype.webp';
+import imgMeSrc from '../images/me_website.webp';
 
 // universal function setting images on website
 const setImageSrc = (selector, src) => {
@@ -14,7 +14,7 @@ const setImageSrc = (selector, src) => {
 // initialize images on website
 const initImages = () => {
 	setImageSrc('.nav__logo-img', logotype);
-	setImageSrc('.hero-img img', imgMeSrc);
+	setImageSrc('.hero__image-img', imgMeSrc);
 };
 
 export {initImages};

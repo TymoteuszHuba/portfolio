@@ -3,7 +3,10 @@
 @import 'nav';
 @import 'hero';
 
-h1 {
-	color: blue;
-	font-size: large;
+// main content settings
+.main {
+	grid-area: main;
+	width: 100dvw;
+	height: 100%;
+	overflow: hidden;
 }

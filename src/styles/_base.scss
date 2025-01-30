@@ -16,15 +16,15 @@ body {
 // layout grid website structure
 .layout {
 	display: grid;
-	grid-template-columns: repeat(12, 1fr);
+	grid-template-columns: repeat(3, 1fr);
 	grid-template-rows: auto 1fr auto;
 	grid-template-areas:
-		'nav nav nav nav nav nav nav nav nav nav nav nav'
-		'main main main main main main main main main main main main'
-		'footer footer footer footer footer footer footer footer footer footer footer footer';
+		'nav nav nav'
+		'main main main'
+		'footer footer footer';
 	align-items: center;
 	justify-items: center;
 	gap: 1rem;
-	min-height: 100dvh;
+	height: 100dvh;
 	margin: 0 auto;
 }

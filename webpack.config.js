@@ -51,7 +51,16 @@ module.exports = {
 				},
 			},
 			{
-				test: /\.(png|svg|jpg|jpeg|gif)$/i,
+				test: /\.(png|svg|jpg|jpeg|gif|webp)$/i,
+				use: [
+					{
+						loader: 'image-webpack-loader',
+						options: {
+							mozjpeg: {quality: 80},
+							webp: {quality: 80},
+						},
+					},
+				],
 				type: 'asset/resource',
 				generator: {
 					filename: 'images/[name][hash][ext][query]',
@@ -64,8 +73,8 @@ module.exports = {
 			template: './src/index.html', // Szablon HTML
 			filename: 'index.html', // Wygenerowany plik HTML w folderze dist
 		}),
-		new FaviconsWebpackPlugin({
-			logo: './src/images/logotype.png', // Ścieżka do Twojego pliku favicon
-		}),
+		// new FaviconsWebpackPlugin({
+		// 	logo: './src/images/logotype.png', // Ścieżka do Twojego pliku favicon
+		// }),
 	],
 };

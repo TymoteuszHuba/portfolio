@@ -1,23 +1,28 @@
-// .hero {
-// 	width: 100%;
-// 	height: 100%;
-// 	overflow: hidden;
+.hero {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: auto;
+	align-items: center;
+	padding: 2rem;
 
-// 	&-img {
-// 		position: relative;
-// 		width: 100%;
-// 		height: auto;
-// 		// left: 50%;
-// 		// z-index: 3;
+	&__image {
+		display: flex;
+		align-items: center;
+		justify-content: center;
 
-// 		img {
-// 			position: relative;
-// 			top: -100px;
-// 			// display: block; /* Usuwa niechciane odstępy */
-// 			width: 200%;
-// 			max-width: 1000px;
-// 			transform: translateX(-0%);
-// 			// height: auto; /* Zachowanie proporcji */
-// 		}
-// 	}
-// }
+		&-img {
+			width: clamp(50rem, 100%, 80rem);
+			height: auto;
+		}
+	}
+
+	@media (min-width: 768px) {
+		grid-template-columns: repeat(6, 1fr); // 6 frakcji
+		grid-template-rows: auto;
+		text-align: left;
+
+		&__image {
+			grid-column: span 4;
+		}
+	}
+}
