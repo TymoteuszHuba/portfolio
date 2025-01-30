@@ -252,6 +252,7 @@ body {
   padding: 2rem;
 }
 .hero__image {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -269,8 +270,31 @@ body {
   .hero__image {
     grid-column: span 4;
   }
+  .hero__image::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+    border: 0.1rem solid;
+    background-size: 400% 400%;
+    border-radius: 20px;
+    animation: gradientFlow 8s ease infinite, borderMorph 10s ease infinite;
+  }
 }
 
+@keyframes borderMorph {
+  0%, 100% {
+    border-radius: 30% 70% 70% 30%/30% 30% 70% 70%;
+    transform: scale(1.02);
+  }
+  50% {
+    border-radius: 70% 30% 50% 50%/60% 40% 60% 40%;
+    transform: scale(0.98);
+  }
+}
 .main {
   grid-area: main;
   width: 100dvw;
