@@ -23,6 +23,7 @@
 	top: 0;
 	// padding: 2rem 1.5rem;
 	padding: clamp(2rem, 0.8rem + 0.7vw, 3rem) clamp(1.5rem, 0.8rem + 0.7vw, 4rem);
+	// border-bottom: 1px solid black;
 	z-index: 10;
 
 	&__container {

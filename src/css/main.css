@@ -21,8 +21,7 @@ body {
   grid-template-areas: "nav nav nav" "main main main" "footer footer footer";
   align-items: center;
   justify-items: center;
-  gap: 1rem;
-  height: 100dvh;
+  height: 100%;
   margin: 0 auto;
 }
 
@@ -247,10 +246,11 @@ body {
 
 .hero {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 40rem), 1fr));
   grid-template-rows: auto;
   align-items: center;
-  padding: 2rem;
+  width: 100%;
+  padding: 2rem 0;
 }
 .hero__image {
   position: relative;
@@ -263,18 +263,35 @@ body {
   height: auto;
   z-index: 2;
 }
-.hero__image-overlay {
-  display: none;
+.hero__text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 2rem;
+  text-align: center;
 }
-@media (min-width: 768px) {
-  .hero {
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: auto;
-    text-align: left;
-  }
+.hero__text-greeting {
+  font-size: clamp(6rem, 3.2683rem + 3.122vw, 10rem);
+  background: linear-gradient(180deg, #6cabab, #61e2c2);
+  background-clip: text;
+  letter-spacing: 0.3rem;
+  -webkit-text-fill-color: transparent;
+}
+.hero__text-title {
+  font-size: clamp(3rem, 3.2683rem + 3.122vw, 5rem);
+  font-weight: 200;
+}
+.hero__text--bold {
+  font-weight: 700;
+}
+@media (min-width: 800px) {
   .hero__image {
-    grid-column: span 4;
+    justify-content: flex-end;
   }
+}
+@media (min-width: 992px) {
   .hero__image-overlay {
     display: block;
     position: absolute;
@@ -296,6 +313,7 @@ body {
 .main {
   grid-area: main;
   width: 100dvw;
+  max-width: 1800px;
   height: 100%;
   overflow: hidden;
 }/*# sourceMappingURL=main.css.map */
