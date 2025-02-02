@@ -1,13 +1,18 @@
 import logotype from '../images/logotype.webp';
 import imgMeSrc from '../images/me_website.webp';
+import overlayMe from '../images/overlay.webp';
 
 // universal function setting images on website
-const setImageSrc = (selector, src) => {
+const setImageSrc = (selector, src, isBackground = false) => {
 	const element = document.querySelector(selector);
 	if (element) {
-		element.src = src;
+		if (isBackground) {
+			element.style.backgroundImage = `url(${src})`; // Ustawienie tła
+		} else {
+			element.src = src; // Ustawienie src dla <img>
+		}
 	} else {
-		console.warn(`Cannot find img`);
+		console.warn(`Cannot find element for ${selector}`);
 	}
 };
 
@@ -15,6 +20,7 @@ const setImageSrc = (selector, src) => {
 const initImages = () => {
 	setImageSrc('.nav__logo-img', logotype);
 	setImageSrc('.hero__image-img', imgMeSrc);
+	setImageSrc('.hero__image-overlay', overlayMe, true);
 };
 
 export {initImages};

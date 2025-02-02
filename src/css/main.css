@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   box-sizing: border-box;
   margin: 0;
@@ -260,6 +261,10 @@ body {
 .hero__image-img {
   width: clamp(50rem, 100%, 80rem);
   height: auto;
+  z-index: 2;
+}
+.hero__image-overlay {
+  display: none;
 }
 @media (min-width: 768px) {
   .hero {
@@ -270,31 +275,24 @@ body {
   .hero__image {
     grid-column: span 4;
   }
-  .hero__image::before {
-    content: "";
+  .hero__image-overlay {
+    display: block;
     position: absolute;
     top: 0;
-    left: 0;
-    right: 0;
+    left: 50%;
+    right: 50%;
     bottom: 0;
+    background-size: contain;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    transition: transform 0.1s ease-out;
     z-index: 10;
-    border: 0.1rem solid;
-    background-size: 400% 400%;
-    border-radius: 20px;
-    animation: gradientFlow 8s ease infinite, borderMorph 10s ease infinite;
+    width: clamp(50rem, 100%, 80rem);
+    height: 110%; /* Ustawiamy wysokość na 100% kontenera */
+    transform: scale(1) translate(-50%); /* Domyślne skalowanie */
   }
 }
 
-@keyframes borderMorph {
-  0%, 100% {
-    border-radius: 30% 70% 70% 30%/30% 30% 70% 70%;
-    transform: scale(1.02);
-  }
-  50% {
-    border-radius: 70% 30% 50% 50%/60% 40% 60% 40%;
-    transform: scale(0.98);
-  }
-}
 .main {
   grid-area: main;
   width: 100dvw;
