@@ -4,13 +4,21 @@ const trackMouseMovement = () => {
 	const overlay = document.querySelector('.hero__image-overlay');
 	const heroImage = document.querySelector('.hero__image');
 
-	// listener on mouse move with event
-	document.addEventListener('mousemove', (event) => {
-		if (!overlay || !heroImage) return;
+	// checiking if elements exist to reduce errors
+	if (!overlay || !heroImage) return;
+
+    // settign the flag
+	let isAnimating = false;
+
+	// function contrnol mouse movement
+	const handleMouseMove = (event) => {
+
+		// effects will work when the screen size is over 768px
+		if (window.innerWidth < 768) return;
 
 		// take clientX and clientY from event mouse movement
 		const {clientX: mouseX, clientY: mouseY} = event;
-		// getBoundingClientRect() returns info about heroImage position
+		// getBoundingClientRect() is build in funciton which returns info about heroImage position
 		const heroImageRect = heroImage.getBoundingClientRect();
 
 		// calc hero image position
@@ -21,11 +29,20 @@ const trackMouseMovement = () => {
 		const deltaX = (mouseX - centerX) / heroImageRect.width;
 		const deltaY = (mouseY - centerY) / heroImageRect.height;
 
-        // movement overlay on width and height 
-		overlay.style.transform = `translate(calc(-50% + ${deltaX * 2}rem), ${
-			deltaY * 2
-		}rem)`;
-	});
+		if (isAnimating) return;
+		isAnimating = true;
+
+		// build in function which optimizes animation fluidity
+		requestAnimationFrame(() => {
+			overlay.style.transform = `translate(calc(-50% + ${deltaX * 2}rem), ${
+				deltaY * 2
+			}rem)`;
+			isAnimating = false;
+		});
+	};
+
+	// listener on mouse move with event
+	document.addEventListener('mousemove', handleMouseMove);
 };
 
 // Eksport funkcji
