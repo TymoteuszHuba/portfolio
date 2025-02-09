@@ -5,11 +5,12 @@ function setupHamburgerMenu() {
 	const navLinks = document.querySelector('.nav__links');
 	const navItems = document.querySelectorAll('.nav__links-link');
 	const main = document.querySelector('.main');
+	const header = document.querySelector('.header');
 	const navLogo = document.querySelector('.nav__logo');
 	const navContact = document.querySelector('.nav__contact-link');
 
 	// create a list of elements to blur
-	const blurElements = [main, navLogo, navContact];
+	const blurElements = [main, navLogo, header, navContact];
 
 	// function which toggle elements in menu
 	function toggleMenu() {

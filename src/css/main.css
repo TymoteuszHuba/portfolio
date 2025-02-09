@@ -17,8 +17,8 @@ body {
 .layout {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: auto 1fr auto;
-  grid-template-areas: "nav nav nav" "main main main" "footer footer footer";
+  grid-template-rows: auto auto 1fr auto;
+  grid-template-areas: "nav nav nav" "header header header" "main main main" "footer footer footer";
   align-items: center;
   justify-items: center;
   height: 100%;
@@ -244,26 +244,26 @@ body {
   pointer-events: none;
 }
 
-.hero {
+.header {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 40rem), 1fr));
   grid-template-rows: auto;
   align-items: center;
-  width: 100%;
+  width: 100dvw;
   padding: 2rem 0;
 }
-.hero__image {
+.header__image {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.hero__image-img {
+.header__image-img {
   width: clamp(50rem, 100%, 80rem);
   height: auto;
   z-index: 2;
 }
-.hero__text {
+.header__text {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -272,27 +272,34 @@ body {
   padding: 2rem;
   text-align: center;
 }
-.hero__text-greeting {
+.header__text-greeting {
   font-size: clamp(6rem, 3.2683rem + 3.122vw, 10rem);
   background: linear-gradient(180deg, #6cabab, #61e2c2);
   background-clip: text;
   letter-spacing: 0.3rem;
   -webkit-text-fill-color: transparent;
 }
-.hero__text-title {
+.header__text-title {
   font-size: clamp(3rem, 3.2683rem + 3.122vw, 5rem);
   font-weight: 200;
 }
-.hero__text--bold {
+.header__text--bold {
   font-weight: 700;
 }
+.header__text--special {
+  display: block;
+  padding-top: 1rem;
+  font-size: clamp(1.5rem, 1.3171rem + 0.5805vw, 2rem);
+  font-style: italic;
+  letter-spacing: 0.1rem;
+}
 @media (min-width: 800px) {
-  .hero__image {
+  .header__image {
     justify-content: flex-end;
   }
 }
 @media (min-width: 992px) {
-  .hero__image-overlay {
+  .header__image-overlay {
     display: block;
     position: absolute;
     top: 0;

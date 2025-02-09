@@ -1,8 +1,8 @@
 // function which moves a overlay element on hero image
 const trackMouseMovement = () => {
 	// get elements form website
-	const overlay = document.querySelector('.hero__image-overlay');
-	const heroImage = document.querySelector('.hero__image');
+	const overlay = document.querySelector('.header__image-overlay');
+	const heroImage = document.querySelector('.header__image');
 
 	// checiking if elements exist to reduce errors
 	if (!overlay || !heroImage) return;

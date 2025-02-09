@@ -4,7 +4,8 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<!-- tab icon -->
-		<link rel="icon" href="./images/logotype.png" type="image/png" />
+		<link rel="icon" href="favicon.png" type="image/png" />
+
 		<!-- fonts -->
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -51,29 +52,41 @@
 				</div>
 			</nav>
 
+			<!-- header.scss -->
+			<header id="header" class="header">
+				<div class="header__image">
+					<div class="header__image-overlay"></div>
+					<img class="header__image-img" alt="Tymoteusz Huba" />
+				</div>
+				<div class="header__text">
+					<p class="header__text-greeting header__text--bold">Hi!</p>
+					<h1 class="header__text-title">
+						My name is
+						<span class="header__text--bold">Tymoteusz</span>
+						<span class="header__text--special"
+							>I am Front-end Developer and Data Analyst</span
+						>
+					</h1>
+				</div>
+			</header>
+
 			<!-- main -->
 			<main class="main">
-				<!-- hero section -->
-				<section id="hero" class="hero">
-					<div class="hero__image">
-						<div class="hero__image-overlay"></div>
-						<img class="hero__image-img" alt="Tymoteusz Huba" />
-					</div>
-					<div class="hero__text">
-						<p class="hero__text-greeting hero__text--bold">Hi!</p>
-						<h1 class="hero__text-title">
-							 My name is
-							<span class="hero__text--bold">Tymoteusz</span>
-						</h1>
-						<p class="hero__text-description">
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae,
-							maiores!
-						</p>
-					</div>
-				</section>
+				
 
 				<!-- about section -->
-				<section id="about"></section>
+				<section id="about" class="about">
+					<h2 class="section__title">About</h2>
+					<p class="about__describtion">I am a technical and sales advisor with several years of
+						experience, which allows me to perfectly understand
+						customers' needs and effectively advise on the selection
+						of appropriate solutions. I have skills in effective
+						communication with foreign suppliers in English,
+						which allows for quick and efficient order fulfillment.
+						
+						In my free time, I develop my competences in the area of
+						programming, focusing on designing websites, as well as data analysis using the Python language, which includes appropriate libraries.</p>
+				</section>
 
 				<!-- skills section -->
 				<section id="skills"></section>

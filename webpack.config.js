@@ -72,9 +72,10 @@ module.exports = {
 		new HtmlWebpackPlugin({
 			template: './src/index.html', // Szablon HTML
 			filename: 'index.html', // Wygenerowany plik HTML w folderze dist
+			favicon: './src/images/favicon.png',
 		}),
 		// new FaviconsWebpackPlugin({
-		// 	logo: './src/images/logotype.png', // Ścieżka do Twojego pliku favicon
+		// 	logo: './src/images/favicon.png', // Ścieżka do Twojego pliku favicon
 		// }),
 	],
 };
