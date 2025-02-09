@@ -92,6 +92,7 @@
 	}
 
 	&__links {
+		position: fixed;
 		// grid-column: 1/ -1;
 		display: flex;
 		top: 0;
@@ -122,6 +123,7 @@
 
 		&--active {
 			transform: translateX(0);
+			height: 100dvh;
 		}
 	}
 
@@ -236,6 +238,12 @@
 			// grid-column: 10/13;
 			grid-area: contact;
 		}
+	}
+
+	&--effects {
+		background: rgba(255, 255, 255, 0.2);
+		backdrop-filter: blur(10px);
+		transition: background 0.3s ease-in-out;
 	}
 }
 

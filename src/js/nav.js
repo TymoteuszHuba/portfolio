@@ -17,6 +17,12 @@ function setupHamburgerMenu() {
 		hamburger.classList.toggle('nav__hamburger--active');
 		navLinks.classList.toggle('nav__links--active');
 		blurElements.forEach((element) => element?.classList.toggle('blur'));
+
+		if (navLinks.classList.contains('nav__links--active')) {
+			document.body.style.overflow = 'hidden';
+		} else {
+			document.body.style.overflow = '';
+		}
 	}
 
 	// function which remove active, mobile and blur classes
@@ -24,6 +30,7 @@ function setupHamburgerMenu() {
 		hamburger.classList.remove('nav__hamburger--active');
 		navLinks.classList.remove('nav__links--active');
 		blurElements.forEach((element) => element?.classList.remove('blur'));
+		document.body.style.overflow = '';
 	}
 
 	// listener on hamburger to active toggleMenu function
@@ -46,4 +53,21 @@ function setupHamburgerMenu() {
 	});
 }
 
-export {setupHamburgerMenu};
+// function which control nav sticky efect
+function navSticky() {
+	const nav = document.querySelector('.nav');
+	if (!nav) return; // Zabezpieczenie przed błędem, gdy element nie istnieje
+
+	const stickyPoint = nav.offsetTop;
+
+	function handleScroll() {
+		if (window.scrollY > stickyPoint) {
+			nav.classList.add('nav--effects');
+		} else {
+			nav.classList.remove('nav--effects');
+		}
+	}
+	window.addEventListener('scroll', handleScroll);
+}
+
+export {setupHamburgerMenu, navSticky};
