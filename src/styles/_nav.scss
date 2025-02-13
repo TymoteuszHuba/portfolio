@@ -29,7 +29,7 @@
 	&__container {
 		display: grid;
 		grid-template-areas: 'hamburger logo contact';
-		grid-template-columns: auto 1fr auto;
+		grid-template-columns: 1fr 1fr 1fr;
 		max-width: 1400px;
 		align-items: center;
 		margin: 0 auto;
@@ -175,6 +175,7 @@
 		&:before {
 			left: 0;
 			width: 15%;
+			transform: skew(-12deg);
 		}
 
 		@include link-effect;
@@ -183,7 +184,7 @@
 	@media (min-width: 992px) {
 		&__container {
 			grid-template-areas: 'links logo contact';
-			grid-template-columns: 4fr 4fr 4fr;
+			// grid-template-columns: 2fr 2fr 2fr;
 		}
 
 		&__hamburger {
@@ -222,6 +223,7 @@
 				&:before {
 					left: 15%;
 					width: 0%;
+					transform: skew(-12deg);
 				}
 
 				@include link-effect;

@@ -2,25 +2,58 @@
 @import 'colors';
 @import 'nav';
 @import 'header';
+@import 'about';
+@import 'skills';
 
 // main content settings
 .main {
 	grid-area: main;
 	width: 100dvw;
-	max-width: 1200px;
+	max-width: 1600px;
 	height: 100%;
 	padding: 2rem;
-	// overflow: hidden;
+	overflow: hidden;
 }
 
 // the same style effects for elements inside of main
 .section {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	// gap: 10rem;
+	height: 100vh;
+
 	&__title {
-		width: 100%;
+		position: relative;
+		padding: 2rem;
+		align-self: flex-start;
+		// width: 80%;
 		font-size: 10rem;
 		color: var(--clr-gray);
-		opacity: 0.5;
+		opacity: 0.4;
 		text-transform: uppercase;
-		// text-align: center;
 	}
+
+	&__title-deco {
+		position: absolute;
+		left: -2rem;
+		bottom: -2rem;
+		display: block;
+		width: 100dvw; // Pełna szerokość okna
+		height: auto; // Zachowanie proporcji SVG
+		z-index: -1;
+	}
+
+	&__title-line {
+		stroke-width: 2px;
+		stroke: var(--clr-main);
+		stroke-dasharray: 300;
+		stroke-dashoffset: 300;
+		transition: stroke-dashoffset 0.9s ease-out;
+	}
+
+	// &:hover &__title-line {
+	// 	stroke-dashoffset: 0;
+	// }
 }

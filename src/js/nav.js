@@ -56,9 +56,13 @@ function setupHamburgerMenu() {
 // function which control nav sticky efect
 function navSticky() {
 	const nav = document.querySelector('.nav');
-	if (!nav) return; // Zabezpieczenie przed błędem, gdy element nie istnieje
+	if (!nav) return;
 
-	const stickyPoint = nav.offsetTop;
+	let stickyPoint = nav.offsetTop - 20;
+
+	function updateStickyPoint() {
+		stickyPoint = nav.offsetTop - 20;
+	}
 
 	function handleScroll() {
 		if (window.scrollY > stickyPoint) {
@@ -67,7 +71,10 @@ function navSticky() {
 			nav.classList.remove('nav--effects');
 		}
 	}
+
+	window.addEventListener('resize', updateStickyPoint);
 	window.addEventListener('scroll', handleScroll);
 }
+
 
 export {setupHamburgerMenu, navSticky};
