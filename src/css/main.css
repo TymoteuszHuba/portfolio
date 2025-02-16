@@ -224,7 +224,7 @@ body {
   background: var(--clr-main);
   transition: width 0.2s ease-in-out;
 }
-.nav__contact-link:hover::before {
+.nav__contact-link:hover::before, .nav__contact-link.active::before {
   width: 100%;
 }
 @media (min-width: 992px) {
@@ -274,7 +274,7 @@ body {
     background: var(--clr-main);
     transition: width 0.2s ease-in-out;
   }
-  .nav__links-link:hover::before {
+  .nav__links-link:hover::before, .nav__links-link.active::before {
     width: 100%;
   }
   .nav__logo {
