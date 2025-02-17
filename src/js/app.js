@@ -3,6 +3,7 @@ import {initImages} from '../js/setImages.js';
 import {setupHamburgerMenu, navSticky, setupNavHighlight} from './nav.js';
 import {trackMouseMovement} from './header.js';
 import {skillsScrollEffects, titleScrollEffects} from './skills.js';
+import {initProjectsEffects} from './projects.js';
 
 document.addEventListener('DOMContentLoaded', () => {
 	initImages();
@@ -12,4 +13,5 @@ document.addEventListener('DOMContentLoaded', () => {
 	trackMouseMovement();
 	skillsScrollEffects();
 	titleScrollEffects();
+	initProjectsEffects();
 });

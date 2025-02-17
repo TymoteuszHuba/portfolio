@@ -4,6 +4,7 @@
 @import 'header';
 @import 'about';
 @import 'skills';
+@import 'projects';
 
 // main content settings
 .main {
@@ -40,8 +41,8 @@
 		left: -2rem;
 		bottom: -2rem;
 		display: block;
-		width: 100dvw; // Pełna szerokość okna
-		height: auto; // Zachowanie proporcji SVG
+		width: 100dvw;
+		height: auto;
 		z-index: -1;
 	}
 

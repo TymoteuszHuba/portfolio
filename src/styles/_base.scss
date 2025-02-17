@@ -6,12 +6,18 @@
 
 html {
 	font-size: 62.5%;
-    scroll-behavior: smooth;
+	scroll-behavior: smooth;
 }
 
 body {
 	font-family: 'Montserrat', sans-serif;
-	background-color: #f4f4f4;
+	// background-color: #f4f4f4;
+	background: radial-gradient(
+		circle at center bottom,
+		var(--clr-main) 0%,
+		#ffffff 25%
+	);
+
 	overflow-x: hidden;
 }
 
