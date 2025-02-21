@@ -1,3 +1,5 @@
+import {gsap} from 'gsap';
+
 // get elements from website
 const hamburger = document.querySelector('.nav__hamburger');
 const nav = document.querySelector('.nav');
@@ -7,6 +9,7 @@ const main = document.querySelector('.main');
 const header = document.querySelector('.header');
 const navLogo = document.querySelector('.nav__logo');
 const navContact = document.querySelector('.nav__contact-link');
+const highlight = navContact.querySelector('.nav__contact-link--highlight');
 const sections = document.querySelectorAll('section');
 
 // create a list of elements to blur
@@ -54,7 +57,7 @@ function navSticky() {
 	if (!nav) return;
 	let stickyPoint = nav.offsetTop - 20;
 
-	// function which toggle nav effects 
+	// function which toggle nav effects
 	const updateSticky = () => {
 		nav.classList.toggle('nav--effects', window.scrollY > stickyPoint);
 	};
@@ -66,11 +69,10 @@ function navSticky() {
 
 // function which control effects on nav link elements
 function setupNavHighlight() {
-
 	const highlightNav = () => {
 		const scrollY = window.scrollY;
 		const windowHeight = window.innerHeight;
-		const headerBottom = header.offsetHeight; 
+		const headerBottom = header.offsetHeight;
 
 		// remove all effects when user is in header
 		if (scrollY < headerBottom) {
@@ -98,10 +100,10 @@ function setupNavHighlight() {
 				});
 			}
 		});
-	}
+	};
 
 	// setting highlight for nav elements just for scrrens above 991 px
-	// also control the size of screen 
+	// also control the size of screen
 	const handleResize = () => {
 		if (window.innerWidth > 991) {
 			window.addEventListener('scroll', highlightNav);
@@ -109,11 +111,49 @@ function setupNavHighlight() {
 			window.removeEventListener('scroll', highlightNav);
 			navItems.forEach((link) => link.classList.remove('active'));
 		}
-	}
+	};
 
-	// make sure that change screen 
+	// make sure that change screen
 	window.addEventListener('resize', handleResize);
 	handleResize();
 }
 
-export {setupHamburgerMenu, navSticky, setupNavHighlight};
+// contact highlight
+function initContactHighlight() {
+	// checking if elements exist
+	if (!navContact || !highlight) return;
+
+	// listener on mouse hover on contact link
+	navContact.addEventListener('mouseenter', (e) => {
+		// taking size and position of element based on browser view
+		const rect = navContact.getBoundingClientRect();
+		// calc cursor position
+		const xPercent = ((e.clientX - rect.left) / rect.width) * 100;
+		const yPercent = ((e.clientY - rect.top) / rect.height) * 100;
+
+		// Setting the initial animation state
+		gsap.set(highlight, {clipPath: `circle(10% at ${xPercent}% ${yPercent}%)`});
+		// animate the expansion of the circle - 150%
+		gsap.to(highlight, {
+			clipPath: `circle(150% at ${xPercent}% ${yPercent}%)`,
+			duration: 0.5,
+			// ease: causes the animation to slow down towards the end, giving a smooth finish to the movement
+			ease: 'power2.out',
+		});
+	});
+
+	// listening for an event when the cursor leaves the element area
+	navContact.addEventListener('mouseleave', (e) => {
+		const rect = navContact.getBoundingClientRect();
+		const xPercent = ((e.clientX - rect.left) / rect.width) * 100;
+		const yPercent = ((e.clientY - rect.top) / rect.height) * 100;
+		// animate the effect reversal - the circle narrows to zero
+		gsap.to(highlight, {
+			clipPath: `circle(0% at ${xPercent}% ${yPercent}%)`,
+			duration: 0.5,
+			ease: 'power2.out',
+		});
+	});
+}
+
+export {setupHamburgerMenu, navSticky, setupNavHighlight, initContactHighlight};

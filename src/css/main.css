@@ -36,6 +36,7 @@ body {
   --clr-black: #000;
   --clr-shadow: rgba(0, 0, 0, 0.9);
   --clr-main: #6cabab;
+  --clr-main-light: #61e2c2;
 }
 
 /* Kolory ikon */
@@ -191,41 +192,39 @@ body {
 }
 .nav__contact-link {
   grid-area: contact;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
   height: 4rem;
   justify-self: flex-end;
+  padding: 1rem;
   font-size: clamp(1.5rem, 0.8rem + 0.7vw, 2rem);
-  font-weight: 500;
+  font-weight: 400;
   letter-spacing: 0.3rem;
   text-decoration: none;
   color: var(--clr-black);
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, border 0.2s ease-in-out;
+  border: 1px solid var(--clr-black);
+  border-radius: 2rem;
+  overflow: hidden;
 }
-.nav__contact-link span {
-  position: relative;
+.nav__contact-link--highlight {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--clr-main-light);
+  z-index: -1;
+  clip-path: circle(0% at 50% 50%);
 }
 .nav__contact-link:active {
   transform: scale(0.96);
 }
-.nav__contact-link:before {
-  left: 0;
-  width: 15%;
-  transform: skew(-12deg);
-}
-.nav__contact-link:before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  display: block;
-  height: 1.2rem;
-  background: var(--clr-main);
-  transition: width 0.2s ease-in-out;
-}
-.nav__contact-link:hover::before, .nav__contact-link.active::before {
-  width: 100%;
+.nav__contact-link:hover {
+  border: 1px solid var(--clr-main-light);
 }
 @media (min-width: 992px) {
   .nav__container {
@@ -251,6 +250,7 @@ body {
     font-size: clamp(1.2rem, 1.2rem + 0.4vw, 2rem);
     letter-spacing: 0.4rem;
     text-decoration: none;
+    font-weight: 400;
     color: var(--clr-black);
     transition: color 0.2s ease-in-out, text-shadow 0.2s ease-in-out;
   }
@@ -402,6 +402,7 @@ body {
   gap: 40px;
   padding: 1rem 0;
   width: max-content; /* Zapewnia szerokość dostosowaną do liczby ikon */
+  will-change: transform;
 }
 .skills__item {
   display: flex;
@@ -421,7 +422,7 @@ body {
 
 .projects__cards {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
 }
 

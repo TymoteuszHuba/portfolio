@@ -11,6 +11,7 @@ module.exports = {
 		path: path.resolve(__dirname, 'dist'), // Folder docelowy
 		// clean dist folder before each build
 		clean: true,
+		publicPath: '/portfolio/',
 	},
 	// devtool for source map to control the errors
 	devtool: 'source-map',
