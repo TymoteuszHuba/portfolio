@@ -6,7 +6,7 @@
 		top: 50%;
 		display: block;
 		height: 1.2rem;
-		background: var(--clr-main);
+		background: var(--clr-main-light);
 		transition: width 0.2s ease-in-out;
 	}
 
@@ -158,6 +158,7 @@
 		justify-content: center;
 		position: relative;
 		height: 4rem;
+		width: 10rem;
 		justify-self: flex-end;
 		padding: 1rem;
 		font-size: clamp(1.5rem, 0.8rem + 0.7vw, 2rem);
@@ -180,6 +181,21 @@
 			z-index: -1;
 			// Początkowo niewidoczne – clip-path ustawia małe koło
 			clip-path: circle(0% at 50% 50%);
+		}
+
+		&--arrow {
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translateX(-50%) translateY(-50%);
+			opacity: 0;
+			z-index: 1;
+			font-weight: 300;
+			font-size: 1.5rem; // dostosuj rozmiar strzałki
+		}
+
+		.fa-arrow-right {
+			transform: scaleX(1.5);
 		}
 
 		&:active {

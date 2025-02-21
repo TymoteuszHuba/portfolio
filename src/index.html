@@ -54,7 +54,8 @@
 
 					<!-- nav contact link -->
 					<a href="#contact" class="nav__contact-link">
-						Contact
+						<span class="nav__contact-link--text">Contact</span>
+						<span class="nav__contact-link--arrow"><i class="fa-solid fa-arrow-right"></i></span>
 						<span class="nav__contact-link--highlight"></span>
 					</a>
 				</div>
@@ -183,145 +184,303 @@
 				<!-- projects section -->
 				<section id="projects" class="section projects">
 					<h2 class="section__title">
-					  Projects
-					  <svg
-						class="section__title-deco"
-						viewBox="0 0 100 10"
-						preserveAspectRatio="xMidYMid slice"
-					  >
-						<path
-						  class="section__title-line"
-						  d="M0 5 Q 80 0, 50 5 T200 5"
-						  stroke-width="2"
-						  fill="none"
-						/>
-					  </svg>
+						Projects
+						<svg
+							class="section__title-deco"
+							viewBox="0 0 100 10"
+							preserveAspectRatio="xMidYMid slice"
+						>
+							<path
+								class="section__title-line"
+								d="M0 5 Q 80 0, 50 5 T200 5"
+								stroke-width="2"
+								fill="none"
+							/>
+						</svg>
 					</h2>
-				  
+
 					<div class="projects__cards">
 						<div class="projects__cards-card">
-						  <div class="projects__cards-card-image-wrapper">
-							<img src="project1.jpg" alt="Project 1" class="projects__cards-card-image" />
-						  </div>
-						  <h3 class="projects__cards-card-title">Project 1</h3>
-						  <p class="projects__cards-card-description">Short description of the project.</p>
-						  <div class="projects__cards-card-links">
-							<a href="https://github.com/user/project1" target="_blank" rel="noopener noreferrer">GitHub</a>
-							<a href="https://yourgithubpage1.com" target="_blank" rel="noopener noreferrer">Live Demo</a>
-						  </div>
+							<div class="projects__cards-card-image-wrapper">
+								<img
+									src="project1.jpg"
+									alt="Project 1"
+									class="projects__cards-card-image"
+								/>
+							</div>
+							<h3 class="projects__cards-card-title">Project 1</h3>
+							<p class="projects__cards-card-description">
+								Short description of the project.
+							</p>
+							<div class="projects__cards-card-links">
+								<a
+									href="https://github.com/user/project1"
+									target="_blank"
+									rel="noopener noreferrer"
+									>GitHub</a
+								>
+								<a
+									href="https://yourgithubpage1.com"
+									target="_blank"
+									rel="noopener noreferrer"
+									>Live Demo</a
+								>
+							</div>
 						</div>
-					
-						<div class="projects__cards-card">
-						  <div class="projects__cards-card-image-wrapper">
-							<img src="project2.jpg" alt="Project 2" class="projects__cards-card-image" />
-						  </div>
-						  <h3 class="projects__cards-card-title">Project 2</h3>
-						  <p class="projects__cards-card-description">Short description of the project.</p>
-						  <div class="projects__cards-card-links">
-							<a href="https://github.com/user/project2" target="_blank" rel="noopener noreferrer">GitHub</a>
-							<a href="https://yourgithubpage2.com" target="_blank" rel="noopener noreferrer">Live Demo</a>
-						  </div>
-						</div>
-					
-						<div class="projects__cards-card">
-						  <div class="projects__cards-card-image-wrapper">
-							<img src="project3.jpg" alt="Project 3" class="projects__cards-card-image" />
-						  </div>
-						  <h3 class="projects__cards-card-title">Project 3</h3>
-						  <p class="projects__cards-card-description">Short description of the project.</p>
-						  <div class="projects__cards-card-links">
-							<a href="https://github.com/user/project3" target="_blank" rel="noopener noreferrer">GitHub</a>
-							<a href="https://yourgithubpage3.com" target="_blank" rel="noopener noreferrer">Live Demo</a>
-						  </div>
-						</div>
-					
-						<div class="projects__cards-card">
-						  <div class="projects__cards-card-image-wrapper">
-							<img src="project4.jpg" alt="Project 4" class="projects__cards-card-image" />
-						  </div>
-						  <h3 class="projects__cards-card-title">Project 4</h3>
-						  <p class="projects__cards-card-description">Short description of the project.</p>
-						  <div class="projects__cards-card-links">
-							<a href="https://github.com/user/project4" target="_blank" rel="noopener noreferrer">GitHub</a>
-							<a href="https://yourgithubpage4.com" target="_blank" rel="noopener noreferrer">Live Demo</a>
-						  </div>
-						</div>
-						
-						<div class="projects__cards-card">
-						  <div class="projects__cards-card-image-wrapper">
-							<img src="project5.jpg" alt="Project 5" class="projects__cards-card-image" />
-						  </div>
-						  <h3 class="projects__cards-card-title">Project 5</h3>
-						  <p class="projects__cards-card-description">Short description of the project.</p>
-						  <div class="projects__cards-card-links">
-							<a href="https://github.com/user/project5" target="_blank" rel="noopener noreferrer">GitHub</a>
-							<a href="https://yourgithubpage5.com" target="_blank" rel="noopener noreferrer">Live Demo</a>
-						  </div>
-						</div>
-						
+
 						<div class="projects__cards-card">
 							<div class="projects__cards-card-image-wrapper">
-							  <img src="project5.jpg" alt="Project 5" class="projects__cards-card-image" />
+								<img
+									src="project2.jpg"
+									alt="Project 2"
+									class="projects__cards-card-image"
+								/>
+							</div>
+							<h3 class="projects__cards-card-title">Project 2</h3>
+							<p class="projects__cards-card-description">
+								Short description of the project.
+							</p>
+							<div class="projects__cards-card-links">
+								<a
+									href="https://github.com/user/project2"
+									target="_blank"
+									rel="noopener noreferrer"
+									>GitHub</a
+								>
+								<a
+									href="https://yourgithubpage2.com"
+									target="_blank"
+									rel="noopener noreferrer"
+									>Live Demo</a
+								>
+							</div>
+						</div>
+
+						<div class="projects__cards-card">
+							<div class="projects__cards-card-image-wrapper">
+								<img
+									src="project3.jpg"
+									alt="Project 3"
+									class="projects__cards-card-image"
+								/>
+							</div>
+							<h3 class="projects__cards-card-title">Project 3</h3>
+							<p class="projects__cards-card-description">
+								Short description of the project.
+							</p>
+							<div class="projects__cards-card-links">
+								<a
+									href="https://github.com/user/project3"
+									target="_blank"
+									rel="noopener noreferrer"
+									>GitHub</a
+								>
+								<a
+									href="https://yourgithubpage3.com"
+									target="_blank"
+									rel="noopener noreferrer"
+									>Live Demo</a
+								>
+							</div>
+						</div>
+
+						<div class="projects__cards-card">
+							<div class="projects__cards-card-image-wrapper">
+								<img
+									src="project4.jpg"
+									alt="Project 4"
+									class="projects__cards-card-image"
+								/>
+							</div>
+							<h3 class="projects__cards-card-title">Project 4</h3>
+							<p class="projects__cards-card-description">
+								Short description of the project.
+							</p>
+							<div class="projects__cards-card-links">
+								<a
+									href="https://github.com/user/project4"
+									target="_blank"
+									rel="noopener noreferrer"
+									>GitHub</a
+								>
+								<a
+									href="https://yourgithubpage4.com"
+									target="_blank"
+									rel="noopener noreferrer"
+									>Live Demo</a
+								>
+							</div>
+						</div>
+
+						<div class="projects__cards-card">
+							<div class="projects__cards-card-image-wrapper">
+								<img
+									src="project5.jpg"
+									alt="Project 5"
+									class="projects__cards-card-image"
+								/>
+							</div>
+							<h3 class="projects__cards-card-title">Project 5</h3>
+							<p class="projects__cards-card-description">
+								Short description of the project.
+							</p>
+							<div class="projects__cards-card-links">
+								<a
+									href="https://github.com/user/project5"
+									target="_blank"
+									rel="noopener noreferrer"
+									>GitHub</a
+								>
+								<a
+									href="https://yourgithubpage5.com"
+									target="_blank"
+									rel="noopener noreferrer"
+									>Live Demo</a
+								>
+							</div>
+						</div>
+
+						<div class="projects__cards-card">
+							<div class="projects__cards-card-image-wrapper">
+								<img
+									src="project5.jpg"
+									alt="Project 5"
+									class="projects__cards-card-image"
+								/>
 							</div>
 							<h3 class="projects__cards-card-title">Project 6</h3>
-							<p class="projects__cards-card-description">Short description of the project.</p>
+							<p class="projects__cards-card-description">
+								Short description of the project.
+							</p>
 							<div class="projects__cards-card-links">
-							  <a href="https://github.com/user/project5" target="_blank" rel="noopener noreferrer">GitHub</a>
-							  <a href="https://yourgithubpage5.com" target="_blank" rel="noopener noreferrer">Live Demo</a>
+								<a
+									href="https://github.com/user/project5"
+									target="_blank"
+									rel="noopener noreferrer"
+									>GitHub</a
+								>
+								<a
+									href="https://yourgithubpage5.com"
+									target="_blank"
+									rel="noopener noreferrer"
+									>Live Demo</a
+								>
 							</div>
-						  </div>
+						</div>
 
-						  <div class="projects__cards-card">
+						<div class="projects__cards-card">
 							<div class="projects__cards-card-image-wrapper">
-							  <img src="project5.jpg" alt="Project 5" class="projects__cards-card-image" />
+								<img
+									src="project5.jpg"
+									alt="Project 5"
+									class="projects__cards-card-image"
+								/>
 							</div>
 							<h3 class="projects__cards-card-title">Project 7</h3>
-							<p class="projects__cards-card-description">Short description of the project.</p>
+							<p class="projects__cards-card-description">
+								Short description of the project.
+							</p>
 							<div class="projects__cards-card-links">
-							  <a href="https://github.com/user/project5" target="_blank" rel="noopener noreferrer">GitHub</a>
-							  <a href="https://yourgithubpage5.com" target="_blank" rel="noopener noreferrer">Live Demo</a>
+								<a
+									href="https://github.com/user/project5"
+									target="_blank"
+									rel="noopener noreferrer"
+									>GitHub</a
+								>
+								<a
+									href="https://yourgithubpage5.com"
+									target="_blank"
+									rel="noopener noreferrer"
+									>Live Demo</a
+								>
 							</div>
-						  </div>
+						</div>
 
-						  <div class="projects__cards-card">
+						<div class="projects__cards-card">
 							<div class="projects__cards-card-image-wrapper">
-							  <img src="project5.jpg" alt="Project 5" class="projects__cards-card-image" />
+								<img
+									src="project5.jpg"
+									alt="Project 5"
+									class="projects__cards-card-image"
+								/>
 							</div>
 							<h3 class="projects__cards-card-title">Project 8</h3>
-							<p class="projects__cards-card-description">Short description of the project.</p>
+							<p class="projects__cards-card-description">
+								Short description of the project.
+							</p>
 							<div class="projects__cards-card-links">
-							  <a href="https://github.com/user/project5" target="_blank" rel="noopener noreferrer">GitHub</a>
-							  <a href="https://yourgithubpage5.com" target="_blank" rel="noopener noreferrer">Live Demo</a>
+								<a
+									href="https://github.com/user/project5"
+									target="_blank"
+									rel="noopener noreferrer"
+									>GitHub</a
+								>
+								<a
+									href="https://yourgithubpage5.com"
+									target="_blank"
+									rel="noopener noreferrer"
+									>Live Demo</a
+								>
 							</div>
-						  </div>
+						</div>
 
-						  <div class="projects__cards-card">
+						<div class="projects__cards-card">
 							<div class="projects__cards-card-image-wrapper">
-							  <img src="project5.jpg" alt="Project 5" class="projects__cards-card-image" />
+								<img
+									src="project5.jpg"
+									alt="Project 5"
+									class="projects__cards-card-image"
+								/>
 							</div>
 							<h3 class="projects__cards-card-title">Project 9</h3>
-							<p class="projects__cards-card-description">Short description of the project.</p>
+							<p class="projects__cards-card-description">
+								Short description of the project.
+							</p>
 							<div class="projects__cards-card-links">
-							  <a href="https://github.com/user/project5" target="_blank" rel="noopener noreferrer">GitHub</a>
-							  <a href="https://yourgithubpage5.com" target="_blank" rel="noopener noreferrer">Live Demo</a>
+								<a
+									href="https://github.com/user/project5"
+									target="_blank"
+									rel="noopener noreferrer"
+									>GitHub</a
+								>
+								<a
+									href="https://yourgithubpage5.com"
+									target="_blank"
+									rel="noopener noreferrer"
+									>Live Demo</a
+								>
 							</div>
-						  </div>
+						</div>
 
-						  <div class="projects__cards-card">
+						<div class="projects__cards-card">
 							<div class="projects__cards-card-image-wrapper">
-							  <img src="project5.jpg" alt="Project 5" class="projects__cards-card-image" />
+								<img
+									src="project5.jpg"
+									alt="Project 5"
+									class="projects__cards-card-image"
+								/>
 							</div>
 							<h3 class="projects__cards-card-title">Project 10</h3>
-							<p class="projects__cards-card-description">Short description of the project.</p>
+							<p class="projects__cards-card-description">
+								Short description of the project.
+							</p>
 							<div class="projects__cards-card-links">
-							  <a href="https://github.com/user/project5" target="_blank" rel="noopener noreferrer">GitHub</a>
-							  <a href="https://yourgithubpage5.com" target="_blank" rel="noopener noreferrer">Live Demo</a>
+								<a
+									href="https://github.com/user/project5"
+									target="_blank"
+									rel="noopener noreferrer"
+									>GitHub</a
+								>
+								<a
+									href="https://yourgithubpage5.com"
+									target="_blank"
+									rel="noopener noreferrer"
+									>Live Demo</a
+								>
 							</div>
-						  </div>
-						
-					  </div>
-				  </section>
-				  
+						</div>
+					</div>
+				</section>
 
 				<!-- contact section -->
 				<section id="contact"></section>

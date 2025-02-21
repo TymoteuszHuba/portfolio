@@ -1,4 +1,6 @@
 import {gsap} from 'gsap';
+import {ScrollToPlugin} from 'gsap/ScrollToPlugin';
+gsap.registerPlugin(ScrollToPlugin);
 
 // get elements from website
 const hamburger = document.querySelector('.nav__hamburger');
@@ -9,6 +11,8 @@ const main = document.querySelector('.main');
 const header = document.querySelector('.header');
 const navLogo = document.querySelector('.nav__logo');
 const navContact = document.querySelector('.nav__contact-link');
+const textEl = navContact.querySelector('.nav__contact-link--text');
+const arrowEl = navContact.querySelector('.nav__contact-link--arrow');
 const highlight = navContact.querySelector('.nav__contact-link--highlight');
 const sections = document.querySelectorAll('section');
 
@@ -118,36 +122,36 @@ function setupNavHighlight() {
 	handleResize();
 }
 
+// function which calc cursor position
+function getCursorPercent(e, element) {
+	const rect = element.getBoundingClientRect();
+	const xPercent = ((e.clientX - rect.left) / rect.width) * 100;
+	const yPercent = ((e.clientY - rect.top) / rect.height) * 100;
+	return {xPercent, yPercent};
+}
+
 // contact highlight
 function initContactHighlight() {
-	// checking if elements exist
+	// controls if elements exist
 	if (!navContact || !highlight) return;
 
-	// listener on mouse hover on contact link
+	// control mouseenter event
 	navContact.addEventListener('mouseenter', (e) => {
-		// taking size and position of element based on browser view
-		const rect = navContact.getBoundingClientRect();
-		// calc cursor position
-		const xPercent = ((e.clientX - rect.left) / rect.width) * 100;
-		const yPercent = ((e.clientY - rect.top) / rect.height) * 100;
-
-		// Setting the initial animation state
+		// destructuring an object to simultaneously assign two function return values
+		const {xPercent, yPercent} = getCursorPercent(e, navContact);
+		// sets starting position for gsap highlight and clip-path
 		gsap.set(highlight, {clipPath: `circle(10% at ${xPercent}% ${yPercent}%)`});
-		// animate the expansion of the circle - 150%
+		// sets ending position for gsap
 		gsap.to(highlight, {
 			clipPath: `circle(150% at ${xPercent}% ${yPercent}%)`,
 			duration: 0.5,
-			// ease: causes the animation to slow down towards the end, giving a smooth finish to the movement
 			ease: 'power2.out',
 		});
 	});
 
-	// listening for an event when the cursor leaves the element area
+	// control maouseleave event
 	navContact.addEventListener('mouseleave', (e) => {
-		const rect = navContact.getBoundingClientRect();
-		const xPercent = ((e.clientX - rect.left) / rect.width) * 100;
-		const yPercent = ((e.clientY - rect.top) / rect.height) * 100;
-		// animate the effect reversal - the circle narrows to zero
+		const {xPercent, yPercent} = getCursorPercent(e, navContact);
 		gsap.to(highlight, {
 			clipPath: `circle(0% at ${xPercent}% ${yPercent}%)`,
 			duration: 0.5,
@@ -156,4 +160,70 @@ function initContactHighlight() {
 	});
 }
 
-export {setupHamburgerMenu, navSticky, setupNavHighlight, initContactHighlight};
+// function which controls click on contact link
+function initContactClick() {
+	// controls if elements exist
+	if (!highlight || !textEl || !arrowEl || !navContact) return;
+
+	// control click event
+	navContact.addEventListener('click', (e) => {
+		// hold the scroll down
+		e.preventDefault();
+
+		const {xPercent, yPercent} = getCursorPercent(e, navContact);
+
+		// creates new timeline in gsap which controls the animation settings
+		const tl = gsap.timeline({
+			// onComplete runs when all animations will end
+			onComplete: () => {
+				// scroll the page into contact section
+				gsap.to(window, {
+					duration: 1,
+					scrollTo: {y: navContact.getAttribute('href'), offsetY: 0},
+					onComplete: () => {
+						// Reset contact link parameters to previous styles
+						gsap.set(highlight, {clipPath: `circle(0% at 50% 50%)`});
+						gsap.set(textEl, {x: 0, opacity: 1});
+						gsap.set(arrowEl, {x: '-100%', opacity: 0});
+					},
+				});
+			},
+		});
+
+		// Animation for fill effect in contact link (clip-path)
+		tl.set(highlight, {clipPath: `circle(0% at ${xPercent}% ${yPercent}%)`});
+		tl.to(highlight, {
+			clipPath: `circle(150% at ${xPercent}% ${yPercent}%)`,
+			duration: 0.5,
+			ease: 'power2.out',
+		});
+
+		// Animation of arrow in contact link
+		tl.to(
+			arrowEl,
+			{x: '0%', opacity: 1, duration: 0.3, ease: 'power2.out'},
+			'-=0.3'
+		);
+		tl.to(
+			arrowEl,
+			{x: '100%', opacity: 0, duration: 0.3, ease: 'power2.out'},
+			'-=0.1'
+		);
+
+		// animation of text after arrow
+		tl.fromTo(
+			textEl,
+			{x: '-100%', opacity: 0},
+			{x: '0%', opacity: 1, duration: 0.3, ease: 'power2.out'},
+			'-=0.2'
+		);
+	});
+}
+
+export {
+	setupHamburgerMenu,
+	navSticky,
+	setupNavHighlight,
+	initContactHighlight,
+	initContactClick,
+};

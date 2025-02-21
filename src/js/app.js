@@ -5,6 +5,7 @@ import {
 	navSticky,
 	setupNavHighlight,
 	initContactHighlight,
+	initContactClick,
 } from './nav.js';
 import {trackMouseMovement} from './header.js';
 import {skillsScrollEffects, titleScrollEffects} from './skills.js';
@@ -16,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	navSticky();
 	setupNavHighlight();
 	initContactHighlight();
+	initContactClick();
 	trackMouseMovement();
 	skillsScrollEffects();
 	titleScrollEffects();
