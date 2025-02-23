@@ -296,6 +296,7 @@ body {
   }
   .nav__contact-link {
     grid-area: contact;
+    width: 12rem;
   }
 }
 .nav--effects {

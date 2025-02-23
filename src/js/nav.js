@@ -218,6 +218,7 @@ function initContactClick() {
 			'-=0.2'
 		);
 	});
+	
 }
 
 export {

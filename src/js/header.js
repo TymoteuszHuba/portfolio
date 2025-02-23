@@ -1,43 +1,38 @@
-// function which moves a overlay element on hero image
+import gsap from "gsap";
+
+// function which moves an overlay element on the hero image
 const trackMouseMovement = () => {
-	// get elements form website
+	// get elements from the website
 	const overlay = document.querySelector('.header__image-overlay');
 	const heroImage = document.querySelector('.header__image');
 
-	// checiking if elements exist to reduce errors
+	// checking if elements exist to reduce errors
 	if (!overlay || !heroImage) return;
 
-    // settign the flag
-	let isAnimating = false;
-
-	// function contrnol mouse movement
+	// function controlling mouse movement
 	const handleMouseMove = (event) => {
-
 		// effects will work when the screen size is over 768px
 		if (window.innerWidth < 768) return;
 
 		// take clientX and clientY from event mouse movement
-		const {clientX: mouseX, clientY: mouseY} = event;
-		// getBoundingClientRect() is build in funciton which returns info about heroImage position
+		const { clientX: mouseX, clientY: mouseY } = event;
+		// getBoundingClientRect() is a built-in function that returns info about heroImage position
 		const heroImageRect = heroImage.getBoundingClientRect();
 
-		// calc hero image position
+		// calculate hero image position
 		const centerX = heroImageRect.left + heroImageRect.width / 2;
 		const centerY = heroImageRect.top + heroImageRect.height / 2;
 
-		// calc difference between mouse and image center
+		// calculate difference between mouse and image center
 		const deltaX = (mouseX - centerX) / heroImageRect.width;
 		const deltaY = (mouseY - centerY) / heroImageRect.height;
 
-		if (isAnimating) return;
-		isAnimating = true;
-
-		// build in function which optimizes animation fluidity
-		requestAnimationFrame(() => {
-			overlay.style.transform = `translate(calc(-50% + ${deltaX * 2}rem), ${
-				deltaY * 2
-			}rem)`;
-			isAnimating = false;
+		// animate overlay movement using GSAP
+		gsap.to(overlay, {
+			x: `${deltaX * 2}rem`,
+			y: `${deltaY * 2}rem`,
+			duration: 0.3,
+			ease: "power2.out"
 		});
 	};
 
