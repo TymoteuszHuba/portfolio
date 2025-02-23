@@ -1,10 +1,9 @@
 // main section of common funtions which use in each section
 
 // GSAP animations for each section
-import gsap from 'gsap';
-import ScrollTrigger from 'gsap/ScrollTrigger';
-
-gsap.registerPlugin(ScrollTrigger);
+import {gsap} from 'gsap';
+import {ScrollTrigger} from 'gsap/ScrollTrigger';
+import {ScrollToPlugin} from 'gsap/ScrollToPlugin';
 
 
 // function responsible for scrolling title for each section
@@ -30,5 +29,4 @@ const titleScrollEffects = () => {
 	});
 };
 
-
-export {gsap, ScrollTrigger, titleScrollEffects};
+export {gsap, ScrollTrigger, ScrollToPlugin, titleScrollEffects};

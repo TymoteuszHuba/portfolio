@@ -501,7 +501,6 @@ body {
 .main {
   grid-area: main;
   width: 100dvw;
-  max-width: 1600px;
   height: 100%;
   padding: 2rem;
   overflow: hidden;

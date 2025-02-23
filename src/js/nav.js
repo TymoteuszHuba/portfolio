@@ -1,4 +1,5 @@
-import {gsap} from './main.js';
+import {gsap, ScrollToPlugin, ScrollTrigger} from './main.js';
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 // get elements from website
 const hamburger = document.querySelector('.nav__hamburger');
