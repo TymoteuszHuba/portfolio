@@ -1,6 +1,4 @@
-import {gsap} from 'gsap';
-import {ScrollToPlugin} from 'gsap/ScrollToPlugin';
-gsap.registerPlugin(ScrollToPlugin);
+import {gsap} from './main.js';
 
 // get elements from website
 const hamburger = document.querySelector('.nav__hamburger');
@@ -218,7 +216,6 @@ function initContactClick() {
 			'-=0.2'
 		);
 	});
-	
 }
 
 export {

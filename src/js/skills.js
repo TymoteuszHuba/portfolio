@@ -1,29 +1,4 @@
-import gsap from 'gsap';
-import ScrollTrigger from 'gsap/ScrollTrigger';
-
-gsap.registerPlugin(ScrollTrigger);
-
-const titleScrollEffects = () => {
-	const titles = document.querySelectorAll('.section__title');
-
-	titles.forEach((title) => {
-		const tween = gsap.fromTo(
-			title,
-			{x: '-100vw', opacity: 0},
-			{x: 0, opacity: 1, duration: 3, ease: 'none'}
-		);
-
-		ScrollTrigger.create({
-			trigger: title,
-			start: 'top 85%',
-			end: 'top 40%',
-			animation: tween,
-			scrub: 1,
-			markers: false, // Wyłącz jeśli nie chcesz widzieć znaczników
-			invalidateOnRefresh: true,
-		});
-	});
-};
+import {gsap, ScrollTrigger} from './main.js';
 
 const skillsScrollEffects = () => {
 	// get elements from website
@@ -59,4 +34,4 @@ const skillsScrollEffects = () => {
 	});
 };
 
-export {skillsScrollEffects, titleScrollEffects};
+export {skillsScrollEffects};

@@ -1,4 +1,5 @@
-import '../css/main.css'; // Importowanie pliku SCSS
+import '../css/main.css';
+import {titleScrollEffects} from '../js/main.js';
 import {initImages} from '../js/setImages.js';
 import {
 	setupHamburgerMenu,
@@ -8,7 +9,7 @@ import {
 	initContactClick,
 } from './nav.js';
 import {trackMouseMovement} from './header.js';
-import {skillsScrollEffects, titleScrollEffects} from './skills.js';
+import {skillsScrollEffects} from './skills.js';
 import {initProjectsEffects} from './projects.js';
 
 document.addEventListener('DOMContentLoaded', () => {
