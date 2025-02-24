@@ -1,4 +1,4 @@
-import {gsap} from './main.js';
+import {gsap, ScrollTrigger} from './main.js';
 
 const initProjectsEffects = () => {
 	const projectSection = document.querySelector('#projects');

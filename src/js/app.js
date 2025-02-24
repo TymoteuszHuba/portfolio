@@ -8,7 +8,7 @@ import {
 	initContactHighlight,
 	initContactClick,
 } from './nav.js';
-import {trackMouseMovement} from './header.js';
+import {trackMouseMovement, animateHeaderOnLoad} from './header.js';
 import {skillsScrollEffects} from './skills.js';
 import {initProjectsEffects} from './projects.js';
 
@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	initContactHighlight();
 	initContactClick();
 	trackMouseMovement();
+	animateHeaderOnLoad();
 	skillsScrollEffects();
 	titleScrollEffects();
 	initProjectsEffects();

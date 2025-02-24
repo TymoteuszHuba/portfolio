@@ -20,11 +20,56 @@ const blurElements = [main, navLogo, header, navContact];
 
 // function which control hamburger menu for small screens
 function setupHamburgerMenu() {
+	let isMenuOpen = false;
+
+	function animateNavLinks(show) {
+		if (show) {
+			gsap.to(navLinks, {
+				x: '0%',
+				duration: 0.5,
+				ease: 'power2.out',
+				immediateRender: false,
+			});
+
+			gsap.fromTo(
+				navItems,
+				{x: '-100%', opacity: 0},
+				{
+					x: '0%',
+					opacity: 1,
+					duration: 0.5,
+					ease: 'power2.out',
+					stagger: 0.1, // Opóźnienie dla każdego linka
+				}
+			);
+		} else {
+			gsap.to(navItems, {
+				x: '-100%',
+				opacity: 0,
+				duration: 0.3,
+				ease: 'power2.in',
+				stagger: 0.05,
+			});
+
+			gsap.to(navLinks, {
+				x: '-100%',
+				duration: 0.4,
+				ease: 'power2.in',
+				onComplete: () => {
+					gsap.set(navItems, {clearProps: 'all'});
+				},
+			});
+		}
+	}
 	// function which toggle elements in menu
 	function toggleMenu() {
+		isMenuOpen = !isMenuOpen;
 		hamburger.classList.toggle('nav__hamburger--active');
 		navLinks.classList.toggle('nav__links--active');
 		blurElements.forEach((element) => element?.classList.toggle('blur'));
+
+		console.log('Menu height:', navLinks.offsetHeight);
+		animateNavLinks(isMenuOpen);
 
 		if (navLinks.classList.contains('nav__links--active')) {
 			document.body.style.overflow = 'hidden';
@@ -35,10 +80,23 @@ function setupHamburgerMenu() {
 
 	// function which remove active, mobile and blur classes
 	function closeMenu() {
+		if (!isMenuOpen) return;
+		isMenuOpen = false;
+
 		hamburger.classList.remove('nav__hamburger--active');
 		navLinks.classList.remove('nav__links--active');
 		blurElements.forEach((element) => element?.classList.remove('blur'));
+
+		animateNavLinks(false);
+
 		document.body.style.overflow = '';
+	}
+
+	function handleResize() {
+		if (window.innerWidth > 992) {
+			closeMenu();
+			gsap.set(navLinks, {clearProps: 'all'});
+		}
 	}
 
 	// listener on hamburger to active toggleMenu function
@@ -49,6 +107,7 @@ function setupHamburgerMenu() {
 
 	// control the size of widnow to close the menu
 	window.addEventListener('resize', () => {
+		handleResize();
 		if (window.innerWidth > 768) {
 			closeMenu();
 		}
@@ -129,7 +188,7 @@ function getCursorPercent(e, element) {
 	return {xPercent, yPercent};
 }
 
-// contact highlight
+// contact highlight (for classic screens)
 function initContactHighlight() {
 	// controls if elements exist
 	if (!navContact || !highlight) return;
@@ -193,6 +252,7 @@ function initContactClick() {
 		tl.set(highlight, {clipPath: `circle(0% at ${xPercent}% ${yPercent}%)`});
 		tl.to(highlight, {
 			clipPath: `circle(150% at ${xPercent}% ${yPercent}%)`,
+			border: '1px solid var(--clr-main-light)',
 			duration: 0.5,
 			ease: 'power2.out',
 		});
