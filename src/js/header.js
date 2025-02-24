@@ -1,4 +1,4 @@
-import gsap from 'gsap';
+import gsap from "gsap";
 
 // function which moves an overlay element on the hero image
 const trackMouseMovement = () => {
@@ -15,7 +15,7 @@ const trackMouseMovement = () => {
 		if (window.innerWidth < 768) return;
 
 		// take clientX and clientY from event mouse movement
-		const {clientX: mouseX, clientY: mouseY} = event;
+		const { clientX: mouseX, clientY: mouseY } = event;
 		// getBoundingClientRect() is a built-in function that returns info about heroImage position
 		const heroImageRect = heroImage.getBoundingClientRect();
 
@@ -32,7 +32,7 @@ const trackMouseMovement = () => {
 			x: `${deltaX * 2}rem`,
 			y: `${deltaY * 2}rem`,
 			duration: 0.3,
-			ease: 'power2.out',
+			ease: "power2.out"
 		});
 	};
 
@@ -41,21 +41,29 @@ const trackMouseMovement = () => {
 };
 
 const animateHeaderOnLoad = () => {
-	gsap.from('.header__image-img', {
-		opacity: 0,
-		y: 50,
-		duration: 1.4,
-		ease: 'power3.out',
-		delay: 0.8,
-	});
+    gsap.from(".header__image-img", {
+        opacity: 0,
+        y: 50,
+        duration: 1.4,
+        ease: "power3.out"
+    });
 
-	gsap.from('.header__text', {
-		opacity: 0,
-		y: 50,
-		duration: 1.4,
-		ease: 'power3.out',
-	});
+    gsap.from(".header__text", {
+        opacity: 0,
+        y: 50,
+        duration: 1.4,
+        ease: "power3.out",
+        delay: 0.3
+    });
+
+    gsap.from(".header__image-overlay", {
+        opacity: 0,
+        duration: 1.2,
+        ease: "power2.out",
+        delay: 0.5
+    });
 };
+
 
 // Eksport funkcji
 export {trackMouseMovement, animateHeaderOnLoad};

@@ -20,8 +20,20 @@ const blurElements = [main, navLogo, header, navContact];
 
 // function which control hamburger menu for small screens
 function setupHamburgerMenu() {
+	// flag wich control the animateNavLinks
 	let isMenuOpen = false;
 
+	// setup nav-links based on the screen size
+	function initializeMenu() {
+		// reset gsap nav-links for screen size over 992px
+		if (window.innerWidth > 992) {
+			gsap.set(navLinks, {clearProps: 'all'});
+		} else {
+			gsap.set(navLinks, {x: '-100%'});
+		}
+	}
+
+	// show/hide nav-links in hamburger menu with gsap
 	function animateNavLinks(show) {
 		if (show) {
 			gsap.to(navLinks, {
@@ -39,7 +51,8 @@ function setupHamburgerMenu() {
 					opacity: 1,
 					duration: 0.5,
 					ease: 'power2.out',
-					stagger: 0.1, // Opóźnienie dla każdego linka
+					// delay for each link
+					stagger: 0.1,
 				}
 			);
 		} else {
@@ -61,16 +74,20 @@ function setupHamburgerMenu() {
 			});
 		}
 	}
-	// function which toggle elements in menu
+	// function which toggle hamburger menu incl. nav-links
 	function toggleMenu() {
+		// changing the flag into true
 		isMenuOpen = !isMenuOpen;
+
+		// toggle menu for hamburger and nav-links, and blur
 		hamburger.classList.toggle('nav__hamburger--active');
 		navLinks.classList.toggle('nav__links--active');
 		blurElements.forEach((element) => element?.classList.toggle('blur'));
 
-		console.log('Menu height:', navLinks.offsetHeight);
+		// invoke animateNavLinks with isMenuOpen as true
 		animateNavLinks(isMenuOpen);
 
+		// control the body scroll position 
 		if (navLinks.classList.contains('nav__links--active')) {
 			document.body.style.overflow = 'hidden';
 		} else {
@@ -78,7 +95,7 @@ function setupHamburgerMenu() {
 		}
 	}
 
-	// function which remove active, mobile and blur classes
+	// remove styles for hamburger menu
 	function closeMenu() {
 		if (!isMenuOpen) return;
 		isMenuOpen = false;
@@ -89,14 +106,8 @@ function setupHamburgerMenu() {
 
 		animateNavLinks(false);
 
+		// setup scroll on body
 		document.body.style.overflow = '';
-	}
-
-	function handleResize() {
-		if (window.innerWidth > 992) {
-			closeMenu();
-			gsap.set(navLinks, {clearProps: 'all'});
-		}
 	}
 
 	// listener on hamburger to active toggleMenu function
@@ -107,11 +118,12 @@ function setupHamburgerMenu() {
 
 	// control the size of widnow to close the menu
 	window.addEventListener('resize', () => {
-		handleResize();
-		if (window.innerWidth > 768) {
-			closeMenu();
-		}
+		initializeMenu();
+		closeMenu();
 	});
+
+	// invoke menu initialize (for correct screen size)
+	initializeMenu();
 }
 
 // function which control nav sticky efect
