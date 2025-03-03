@@ -111,11 +111,11 @@
 		transition: transform 0.2s ease-in-out;
 
 		&-link {
-			height: 6rem;
+			height: clamp(4rem, 5vw, 6rem);
 		}
 		&-img {
-			height: 6rem;
-			width: 6rem;
+			height: clamp(4rem, 5vw, 6rem);
+			width: clamp(4rem, 5vw, 6rem);
 		}
 
 		&:active {
@@ -123,27 +123,29 @@
 		}
 	}
 
-	&__contact-link {
+	&__lang-button {
 		// grid-column: 10 / 13;
 		grid-area: contact;
 		position: relative;
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		position: relative;
-		height: 4rem;
-		width: 10rem;
+		height: 3rem;
+		width: 5rem;
 		justify-self: flex-end;
-		padding: 1rem;
-		font-size: clamp(1.5rem, 0.8rem + 0.7vw, 2rem);
+		padding: 0.5rem;
+		font-size: clamp(1.3rem, 0.8rem + 0.7vw, 2rem);
 		font-weight: 400;
-		letter-spacing: 0.3rem;
+		// letter-spacing: 0.3rem;
 		text-decoration: none;
 		color: var(--clr-black);
 		transition: transform 0.3s ease-in-out, border 0.2s ease-in-out;
-		border: 1px solid var(--clr-black);
+		// border: 1px solid var(--clr-black);
+		border: none;
 		border-radius: 2rem;
+		background-color: transparent;
 		overflow: hidden;
+		cursor: pointer;
 
 		&--highlight {
 			position: absolute;
@@ -157,28 +159,18 @@
 			clip-path: circle(0% at 50% 50%);
 		}
 
-		&--arrow {
+		&--text {
 			position: absolute;
-			left: 50%;
-			top: 50%;
-			transform: translateX(-50%) translateY(-50%);
-			opacity: 0;
-			z-index: 1;
-			font-weight: 300;
-			font-size: 1.5rem; // dostosuj rozmiar strzałki
-		}
-
-		.fa-arrow-right {
-			transform: scaleX(1.5);
+			transition: transform 0.3s ease-in-out;
 		}
 
 		&:active {
 			transform: scale(0.96);
 		}
 
-		&:hover {
-			border: 1px solid var(--clr-main-light);
-		}
+		// &:hover {
+		// 	border: 1px solid var(--clr-main-light);
+		// }
 	}
 
 	@media (min-width: 992px) {
@@ -248,7 +240,7 @@
 			// justify-self: center;
 		}
 
-		&__contact-link {
+		&__lang_button {
 			// grid-column: 10/13;
 			grid-area: contact;
 			width: 12rem;

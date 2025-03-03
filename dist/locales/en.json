@@ -1,0 +1,12 @@
+{
+    "nav": {
+      "about": "About me",
+      "skills": "Skills",
+      "projects": "Projects"
+    },
+    "header": {
+      "greeting": "Hello!",
+      "title": "My name is",
+      "special": "Front-end Developer / Data Analyst"
+    }
+  }

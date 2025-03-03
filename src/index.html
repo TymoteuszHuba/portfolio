@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,7 +10,7 @@
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
-			href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+			href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
 			rel="stylesheet"
 		/>
 
@@ -37,13 +37,17 @@
 					</div>
 
 					<!-- nav links -->
-					<div class="nav__links">
-						<a href="#about" class="nav__links-link"><span>About</span></a>
-						<a href="#skills" class="nav__links-link"><span>Skills</span></a>
-						<a href="#projects" class="nav__links-link"
-							><span>Projects</span></a
+					<nav class="nav__links">
+						<a href="#about" class="nav__links-link"
+							><span data-i18n="nav.about">O mnie</span></a
 						>
-					</div>
+						<a href="#skills" class="nav__links-link"
+							><span data-i18n="nav.skills">Umiejętności</span></a
+						>
+						<a href="#projects" class="nav__links-link"
+							><span data-i18n="nav.projects">Projekty</span></a
+						>
+					</nav>
 
 					<!-- nav logo -->
 					<div class="nav__logo">
@@ -52,12 +56,12 @@
 						</a>
 					</div>
 
-					<!-- nav contact link -->
-					<a href="#contact" class="nav__contact-link">
-						<span class="nav__contact-link--text">Contact</span>
-						<span class="nav__contact-link--arrow"><i class="fa-solid fa-arrow-right"></i></span>
-						<span class="nav__contact-link--highlight"></span>
-					</a>
+					<!-- nav lang link -->
+					<button class="nav__lang-button">
+						<span class="nav__lang-button--text" data-lang="en">EN</span>
+						<span class="nav__lang-button--text" data-lang="pl">PL</span>
+						<span class="nav__lang-button--highlight"></span>
+					</button>
 				</div>
 			</nav>
 
@@ -68,9 +72,9 @@
 					<img class="header__image-img" alt="Tymoteusz Huba" />
 				</div>
 				<div class="header__text">
-					<p class="header__text-greeting header__text--bold">Hi!</p>
+					<p class="header__text-greeting header__text--bold">Cześć!</p>
 					<h1 class="header__text-title">
-						My name is
+						Nazywam się
 						<span class="header__text--bold">Tymoteusz</span>
 						<span class="header__text--special"
 							>Front-end Developer / Data Analyst</span
@@ -83,53 +87,18 @@
 			<main class="main">
 				<!-- about.scss -->
 				<section id="about" class="section about">
-					<h2 class="section__title">
-						About
-						<svg
-							class="section__title-deco"
-							viewBox="0 0 100 10"
-							preserveAspectRatio="xMidYMid slice"
-						>
-							<path
-								class="section__title-line"
-								d="M0 5 Q 80 0, 50 5 T200 5"
-								stroke-width="2"
-								fill="none"
-							/>
-						</svg>
-					</h2>
+					<h2 class="section__title">O mnie</h2>
 
 					<p class="about__description">
 						I am a technical and sales advisor with several years of experience,
 						which allows me to perfectly understand customers needs and
-						effectively advise on the selection of appropriate solutions. I have
-						skills in effective communication with foreign suppliers in English,
-						which allows for quick and efficient order fulfillment.
-						<br /><br />
-						In my free time, I develop my competences in the area of
-						programming, focusing on designing websites, as well as data
-						analysis using the Python language, which includes appropriate
-						libraries.
+						effectively advise on the selection of appropriate solutions.
 					</p>
 				</section>
 
 				<!-- skills section -->
 				<section id="skills" class="section skills">
-					<h2 class="section__title">
-						Skills
-						<svg
-							class="section__title-deco"
-							viewBox="0 0 100 10"
-							preserveAspectRatio="xMidYMid slice"
-						>
-							<path
-								class="section__title-line"
-								d="M0 5 Q 80 0, 50 5 T200 5"
-								stroke-width="2"
-								fill="none"
-							/>
-						</svg>
-					</h2>
+					<h2 class="section__title">Umiejętności</h2>
 
 					<div class="skills__wrapper">
 						<div class="skills__track">
@@ -183,21 +152,7 @@
 
 				<!-- projects section -->
 				<section id="projects" class="section projects">
-					<h2 class="section__title">
-						Projects
-						<svg
-							class="section__title-deco"
-							viewBox="0 0 100 10"
-							preserveAspectRatio="xMidYMid slice"
-						>
-							<path
-								class="section__title-line"
-								d="M0 5 Q 80 0, 50 5 T200 5"
-								stroke-width="2"
-								fill="none"
-							/>
-						</svg>
-					</h2>
+					<h2 class="section__title">Projekty</h2>
 
 					<div class="projects__cards">
 						<div class="projects__cards-card">

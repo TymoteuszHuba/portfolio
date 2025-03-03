@@ -5,20 +5,24 @@ import {
 	setupHamburgerMenu,
 	navSticky,
 	setupNavHighlight,
-	initContactHighlight,
-	initContactClick,
+	initLangHighlight,
+	initLangClick,
+	toggleLangButtonText,
 } from './nav.js';
 import {trackMouseMovement, animateHeaderOnLoad} from './header.js';
 import {skillsScrollEffects} from './skills.js';
 import {initProjectsEffects} from './projects.js';
+import {loadTranslations, getCurrentLang} from './lang.js';
 
 document.addEventListener('DOMContentLoaded', () => {
+	loadTranslations();
 	initImages();
 	setupHamburgerMenu();
 	navSticky();
 	setupNavHighlight();
-	initContactHighlight();
-	initContactClick();
+	initLangHighlight();
+	initLangClick();
+	toggleLangButtonText(getCurrentLang(), false);
 	trackMouseMovement();
 	animateHeaderOnLoad();
 	skillsScrollEffects();

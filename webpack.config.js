@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
 	// development mode setting
@@ -11,7 +12,7 @@ module.exports = {
 		path: path.resolve(__dirname, 'dist'), // Folder docelowy
 		// clean dist folder before each build
 		clean: true,
-		publicPath: '/portfolio/',
+		publicPath: '/',
 	},
 	// devtool for source map to control the errors
 	devtool: 'source-map',
@@ -27,6 +28,8 @@ module.exports = {
 		watchFiles: {
 			paths: ['src/**/*.html'], // Śledzi zmiany w plikach HTML w folderze src
 		},
+		host: '0.0.0.0',
+		allowedHosts: 'all',
 	},
 	module: {
 		rules: [
@@ -74,6 +77,9 @@ module.exports = {
 			template: './src/index.html', // Szablon HTML
 			filename: 'index.html', // Wygenerowany plik HTML w folderze dist
 			favicon: './src/images/favicon.png',
+		}),
+		new CopyWebpackPlugin({
+			patterns: [{from: 'src/locales', to: 'locales'}],
 		}),
 		// new FaviconsWebpackPlugin({
 		// 	logo: './src/images/favicon.png', // Ścieżka do Twojego pliku favicon

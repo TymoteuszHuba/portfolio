@@ -11,7 +11,7 @@ html {
 }
 
 body {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Merriweather", sans-serif;
   background: radial-gradient(circle at center bottom, var(--clr-main) 0%, #ffffff 25%);
   overflow-x: hidden;
 }
@@ -176,37 +176,37 @@ body {
   transition: transform 0.2s ease-in-out;
 }
 .nav__logo-link {
-  height: 6rem;
+  height: clamp(4rem, 5vw, 6rem);
 }
 .nav__logo-img {
-  height: 6rem;
-  width: 6rem;
+  height: clamp(4rem, 5vw, 6rem);
+  width: clamp(4rem, 5vw, 6rem);
 }
 .nav__logo:active {
   transform: scale(0.96);
 }
-.nav__contact-link {
+.nav__lang-button {
   grid-area: contact;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
-  height: 4rem;
-  width: 10rem;
+  height: 3rem;
+  width: 5rem;
   justify-self: flex-end;
-  padding: 1rem;
-  font-size: clamp(1.5rem, 0.8rem + 0.7vw, 2rem);
+  padding: 0.5rem;
+  font-size: clamp(1.3rem, 0.8rem + 0.7vw, 2rem);
   font-weight: 400;
-  letter-spacing: 0.3rem;
   text-decoration: none;
   color: var(--clr-black);
   transition: transform 0.3s ease-in-out, border 0.2s ease-in-out;
-  border: 1px solid var(--clr-black);
+  border: none;
   border-radius: 2rem;
+  background-color: transparent;
   overflow: hidden;
+  cursor: pointer;
 }
-.nav__contact-link--highlight {
+.nav__lang-button--highlight {
   position: absolute;
   top: 0;
   left: 0;
@@ -216,24 +216,12 @@ body {
   z-index: -1;
   clip-path: circle(0% at 50% 50%);
 }
-.nav__contact-link--arrow {
+.nav__lang-button--text {
   position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translateX(-50%) translateY(-50%);
-  opacity: 0;
-  z-index: 1;
-  font-weight: 300;
-  font-size: 1.5rem;
+  transition: transform 0.3s ease-in-out;
 }
-.nav__contact-link .fa-arrow-right {
-  transform: scaleX(1.5);
-}
-.nav__contact-link:active {
+.nav__lang-button:active {
   transform: scale(0.96);
-}
-.nav__contact-link:hover {
-  border: 1px solid var(--clr-main-light);
 }
 @media (min-width: 992px) {
   .nav__container {
@@ -288,7 +276,7 @@ body {
   .nav__logo {
     grid-area: logo;
   }
-  .nav__contact-link {
+  .nav__lang_button {
     grid-area: contact;
     width: 12rem;
   }

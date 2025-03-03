@@ -1,4 +1,6 @@
 import {gsap, ScrollToPlugin, ScrollTrigger} from './main.js';
+import {setLanguage, getCurrentLang} from './lang.js';
+
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 // get elements from website
@@ -9,16 +11,15 @@ const navItems = document.querySelectorAll('.nav__links-link');
 const main = document.querySelector('.main');
 const header = document.querySelector('.header');
 const navLogo = document.querySelector('.nav__logo');
-const navContact = document.querySelector('.nav__contact-link');
-const textEl = navContact.querySelector('.nav__contact-link--text');
-const arrowEl = navContact.querySelector('.nav__contact-link--arrow');
-const highlight = navContact.querySelector('.nav__contact-link--highlight');
+const navLang = document.querySelector('.nav__lang-button');
+const navLangTexts = navLang.querySelectorAll('.nav__lang-button--text');
+const highlight = navLang.querySelector('.nav__lang-button--highlight');
 const sections = document.querySelectorAll('section');
 
 // create a list of elements to blur
-const blurElements = [main, navLogo, header, navContact];
+const blurElements = [main, navLogo, header, navLang];
 
-// function which control hamburger menu for small screens
+// control hamburger menu for small screens
 function setupHamburgerMenu() {
 	// flag wich control the animateNavLinks
 	let isMenuOpen = false;
@@ -87,7 +88,7 @@ function setupHamburgerMenu() {
 		// invoke animateNavLinks with isMenuOpen as true
 		animateNavLinks(isMenuOpen);
 
-		// control the body scroll position 
+		// control the body scroll position
 		if (navLinks.classList.contains('nav__links--active')) {
 			document.body.style.overflow = 'hidden';
 		} else {
@@ -126,7 +127,7 @@ function setupHamburgerMenu() {
 	initializeMenu();
 }
 
-// function which control nav sticky efect
+// control nav sticky efect
 function navSticky() {
 	if (!nav) return;
 	let stickyPoint = nav.offsetTop - 20;
@@ -141,7 +142,7 @@ function navSticky() {
 	window.addEventListener('scroll', updateSticky);
 }
 
-// function which control effects on nav link elements
+// control effects on nav link elements (for big screens)
 function setupNavHighlight() {
 	const highlightNav = () => {
 		const scrollY = window.scrollY;
@@ -192,7 +193,7 @@ function setupNavHighlight() {
 	handleResize();
 }
 
-// function which calc cursor position
+// calc cursor position
 function getCursorPercent(e, element) {
 	const rect = element.getBoundingClientRect();
 	const xPercent = ((e.clientX - rect.left) / rect.width) * 100;
@@ -200,18 +201,15 @@ function getCursorPercent(e, element) {
 	return {xPercent, yPercent};
 }
 
-// contact highlight (for classic screens)
-function initContactHighlight() {
-	// controls if elements exist
-	if (!navContact || !highlight) return;
+// control the highlight effect on hover language button
+function initLangHighlight() {
+	// checking if elements exists
+	if (!navLang || !highlight) return;
 
-	// control mouseenter event
-	navContact.addEventListener('mouseenter', (e) => {
-		// destructuring an object to simultaneously assign two function return values
-		const {xPercent, yPercent} = getCursorPercent(e, navContact);
-		// sets starting position for gsap highlight and clip-path
+	// listener on mouse enter to control the highlight effect
+	navLang.addEventListener('mouseenter', (e) => {
+		const {xPercent, yPercent} = getCursorPercent(e, navLang);
 		gsap.set(highlight, {clipPath: `circle(10% at ${xPercent}% ${yPercent}%)`});
-		// sets ending position for gsap
 		gsap.to(highlight, {
 			clipPath: `circle(150% at ${xPercent}% ${yPercent}%)`,
 			duration: 0.5,
@@ -219,9 +217,9 @@ function initContactHighlight() {
 		});
 	});
 
-	// control maouseleave event
-	navContact.addEventListener('mouseleave', (e) => {
-		const {xPercent, yPercent} = getCursorPercent(e, navContact);
+	// listener on mouse leave to control the highlight effect
+	navLang.addEventListener('mouseleave', (e) => {
+		const {xPercent, yPercent} = getCursorPercent(e, navLang);
 		gsap.to(highlight, {
 			clipPath: `circle(0% at ${xPercent}% ${yPercent}%)`,
 			duration: 0.5,
@@ -230,64 +228,79 @@ function initContactHighlight() {
 	});
 }
 
-// function which controls click on contact link
-function initContactClick() {
-	// controls if elements exist
-	if (!highlight || !textEl || !arrowEl || !navContact) return;
+// control the highlight effect on touch language button
+function initLangTouchHighlight(event) {
+	if (!navLang || !highlight) return;
 
-	// control click event
-	navContact.addEventListener('click', (e) => {
-		// hold the scroll down
+	// checking if user using a touch screen devices
+	const touch = event.changedTouches ? event.changedTouches[0] : event;
+	// if not we leave function
+	if (!touch) return;
+
+	const {xPercent, yPercent} = getCursorPercent(touch, navLang);
+
+	// animation of highlight effect on touch from the place where touch was made
+	gsap.set(highlight, {clipPath: `circle(5% at ${xPercent}% ${yPercent}%)`});
+	gsap.to(highlight, {
+		clipPath: `circle(100% at 50% 50%)`,
+		duration: 0.7,
+		ease: 'power2.out',
+		onComplete: () => {
+			// back to the first touch position on change lang button
+			gsap.to(highlight, {
+				clipPath: `circle(0% at ${xPercent}% ${yPercent}%)`,
+				duration: 0.5,
+				ease: 'power2.out',
+			});
+		},
+	});
+}
+
+// control the change of language description on lang button
+function toggleLangButtonText(lang, animated = true) {
+	if (!navLang) return;
+	// loop for each lang button text
+	navLangTexts.forEach((text) => {
+		
+		// check if the text isn't visible
+		// we showing the text wich isn't correct set as language 
+		// if language is "pl" then button should show "en"
+		const isVisible = text.getAttribute('data-lang') !== lang;
+
+		if (animated) {
+			gsap.to(text, {
+				y: isVisible ? '0%' : '-100%',
+				opacity: isVisible ? 1 : 0,
+				duration: 0.3,
+				ease: 'power2.out',
+			});
+		} else {
+			text.style.opacity = isVisible ? 1 : 0;
+			text.style.transform = isVisible ? 'translateY(0%)' : 'translateY(-100%)';
+		}
+	});
+}
+
+// Function control click on lang button and change language
+function initLangClick() {
+	if (!navLang || !navLangTexts.length) return;
+
+	// listener on click navLang button
+	navLang.addEventListener('click', (e) => {
 		e.preventDefault();
 
-		const {xPercent, yPercent} = getCursorPercent(e, navContact);
+		let currentLang = getCurrentLang();
+		let newLang = currentLang === 'pl' ? 'en' : 'pl';
+		setLanguage(newLang);
 
-		// creates new timeline in gsap which controls the animation settings
-		const tl = gsap.timeline({
-			// onComplete runs when all animations will end
-			onComplete: () => {
-				// scroll the page into contact section
-				gsap.to(window, {
-					duration: 1,
-					scrollTo: {y: navContact.getAttribute('href'), offsetY: 0},
-					onComplete: () => {
-						// Reset contact link parameters to previous styles
-						gsap.set(highlight, {clipPath: `circle(0% at 50% 50%)`});
-						gsap.set(textEl, {x: 0, opacity: 1});
-						gsap.set(arrowEl, {x: '-100%', opacity: 0});
-					},
-				});
-			},
-		});
+		// invoke a function which changes text on  language button
+		toggleLangButtonText(newLang, true);
 
-		// Animation for fill effect in contact link (clip-path)
-		tl.set(highlight, {clipPath: `circle(0% at ${xPercent}% ${yPercent}%)`});
-		tl.to(highlight, {
-			clipPath: `circle(150% at ${xPercent}% ${yPercent}%)`,
-			border: '1px solid var(--clr-main-light)',
-			duration: 0.5,
-			ease: 'power2.out',
-		});
-
-		// Animation of arrow in contact link
-		tl.to(
-			arrowEl,
-			{x: '0%', opacity: 1, duration: 0.3, ease: 'power2.out'},
-			'-=0.3'
-		);
-		tl.to(
-			arrowEl,
-			{x: '100%', opacity: 0, duration: 0.3, ease: 'power2.out'},
-			'-=0.1'
-		);
-
-		// animation of text after arrow
-		tl.fromTo(
-			textEl,
-			{x: '-100%', opacity: 0},
-			{x: '0%', opacity: 1, duration: 0.3, ease: 'power2.out'},
-			'-=0.2'
-		);
+		// if screen is touchable then 
+		if ('ontouchstart' in window) {
+			// invoke a function which control the highlight effect on touch
+			initLangTouchHighlight(e);
+		}
 	});
 }
 
@@ -295,6 +308,7 @@ export {
 	setupHamburgerMenu,
 	navSticky,
 	setupNavHighlight,
-	initContactHighlight,
-	initContactClick,
+	initLangHighlight,
+	initLangClick,
+	toggleLangButtonText,
 };
