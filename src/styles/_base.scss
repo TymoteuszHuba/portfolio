@@ -10,30 +10,13 @@ html {
 }
 
 body {
-	font-family: 'Merriweather', sans-serif;
+	height: 100%;
+	font-family: 'Oswald', sans-serif;
 	// background-color: #f4f4f4;
 	background: radial-gradient(
 		circle at center bottom,
 		var(--clr-main) 0%,
-		#ffffff 25%
+		var(--clr-background) 25%
 	);
 	overflow-x: hidden;
-}
-
-// layout grid website structure
-.layout {
-	display: grid;
-	grid-template-columns: minmax(0, 1fr);
-	grid-template-rows: auto auto 1fr auto;
-	grid-template-areas:
-		'nav'
-		'header'
-		'main'
-		'footer';
-	align-items: center;
-	justify-items: center;
-	// gap: 1rem;
-	height: 100%;
-	width: 100%;
-	margin: 0 auto;
 }

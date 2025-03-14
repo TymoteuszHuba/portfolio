@@ -1,3 +1,5 @@
+import {animateHeaderText, resetHeaderAnimation} from '../js/header.js';
+
 // function checking user localization and setup current language
 function detectUserLanguage() {
 	const userLang = navigator.language || navigator.userLanguage;
@@ -8,9 +10,9 @@ function detectUserLanguage() {
 function getCurrentLang() {
 	let storedLang = localStorage.getItem('language');
 	if (!storedLang) {
-        storedLang = detectUserLanguage();
-        localStorage.setItem('language', storedLang);
-    }
+		storedLang = detectUserLanguage();
+		localStorage.setItem('language', storedLang);
+	}
 	return storedLang;
 }
 
@@ -30,6 +32,10 @@ function loadTranslations() {
 		.then((translations) => {
 			applyTranslations(translations.default);
 			// updateLangButton(lang);
+
+			resetHeaderAnimation();
+			// invoke function for header text animation
+			animateHeaderText(translations.default.header.words); // Pass the words array
 		})
 		.catch((error) => console.error('Błąd ładowania tłumaczeń:', error));
 }

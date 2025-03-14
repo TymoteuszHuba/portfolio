@@ -10,7 +10,7 @@
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
-			href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
+			href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap"
 			rel="stylesheet"
 		/>
 
@@ -56,44 +56,82 @@
 						</a>
 					</div>
 
-					<!-- nav lang link -->
-					<button class="nav__lang-button">
-						<span class="nav__lang-button--text" data-lang="en">EN</span>
-						<span class="nav__lang-button--text" data-lang="pl">PL</span>
-						<span class="nav__lang-button--highlight"></span>
-					</button>
+					<!-- nav lang theme container -->
+					<div class="nav__controls">
+						<button class="nav__controls-lang">
+							<span class="nav__controls-lang--text" data-lang="en">EN</span>
+							<span class="nav__controls-lang--text" data-lang="pl">PL</span>
+							<span class="nav__controls-lang--highlight"></span>
+						</button>
+
+						<button class="nav__controls-theme">
+							<svg
+								class="nav__controls-theme-icon"
+								aria-hidden="true"
+								width="24"
+								height="24"
+								viewBox="0 0 24 24"
+							>
+								<mask class="nav__controls-theme-mask" id="moon-mask">
+									<rect x="0" y="0" width="100%" height="100%" fill="white" />
+									<circle cx="24" cy="10" r="6" fill="black" />
+								</mask>
+								<circle
+									class="nav__controls-theme-sun"
+									cx="12"
+									cy="12"
+									r="6"
+									mask="url(#moon-mask)"
+									fill="currentColor"
+								/>
+								<g class="nav__controls-theme-sun-beams" stroke="currentColor">
+									<line x1="12" y1="1" x2="12" y2="3" />
+									<line x1="12" y1="21" x2="12" y2="23" />
+									<line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+									<line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+									<line x1="1" y1="12" x2="3" y2="12" />
+									<line x1="21" y1="12" x2="23" y2="12" />
+									<line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+									<line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+								</g>
+							</svg>
+						</button>
+					</div>
 				</div>
 			</nav>
 
-			<!-- header.scss -->
+			<!-- header -->
 			<header id="header" class="header">
-				<div class="header__image">
-					<div class="header__image-overlay"></div>
-					<img class="header__image-img" alt="Tymoteusz Huba" />
-				</div>
-				<div class="header__text">
-					<p class="header__text-greeting header__text--bold">Cześć!</p>
-					<h1 class="header__text-title">
-						Nazywam się
-						<span class="header__text--bold">Tymoteusz</span>
-						<span class="header__text--special"
-							>Front-end Developer / Data Analyst</span
-						>
-					</h1>
+				<div class="header__scroll-container">
+					<div class="header__text-container">
+						<h2 class="header__text-static" data-i18n="header.static"></h2>
+						<div class="header__text-list"></div>
+					</div>
+					<div class="header__overlay">
+						<h2 class="header__overlay-text">TO JEST TWÓJ CZAS</h2>
+					</div>
 				</div>
 			</header>
+			
 
 			<!-- main -->
 			<main class="main">
 				<!-- about.scss -->
-				<section id="about" class="section about">
-					<h2 class="section__title">O mnie</h2>
-
-					<p class="about__description">
-						I am a technical and sales advisor with several years of experience,
-						which allows me to perfectly understand customers needs and
-						effectively advise on the selection of appropriate solutions.
-					</p>
+				<section id="about" class="about">
+					<div class="about__image">
+						<div class="about__image-overlay"></div>
+						<img class="about__image-img" alt="Tymoteusz Huba" />
+					</div>
+					<div class="about__text">
+						<p class="about__text-greeting about__text--bold">Cześć!</p>
+						<h1 class="about__text-title">
+							Nazywam się
+							<span class="about__text--bold">Tymoteusz</span>
+							<span class="about__text--special"
+								>Front-end Developer / Data Analyst</span
+							>
+						</h1>
+					</div>
 				</section>
 
 				<!-- skills section -->

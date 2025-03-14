@@ -5,7 +5,6 @@ import {gsap} from 'gsap';
 import {ScrollTrigger} from 'gsap/ScrollTrigger';
 import {ScrollToPlugin} from 'gsap/ScrollToPlugin';
 
-
 // function responsible for scrolling title for each section
 const titleScrollEffects = () => {
 	const titles = document.querySelectorAll('.section__title');

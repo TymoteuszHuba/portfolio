@@ -1,15 +1,15 @@
 // navigation styles
 .nav {
-	grid-area: nav;
 	position: sticky;
 	width: 100dvw;
 	top: 0;
-	padding: clamp(2rem, 0.8rem + 0.7vw, 3rem) clamp(1.5rem, 0.8rem + 0.7vw, 4rem);
+	padding: 1rem;
+	// padding: clamp(2rem, 0.8rem + 0.7vw, 3rem) clamp(1.5rem, 0.8rem + 0.7vw, 4rem);
 	z-index: 10;
 
 	&__container {
 		display: grid;
-		grid-template-areas: 'hamburger logo contact';
+		grid-template-areas: 'hamburger logo lang-theme';
 		grid-template-columns: 1fr 1fr 1fr;
 		max-width: 1400px;
 		align-items: center;
@@ -30,7 +30,7 @@
 
 		&-line {
 			height: 0.2rem;
-			background-color: var(--clr-black);
+			background-color: var(--clr-hamburger);
 			border-radius: 5rem;
 			transition: 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
 
@@ -68,7 +68,7 @@
 		}
 
 		&--active:hover &-line {
-			background-color: var(--clr-white);
+			background-color: var(--clr-hover);
 		}
 	}
 
@@ -97,7 +97,7 @@
 			transition: color 0.2s ease-in-out;
 
 			&:hover {
-				color: var(--clr-white);
+				color: var(--clr-hover);
 			}
 		}
 	}
@@ -123,59 +123,115 @@
 		}
 	}
 
-	&__lang-button {
-		// grid-column: 10 / 13;
-		grid-area: contact;
-		position: relative;
+	&__controls {
+		grid-area: lang-theme;
 		display: flex;
-		align-items: center;
-		justify-content: center;
-		height: 3rem;
-		width: 5rem;
-		justify-self: flex-end;
-		padding: 0.5rem;
-		font-size: clamp(1.3rem, 0.8rem + 0.7vw, 2rem);
-		font-weight: 400;
-		// letter-spacing: 0.3rem;
-		text-decoration: none;
-		color: var(--clr-black);
-		transition: transform 0.3s ease-in-out, border 0.2s ease-in-out;
-		// border: 1px solid var(--clr-black);
-		border: none;
-		border-radius: 2rem;
-		background-color: transparent;
-		overflow: hidden;
-		cursor: pointer;
+		flex-direction: row;
+		justify-content: flex-end;
+		gap: 2rem;
 
-		&--highlight {
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			background-color: var(--clr-main-light);
-			z-index: -1;
-			// Początkowo niewidoczne – clip-path ustawia małe koło
-			clip-path: circle(0% at 50% 50%);
+		&-lang {
+			// grid-column: 10 / 13;
+			position: relative;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: 3rem;
+			width: 3rem;
+			padding: 0.5rem;
+			font-size: clamp(1.3rem, 0.8rem + 0.7vw, 2rem);
+			font-weight: 400;
+			// letter-spacing: 0.3rem;
+			text-decoration: none;
+			color: var(--clr-text);
+			transition: transform 0.3s ease-in-out, border 0.2s ease-in-out;
+			// border: 1px solid var(--clr-black);
+			border: none;
+			border-radius: 2rem;
+			background-color: transparent;
+			overflow: hidden;
+			cursor: pointer;
+
+			&--highlight {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background-color: var(--clr-main-light);
+				z-index: -1;
+				// Początkowo niewidoczne – clip-path ustawia małe koło
+				clip-path: circle(0% at 50% 50%);
+			}
+
+			&--text {
+				position: absolute;
+				transition: transform 0.3s ease-in-out;
+			}
+
+			&:active {
+				transform: scale(0.96);
+			}
+
+			// &:hover {
+			// 	border: 1px solid var(--clr-main-light);
+			// }
 		}
 
-		&--text {
-			position: absolute;
-			transition: transform 0.3s ease-in-out;
-		}
+		&-theme {
+			position: relative;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: 3rem;
+			width: 3rem;
+			background: none;
+			border: none;
+			border-radius: 50%;
+			cursor: pointer;
+			overflow: visible; // 🛠️ Zapobiega obcinaniu SVG
 
-		&:active {
-			transform: scale(0.96);
-		}
+			&:hover,
+			&:focus-visible {
+				.nav__controls-theme-icon {
+					fill: var(--icon-fill-hover);
+				}
+			}
 
-		// &:hover {
-		// 	border: 1px solid var(--clr-main-light);
-		// }
+			&-icon {
+				width: 100%;
+				height: 100%;
+				fill: var(--clr-gray);
+			}
+
+			&-sun {
+				fill: var(--clr-gray);
+				transform-origin: center center; // 🛠️ Punkt transformacji ustawiony na środek
+			}
+
+			&-sun-beams {
+				stroke: var(--clr-gray);
+
+				line {
+					stroke-width: 2;
+				}
+			}
+
+			&-mask {
+				rect {
+					transition: transform 0.5s ease-in-out; // Możesz zostawić, jeśli będzie to wykorzystywane w innych animacjach w CSS
+				}
+
+				circle {
+					transform-origin: center center; // 🛠️ Środek maski
+				}
+			}
+		}
 	}
 
 	@media (min-width: 992px) {
 		&__container {
-			grid-template-areas: 'links logo contact';
+			grid-template-areas: 'links logo lang-theme';
 			// grid-template-columns: 2fr 2fr 2fr;
 		}
 
@@ -203,7 +259,7 @@
 				letter-spacing: 0.4rem;
 				text-decoration: none;
 				font-weight: 400;
-				color: var(--clr-black);
+				color: var(--clr-text);
 				transition: color 0.2s ease-in-out, text-shadow 0.2s ease-in-out;
 
 				&:hover {
@@ -240,11 +296,14 @@
 			// justify-self: center;
 		}
 
-		&__lang_button {
-			// grid-column: 10/13;
-			grid-area: contact;
-			width: 12rem;
+		&__controls {
+			grid-area: lang-theme;
 		}
+
+		// &__lang_button {
+		// 	// grid-column: 10/13;
+		// 	width: 12rem;
+		// }
 	}
 
 	&--effects {

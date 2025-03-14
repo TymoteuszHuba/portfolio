@@ -1,45 +1,23 @@
 :root {
+	--icon-fill: #000;
+	--clr-background: #111111;
+	--clr-text: #fff;
+	--clr-hamburger: #fff;
+	--clr-icon: #fff;
+	--clr-hover: #fff;
+	--clr-text-gradient: linear-gradient(180deg, #6cabab, #61e2c2);
+
 	--clr-light-gray: #eee;
 	--clr-gray: #ddd;
 	--clr-dark-gray: #bebebe;
-	--clr-white: #fff;
-	--clr-black: #000;
 	--clr-shadow: rgba(0, 0, 0, 0.9);
 	// --clr-main: rgb(79, 156, 219);
 	--clr-main: #6cabab;
 	--clr-main-light: #61e2c2;
 }
 
-
-
-/* Kolory ikon */
-.fa-html5 {
-	color: #e34f26;
-}
-.fa-css3-alt {
-	color: #1572b6;
-}
-.fa-sass {
-	color: #cc6699;
-}
-.fa-bootstrap {
-	color: #7952b3;
-}
-.fa-js {
-	color: #f7df1e;
-}
-.fa-elementor {
-	color: #db3d81;
-}
-.fa-python {
-	color: #3776ab;
-}
-.fa-database {
-	color: #00758f;
-}
-.fa-git-alt {
-	color: #f05032;
-}
-.fa-node-js {
-	color: #68a063;
+[data-theme='light'] {
+	--clr-background: #ffff;
+	--clr-text: #000;
+	--clr-hamburger: #000;
 }

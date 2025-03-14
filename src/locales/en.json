@@ -1,12 +1,16 @@
 {
-    "nav": {
-      "about": "About me",
-      "skills": "Skills",
-      "projects": "Projects"
-    },
-    "header": {
-      "greeting": "Hello!",
-      "title": "My name is",
-      "special": "Front-end Developer / Data Analyst"
-    }
-  }
+	"nav": {
+		"about": "About me",
+		"skills": "Skills",
+		"projects": "Projects"
+	},
+	"header": {
+		"static": "Time to ___",
+		"words": ["WEBSITES", "ANALYSIS", "DEVELOPMENT", "FUTURE"]
+	},
+	"about": {
+		"greeting": "Hello!",
+		"title": "My name is",
+		"special": "Front-end Developer / Data Analyst"
+	}
+}

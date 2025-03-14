@@ -19,8 +19,8 @@ const setImageSrc = (selector, src, isBackground = false) => {
 // initialize images on website
 const initImages = () => {
 	setImageSrc('.nav__logo-img', logotype);
-	setImageSrc('.header__image-img', imgMeSrc);
-	setImageSrc('.header__image-overlay', overlayMe, true);
+	setImageSrc('.about__image-img', imgMeSrc);
+	setImageSrc('.about__image-overlay', overlayMe, true);
 };
 
 export {initImages};

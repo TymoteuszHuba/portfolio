@@ -10,14 +10,26 @@ const navLinks = document.querySelector('.nav__links');
 const navItems = document.querySelectorAll('.nav__links-link');
 const main = document.querySelector('.main');
 const header = document.querySelector('.header');
+const about = document.querySelector('.about');
 const navLogo = document.querySelector('.nav__logo');
-const navLang = document.querySelector('.nav__lang-button');
-const navLangTexts = navLang.querySelectorAll('.nav__lang-button--text');
-const highlight = navLang.querySelector('.nav__lang-button--highlight');
+const navLang = document.querySelector('.nav__controls-lang');
+const langThemeContainer = document.querySelector('.nav__controls');
+const navLangTexts = navLang.querySelectorAll('.nav__controls-lang--text');
+const highlight = navLang.querySelector('.nav__controls-lang--highlight');
 const sections = document.querySelectorAll('section');
 
+// selectors for theme effects
+const themeBtn = document.querySelector('.nav__controls-theme');
+const sun = document.querySelector('.nav__controls-theme-sun');
+const sunBeams = document.querySelectorAll(
+	'.nav__controls-theme-sun-beams line'
+);
+const moonMaskCircle = document.querySelector(
+	'.nav__controls-theme-mask circle'
+);
+
 // create a list of elements to blur
-const blurElements = [main, navLogo, header, navLang];
+const blurElements = [main, navLogo, about, langThemeContainer, header];
 
 // control hamburger menu for small screens
 function setupHamburgerMenu() {
@@ -129,16 +141,33 @@ function setupHamburgerMenu() {
 
 // control nav sticky efect
 function navSticky() {
+	const nav = document.querySelector('.nav');
 	if (!nav) return;
-	let stickyPoint = nav.offsetTop - 20;
 
-	// function which toggle nav effects
+	let initialPosition = nav.getBoundingClientRect().top + window.scrollY;
+	let effectActivated = false; // Flaga kontrolująca aktywację efektu
+
 	const updateSticky = () => {
-		nav.classList.toggle('nav--effects', window.scrollY > stickyPoint);
+		const currentScroll = window.scrollY;
+
+		if (currentScroll > initialPosition + 50) {
+			// Sprawdza, czy nawigacja została obniżona o 50px
+			effectActivated = true;
+		}
+
+		if (effectActivated && currentScroll <= initialPosition) {
+			nav.classList.remove('nav--effects');
+			effectActivated = false; // Reset flagi
+		} else if (effectActivated) {
+			nav.classList.add('nav--effects');
+		}
 	};
 
-	// listener on window of resize nad scroll
-	window.addEventListener('resize', () => (stickyPoint = nav.offsetTop - 20));
+	// Aktualizacja punktu odniesienia przy zmianie rozmiaru okna
+	window.addEventListener('resize', () => {
+		initialPosition = nav.getBoundingClientRect().top + window.scrollY;
+	});
+
 	window.addEventListener('scroll', updateSticky);
 }
 
@@ -147,9 +176,9 @@ function setupNavHighlight() {
 	const highlightNav = () => {
 		const scrollY = window.scrollY;
 		const windowHeight = window.innerHeight;
-		const headerBottom = header.offsetHeight;
+		const headerBottom = about.offsetHeight;
 
-		// remove all effects when user is in header
+		// remove all effects when user is in about
 		if (scrollY < headerBottom) {
 			navItems.forEach((link) => link.classList.remove('active'));
 			return;
@@ -261,15 +290,14 @@ function toggleLangButtonText(lang, animated = true) {
 	if (!navLang) return;
 	// loop for each lang button text
 	navLangTexts.forEach((text) => {
-		
 		// check if the text isn't visible
-		// we showing the text wich isn't correct set as language 
+		// we showing the text wich isn't correct set as language
 		// if language is "pl" then button should show "en"
 		const isVisible = text.getAttribute('data-lang') !== lang;
 
 		if (animated) {
 			gsap.to(text, {
-				y: isVisible ? '0%' : '-100%',
+				y: isVisible ? '0%' : '-150%',
 				opacity: isVisible ? 1 : 0,
 				duration: 0.3,
 				ease: 'power2.out',
@@ -296,12 +324,81 @@ function initLangClick() {
 		// invoke a function which changes text on  language button
 		toggleLangButtonText(newLang, true);
 
-		// if screen is touchable then 
+		// if screen is touchable then
 		if ('ontouchstart' in window) {
 			// invoke a function which control the highlight effect on touch
 			initLangTouchHighlight(e);
 		}
 	});
+}
+
+// change icon of theme button
+function initIconTheme() {
+	// key for save and read theme from local storage
+	const storageKey = 'theme-preference';
+	// logic flag checking if page was load first time
+	let initialLoad = true;
+
+	// theme preference setup
+	const getColorPreference = () => 'dark';
+
+	// save theme preferences in local storage
+	const setPreference = () => {
+		localStorage.setItem(storageKey, theme.value);
+		// changing theme website correct with setup theme
+		reflectPreference();
+	};
+
+	// change theme and animate click on button effects by gsap
+	const reflectPreference = () => {
+		// setup data-theme and aria-label
+		document.documentElement.setAttribute('data-theme', theme.value);
+		themeBtn.setAttribute('aria-label', theme.value);
+
+		const tl = gsap.timeline();
+		const isDark = theme.value === 'dark';
+
+		// Inverted logic for icons:
+		// - Sun visible in dark mode
+		// - Moon visible in light mode
+		const sunScale = isDark ? 1 : 1.5; // Sun scales down in light mode
+		const sunBeamsOpacity = isDark ? 1 : 0; // Beams visible in dark mode
+		const moonMaskScale = isDark ? 0 : 1.5; // Moon scales up in light mode
+
+		if (initialLoad) {
+			tl.set(sun, {scale: sunScale, transformOrigin: 'center center'})
+				.set(sunBeams, {opacity: sunBeamsOpacity})
+				.set(moonMaskCircle, {scale: moonMaskScale});
+			initialLoad = false;
+		} else {
+			tl.to(sun, {
+				scale: sunScale,
+				duration: 0.2,
+				transformOrigin: 'center center',
+			})
+				.to(sunBeams, {opacity: sunBeamsOpacity, duration: 0.1}, '-=0.2')
+				.to(moonMaskCircle, {scale: moonMaskScale, duration: 0.2}, '-=0.2');
+		}
+	};
+
+	// initialize theme
+	const theme = {value: getColorPreference()};
+	// invoke reflectPreference
+	reflectPreference();
+
+	// listener on click event which controls theme change
+	themeBtn.addEventListener('click', () => {
+		theme.value = theme.value === 'light' ? 'dark' : 'light';
+		setPreference();
+	});
+
+	// synchronize theme with system preferences
+	window
+		.matchMedia('(prefers-color-scheme: dark)')
+		.addEventListener('change', ({matches: isDark}) => {
+			theme.value = isDark ? 'dark' : 'light';
+			setPreference();
+		});
 }
 
 export {
@@ -311,4 +408,5 @@ export {
 	initLangHighlight,
 	initLangClick,
 	toggleLangButtonText,
+	initIconTheme,
 };

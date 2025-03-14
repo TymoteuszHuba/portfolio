@@ -1,12 +1,16 @@
 {
-    "nav": {
-      "about": "O mnie",
-      "skills": "Umiejętności",
-      "projects": "Projekty"
-    },
+	"nav": {
+		"about": "O mnie",
+		"skills": "Umiejętności",
+		"projects": "Projekty"
+	},
     "header": {
-      "greeting": "Cześć!",
-      "title": "Nazywam się",
-      "special": "Front-end Developer / Data Analyst"
-    }
-  }
+        "static": "Czas na ...",
+        "words": ["STRONY,", "ANALIZY,", "ROZWÓJ,", "PRZYSZŁOŚĆ"]
+    },
+	"about": {
+		"greeting": "Cześć!",
+		"title": "Nazywam się",
+		"special": "Front-end Developer / Data Analyst"
+	}
+}

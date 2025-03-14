@@ -1,69 +1,68 @@
-import gsap from "gsap";
+import gsap from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
 
-// function which moves an overlay element on the hero image
-const trackMouseMovement = () => {
-	// get elements from the website
-	const overlay = document.querySelector('.header__image-overlay');
-	const heroImage = document.querySelector('.header__image');
+gsap.registerPlugin(ScrollTrigger);
 
-	// checking if elements exist to reduce errors
-	if (!overlay || !heroImage) return;
+const textList = document.querySelector('.header__text-list');
+const overlay = document.querySelector('.header__overlay');
+const header = document.querySelector('.header');
 
-	// function controlling mouse movement
-	const handleMouseMove = (event) => {
-		// effects will work when the screen size is over 768px
-		if (window.innerWidth < 768) return;
+function animateHeaderText(words) {
+	let currentIndex = 0;
 
-		// take clientX and clientY from event mouse movement
-		const { clientX: mouseX, clientY: mouseY } = event;
-		// getBoundingClientRect() is a built-in function that returns info about heroImage position
-		const heroImageRect = heroImage.getBoundingClientRect();
+	function addNewWord() {
+		if (currentIndex >= words.length) return;
 
-		// calculate hero image position
-		const centerX = heroImageRect.left + heroImageRect.width / 2;
-		const centerY = heroImageRect.top + heroImageRect.height / 2;
+		const newWord = document.createElement('p');
+		newWord.classList.add('header__text-dynamic');
+		newWord.textContent = words[currentIndex];
+		textList.appendChild(newWord);
 
-		// calculate difference between mouse and image center
-		const deltaX = (mouseX - centerX) / heroImageRect.width;
-		const deltaY = (mouseY - centerY) / heroImageRect.height;
+		gsap.fromTo(
+			newWord,
+			{opacity: 0, y: 100},
+			{opacity: 1, y: 0, duration: 0.8, ease: 'power3.out'}
+		);
 
-		// animate overlay movement using GSAP
-		gsap.to(overlay, {
-			x: `${deltaX * 2}rem`,
-			y: `${deltaY * 2}rem`,
-			duration: 0.3,
-			ease: "power2.out"
-		});
-	};
+		currentIndex++;
+	}
 
-	// listener on mouse move with event
-	document.addEventListener('mousemove', handleMouseMove);
-};
+	// Tworzymy ScrollTrigger dla headera
+	ScrollTrigger.create({
+		trigger: header,
+		start: 'top-=50px top',
+		end: 'top top-=500px',
+		// scrub: true,
+		pin: true,
+		onUpdate: (self) => {
+			// Gdy przewiniemy wystarczająco daleko, dodajemy kolejne słowo
+			if (self.progress > currentIndex / words.length) {
+				addNewWord();
+			}
 
-const animateHeaderOnLoad = () => {
-    gsap.from(".header__image-img", {
-        opacity: 0,
-        y: 50,
-        duration: 1.4,
-        ease: "power3.out"
-    });
+			// Po ostatnim tekście aktywujemy overlay
+			if (self.progress > 0.95) {
+				gsap.to(overlay, {
+					y: '-100vh',
+					duration: 1.5,
+					ease: 'power3.out',
+					onComplete: () => {
+						ScrollTrigger.getById('header-scroll')?.kill(); // Wyłączamy pinning headera
+					},
+				});
+			}
+		},
+		id: 'header-scroll',
+	});
+}
 
-    gsap.from(".header__text", {
-        opacity: 0,
-        y: 50,
-        duration: 1.4,
-        ease: "power3.out",
-        delay: 0.3
-    });
+// Resetuje animację i usuwa stary ScrollTrigger
+function resetHeaderAnimation() {
+	if (textList) textList.innerHTML = ''; // Usuwamy stare słowa
+	if (overlay) gsap.set(overlay, {y: '100vh'}); // Resetujemy overlay
 
-    gsap.from(".header__image-overlay", {
-        opacity: 0,
-        duration: 1.2,
-        ease: "power2.out",
-        delay: 0.5
-    });
-};
+	// Usuwamy istniejący ScrollTrigger
+	ScrollTrigger.getById('header-scroll')?.kill();
+}
 
-
-// Eksport funkcji
-export {trackMouseMovement, animateHeaderOnLoad};
+export {animateHeaderText, resetHeaderAnimation};
