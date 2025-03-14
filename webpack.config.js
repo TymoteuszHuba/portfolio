@@ -1,32 +1,27 @@
 const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-	// development mode setting
 	mode: 'development',
-	entry: './src/js/app.js', // Główny plik JS
+	entry: './src/js/app.js',
 	output: {
-		filename: 'bundle.js', // Plik wynikowy JS
-		path: path.resolve(__dirname, 'dist'), // Folder docelowy
-		// clean dist folder before each build
+		filename: 'bundle.js',
+		path: path.resolve(__dirname, 'dist'),
 		clean: true,
 		publicPath: '/',
 	},
-	// devtool for source map to control the errors
 	devtool: 'source-map',
-	// settings for dev server on localhost
 	devServer: {
 		static: {
 			directory: path.resolve(__dirname, 'dist'),
 		},
-		port: 8000, // server port
-		open: true, // open in browser
-		hot: true, // turn on Hot Module Replacement
-		// liveReload: true,
+		port: 8000,
+		open: true,
+		hot: true,
 		watchFiles: {
-			paths: ['src/**/*.html'], // Śledzi zmiany w plikach HTML w folderze src
+			paths: ['src/**/*.html'],
 		},
 		host: '0.0.0.0',
 		allowedHosts: 'all',
@@ -36,12 +31,9 @@ module.exports = {
 			{
 				test: /\.(scss|css)$/i,
 				use: [
-					// Creates `style` nodes from JS strings
-					'style-loader',
-					// Translates CSS into CommonJS
-					'css-loader',
-					// Compiles Sass to CSS
-					'sass-loader',
+					MiniCssExtractPlugin.loader, // Tworzy osobne pliki CSS
+					'css-loader', // Tłumaczy CSS na CommonJS
+					'sass-loader', // Kompiluje SASS do CSS
 				],
 			},
 			{
@@ -56,15 +48,6 @@ module.exports = {
 			},
 			{
 				test: /\.(png|svg|jpg|jpeg|gif|webp)$/i,
-				use: [
-					{
-						loader: 'image-webpack-loader',
-						options: {
-							mozjpeg: {quality: 80},
-							webp: {quality: 80},
-						},
-					},
-				],
 				type: 'asset/resource',
 				generator: {
 					filename: 'images/[name][hash][ext][query]',
@@ -73,16 +56,16 @@ module.exports = {
 		],
 	},
 	plugins: [
+		new MiniCssExtractPlugin({
+			filename: 'css/main.css', // Styl zapisuje się w dist/css/main.css
+		}),
 		new HtmlWebpackPlugin({
-			template: './src/index.html', // Szablon HTML
-			filename: 'index.html', // Wygenerowany plik HTML w folderze dist
+			template: './src/index.html',
+			filename: 'index.html',
 			favicon: './src/images/favicon.png',
 		}),
 		new CopyWebpackPlugin({
 			patterns: [{from: 'src/locales', to: 'locales'}],
 		}),
-		// new FaviconsWebpackPlugin({
-		// 	logo: './src/images/favicon.png', // Ścieżka do Twojego pliku favicon
-		// }),
 	],
 };
