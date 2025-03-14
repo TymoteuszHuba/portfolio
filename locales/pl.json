@@ -4,10 +4,10 @@
 		"skills": "Umiejętności",
 		"projects": "Projekty"
 	},
-    "header": {
-        "static": "Czas na ...",
-        "words": ["STRONY,", "ANALIZY,", "ROZWÓJ,", "PRZYSZŁOŚĆ"]
-    },
+	"header": {
+		"static": "Czas na ___",
+		"words": ["STRONY", "ANALIZY", "ROZWÓJ", "PRZYSZŁOŚĆ"]
+	},
 	"about": {
 		"greeting": "Cześć!",
 		"title": "Nazywam się",
