@@ -3,7 +3,7 @@ import {animateHeaderText, resetHeaderAnimation} from '../js/header.js';
 // function checking user localization and setup current language
 function detectUserLanguage() {
 	const userLang = navigator.language || navigator.userLanguage;
-	return userLang.startsWidth('pl') ? 'pl' : 'en';
+	return userLang.startsWith('pl') ? 'pl' : 'en';
 }
 
 // Get actual language from localStoreg or setup based on localization

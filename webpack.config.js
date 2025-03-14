@@ -68,6 +68,7 @@ module.exports = {
 			template: './src/index.html',
 			filename: 'index.html',
 			favicon: './src/images/favicon.png',
+			inject: 'body',
 		}),
 		new CopyWebpackPlugin({
 			patterns: [{from: 'src/locales', to: 'locales'}],
