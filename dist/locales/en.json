@@ -4,10 +4,10 @@
 		"skills": "Skills",
 		"projects": "Projects"
 	},
-    "header": {
-        "static": "Time to ...",
-        "words": ["WEBSITES,", "ANALYSIS,", "DEVELOPMENT,", "FUTURE"]
-    },
+	"header": {
+		"static": "Time to ___",
+		"words": ["WEBSITES", "ANALYSIS", "DEVELOPMENT", "FUTURE"]
+	},
 	"about": {
 		"greeting": "Hello!",
 		"title": "My name is",
