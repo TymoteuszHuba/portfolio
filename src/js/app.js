@@ -16,6 +16,8 @@ import {skillsScrollEffects} from './skills.js';
 import {initProjectsEffects} from './projects.js';
 import {loadTranslations, getCurrentLang} from './lang.js';
 
+import { gsap } from "gsap";
+
 document.addEventListener('DOMContentLoaded', () => {
 	loadTranslations();
 	initImages();

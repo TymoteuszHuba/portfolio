@@ -9,8 +9,9 @@ module.exports = {
 	output: {
 		filename: 'bundle.js',
 		path: path.resolve(__dirname, 'dist'),
+		chunkFilename: '[name].[contenthash].js',
 		clean: true,
-		publicPath: './',
+		publicPath: '/portfolio/',
 	},
 	devtool: 'source-map',
 	devServer: {
@@ -50,8 +51,12 @@ module.exports = {
 				test: /\.(png|svg|jpg|jpeg|gif|webp)$/i,
 				type: 'asset/resource',
 				generator: {
-					filename: 'images/[name][hash][ext][query]',
+					filename: 'images/[name][ext]',
 				},
+			},
+			{
+				test: /\.json$/,
+				type: 'asset/resource',
 			},
 		],
 	},
